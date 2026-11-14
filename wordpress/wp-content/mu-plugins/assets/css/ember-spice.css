@@ -1,0 +1,1423 @@
+/* ==========================================================================
+   EMBER SPICE — NATURAL ORGANIC FARM-TO-TABLE DESIGN SYSTEM
+   Palette: Forest Green #344B35, Sage #788568, Cream #F4EEDC,
+            Warm White #FFFCF5, Terracotta #B86F48, Wheat Gold #B99A65,
+            Natural Brown #806B52, Muted Text #777568, Body Text #2A2C24
+   ========================================================================== */
+
+:root {
+    /* Core Palette */
+    --forest-green:     #344B35;
+    --sage-green:       #788568;
+    --natural-cream:    #F4EEDC;
+    --warm-white:       #FFFCF5;
+    --terracotta:       #B86F48;
+    --terracotta-hover: #A05E39;
+    --wheat-gold:       #B99A65;
+    --wheat-gold-hover: #CDB07C;
+    --natural-brown:    #806B52;
+    --muted-text:       #777568;
+    --body-text:        #2A2C24;
+
+    /* Semantic Aliases */
+    --bg-page:          var(--natural-cream);
+    --bg-card:          var(--warm-white);
+    --text-primary:     var(--body-text);
+    --text-secondary:   var(--muted-text);
+    --accent-primary:   var(--terracotta);
+    --accent-secondary: var(--wheat-gold);
+    --border-subtle:    rgba(120, 133, 104, 0.25);
+    --border-warm:      rgba(185, 154, 101, 0.4);
+
+    /* Typography */
+    --font-heading: 'Playfair Display', Georgia, serif;
+    --font-body:    'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+
+    /* Effects */
+    --transition-smooth: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+    --shadow-card:  0 4px 20px rgba(52, 75, 53, 0.08);
+    --shadow-hover: 0 12px 36px rgba(52, 75, 53, 0.14), 0 2px 8px rgba(184, 111, 72, 0.08);
+    --radius-card:  12px;
+    --radius-btn:   6px;
+}
+
+/* Global Reset & Base */
+html {
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    background-color: var(--natural-cream) !important;
+    color: var(--body-text) !important;
+    font-family: var(--font-body) !important;
+    font-size: 16px;
+    line-height: 1.7;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading) !important;
+    color: var(--forest-green);
+    font-weight: 700;
+    line-height: 1.25;
+    margin-top: 0;
+}
+
+a {
+    color: var(--terracotta);
+    text-decoration: none;
+    transition: var(--transition-smooth);
+}
+
+a:hover {
+    color: var(--terracotta-hover);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--natural-cream); }
+::-webkit-scrollbar-thumb {
+    background: var(--sage-green);
+    border-radius: 5px;
+    border: 2px solid var(--natural-cream);
+}
+::-webkit-scrollbar-thumb:hover { background: var(--forest-green); }
+
+/* ==========================================================================
+   NAVIGATION HEADER — Warm white frosted navbar
+   ========================================================================== */
+.ember-navbar {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+    background: rgba(255, 252, 245, 0.96);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border-subtle);
+    box-shadow: 0 2px 12px rgba(52, 75, 53, 0.07);
+    transition: var(--transition-smooth);
+}
+
+.ember-nav-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0.9rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ember-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+}
+
+.ember-brand-icon {
+    width: 32px;
+    height: 32px;
+    color: var(--terracotta);
+}
+
+.ember-brand-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.ember-brand-name {
+    font-family: var(--font-heading);
+    font-size: 1.55rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: var(--forest-green);
+    text-transform: uppercase;
+}
+
+.ember-brand-name span {
+    color: var(--terracotta);
+}
+
+.ember-brand-sub {
+    font-size: 0.6rem;
+    letter-spacing: 2.5px;
+    color: var(--sage-green);
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-top: -3px;
+}
+
+.ember-nav-links {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 2rem;
+}
+
+.ember-nav-links a {
+    color: var(--body-text);
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    position: relative;
+    padding: 0.25rem 0;
+    transition: var(--transition-smooth);
+}
+
+.ember-nav-links a:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--terracotta);
+    transition: var(--transition-smooth);
+}
+
+.ember-nav-links a:hover,
+.ember-nav-links a.active {
+    color: var(--terracotta);
+}
+
+.ember-nav-links a:hover:after,
+.ember-nav-links a.active:after {
+    width: 100%;
+}
+
+.ember-nav-cta {
+    display: flex;
+    align-items: center;
+}
+
+/* Mobile Menu Toggle */
+.ember-mobile-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    color: var(--forest-green);
+}
+
+.ember-mobile-toggle span {
+    display: block;
+    width: 26px;
+    height: 2px;
+    background-color: var(--forest-green);
+    margin: 6px 0;
+    transition: var(--transition-smooth);
+}
+
+@media (max-width: 991px) {
+    .ember-mobile-toggle { display: block; }
+
+    .ember-nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(255, 252, 245, 0.98);
+        border-bottom: 1px solid var(--border-subtle);
+        flex-direction: column;
+        gap: 1.25rem;
+        padding: 2rem;
+        display: none;
+        box-shadow: 0 8px 24px rgba(52, 75, 53, 0.1);
+    }
+
+    .ember-nav-links.is-open { display: flex; }
+    .ember-nav-cta { display: none; }
+}
+
+/* ==========================================================================
+   BUTTONS — Terracotta primary, Sage ghost
+   ========================================================================== */
+.ember-btn,
+.e-button-base,
+button.e-button-base,
+a.e-button-base,
+.elementor-button {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 13px 32px !important;
+    font-family: var(--font-body) !important;
+    font-size: 0.9rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 1px !important;
+    text-transform: uppercase !important;
+    border-radius: var(--radius-btn) !important;
+    cursor: pointer !important;
+    transition: var(--transition-smooth) !important;
+    text-decoration: none !important;
+    border: none !important;
+    width: auto !important;
+    max-width: max-content !important;
+    align-self: center !important;
+    flex-grow: 0 !important;
+    flex-shrink: 0 !important;
+    background: var(--terracotta) !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 14px rgba(184, 111, 72, 0.25) !important;
+    line-height: 1.4 !important;
+    box-sizing: border-box !important;
+}
+
+.ember-btn:hover,
+.e-button-base:hover,
+button.e-button-base:hover,
+a.e-button-base:hover,
+.elementor-button:hover {
+    background: var(--terracotta-hover) !important;
+    color: #ffffff !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 22px rgba(184, 111, 72, 0.35) !important;
+}
+
+.ember-btn-primary {
+    background: var(--terracotta) !important;
+    color: #fff !important;
+}
+
+.ember-btn-outline,
+.e-button-outline {
+    background: transparent !important;
+    color: var(--forest-green) !important;
+    border: 2px solid var(--forest-green) !important;
+    box-shadow: none !important;
+}
+
+.ember-btn-outline:hover,
+.e-button-outline:hover {
+    background: var(--forest-green) !important;
+    color: var(--warm-white) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 20px rgba(52, 75, 53, 0.25) !important;
+}
+
+.ember-btn-sm {
+    padding: 0.5rem 1.25rem !important;
+    font-size: 0.82rem !important;
+}
+
+.ember-btn-lg {
+    padding: 1.1rem 2.5rem !important;
+    font-size: 1rem !important;
+}
+
+/* Prevent Flex Containers from Stretching Buttons */
+.e-flexbox-base,
+.e-con {
+    box-sizing: border-box !important;
+}
+
+/* ==========================================================================
+   ELEMENTOR V4 FLEXBOX ARCHITECTURE & SPACING REPAIR
+   ========================================================================== */
+
+/* 1. Global Flexbox Defaults */
+.e-flexbox-base,
+.e-con.e-atomic-element {
+    display: flex !important;
+    flex-direction: column !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+}
+
+.e-flexbox-base > .e-heading-base,
+.e-flexbox-base > .e-paragraph-base,
+.e-con > .e-heading-base,
+.e-con > .e-paragraph-base {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+/* 2. Horizontal Button Row Containers */
+.elementor-element-6d941c03,
+.elementor-element-15ec9579,
+.e-flexbox-base.ember-button-group {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 1.25rem !important;
+    width: 100% !important;
+    margin-top: 1.5rem !important;
+}
+
+/* 3. Two-Column Split Sections */
+.elementor-element-34c143f2,
+.elementor-element-4a8053e0,
+.elementor-element-5458e283,
+.elementor-element-1684f3ed,
+.elementor-element-3e7fe74,
+.elementor-element-7566eaa {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 4rem !important;
+    align-items: start !important;
+    width: 100% !important;
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+}
+
+/* 4. Text Column Containers */
+.elementor-element-4a5dc1c5,
+.elementor-element-27942172,
+.elementor-element-16ef5e00,
+.elementor-element-7fdad146,
+.elementor-element-2c6ea686,
+.elementor-element-3184349 {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    text-align: left !important;
+    width: 100% !important;
+    gap: 0 !important;
+}
+
+.elementor-element-4a5dc1c5 > *,
+.elementor-element-27942172 > *,
+.elementor-element-16ef5e00 > *,
+.elementor-element-7fdad146 > *,
+.elementor-element-2c6ea686 > *,
+.elementor-element-3184349 > * {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+.elementor-element-4a5dc1c5 > .e-button-base,
+.elementor-element-27942172 > .e-button-base,
+.elementor-element-16ef5e00 > .e-button-base,
+.elementor-element-7fdad146 > .e-button-base,
+.elementor-element-2c6ea686 > .e-button-base,
+.elementor-element-3184349 > .e-button-base {
+    align-self: flex-start !important;
+    margin-top: 1rem !important;
+    width: auto !important;
+    max-width: max-content !important;
+}
+
+/* 5. Image Column Containers */
+.elementor-element-6fa6aad4,
+.elementor-element-63a15db4,
+.elementor-element-2fa2f402,
+.elementor-element-46ceb09d,
+.elementor-element-73ce952f,
+.elementor-element-45617a91 {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+.elementor-element-6fa6aad4 img,
+.elementor-element-63a15db4 img,
+.elementor-element-2fa2f402 img,
+.elementor-element-46ceb09d img,
+.elementor-element-73ce952f img,
+.elementor-element-45617a91 img {
+    width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    aspect-ratio: auto !important;
+    object-fit: contain !important;
+    border-radius: var(--radius-card) !important;
+    border: 1px solid var(--border-warm) !important;
+    box-shadow: 0 12px 36px rgba(52, 75, 53, 0.12) !important;
+    display: block !important;
+}
+
+/* 6. Multi-Column Grids */
+.elementor-element-23ac47f2,
+.elementor-element-6198878,
+.elementor-element-512823b4,
+.elementor-element-427555dd,
+.elementor-element-31d333d7,
+.elementor-element-1c9e9dbd {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+    gap: 2rem !important;
+    width: 100% !important;
+    max-width: 1200px !important;
+    margin: 2.5rem auto !important;
+    align-items: stretch !important;
+}
+
+.elementor-element-23ac47f2 { grid-template-columns: repeat(3, 1fr) !important; }
+.elementor-element-6198878,
+.elementor-element-427555dd { grid-template-columns: repeat(4, 1fr) !important; }
+.elementor-element-31d333d7 { grid-template-columns: repeat(3, 1fr) !important; }
+.elementor-element-1c9e9dbd  { grid-template-columns: repeat(2, 1fr) !important; }
+
+/* 7. Individual Cards — Organic warm-white surfaces */
+.elementor-element-4572bed3,
+.elementor-element-3c8045f1,
+.elementor-element-17f3502c,
+.elementor-element-440b8b8e,
+.elementor-element-3e2e8fd2,
+.elementor-element-4e381021,
+.elementor-element-715406bc,
+.elementor-element-35e87e9b,
+.elementor-element-16593cf6,
+.elementor-element-70944290,
+.elementor-element-188698bc,
+.elementor-element-3ac47c0,
+.elementor-element-2f8fc644,
+.elementor-element-36ec187a,
+.elementor-element-58ae0245,
+.elementor-element-28d62019,
+.elementor-element-33142ffa,
+.elementor-element-627ec02f {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    text-align: left !important;
+    background: var(--warm-white) !important;
+    border: 1px solid var(--border-subtle) !important;
+    border-radius: var(--radius-card) !important;
+    padding: 2.2rem 2rem !important;
+    box-shadow: var(--shadow-card) !important;
+    transition: var(--transition-smooth) !important;
+}
+
+.elementor-element-4572bed3:hover,
+.elementor-element-3c8045f1:hover,
+.elementor-element-17f3502c:hover,
+.elementor-element-440b8b8e:hover,
+.elementor-element-3e2e8fd2:hover,
+.elementor-element-4e381021:hover,
+.elementor-element-715406bc:hover,
+.elementor-element-188698bc:hover,
+.elementor-element-3ac47c0:hover,
+.elementor-element-2f8fc644:hover,
+.elementor-element-36ec187a:hover,
+.elementor-element-58ae0245:hover,
+.elementor-element-28d62019:hover,
+.elementor-element-33142ffa:hover,
+.elementor-element-627ec02f:hover {
+    border-color: var(--sage-green) !important;
+    transform: translateY(-4px) !important;
+    box-shadow: var(--shadow-hover) !important;
+}
+
+/* Card Titles */
+.elementor-element-4572bed3 .e-heading-base,
+.elementor-element-3c8045f1 .e-heading-base,
+.elementor-element-17f3502c .e-heading-base,
+.elementor-element-440b8b8e .e-heading-base,
+.elementor-element-3e2e8fd2 .e-heading-base,
+.elementor-element-4e381021 .e-heading-base,
+.elementor-element-715406bc .e-heading-base,
+.elementor-element-188698bc .e-heading-base,
+.elementor-element-3ac47c0 .e-heading-base,
+.elementor-element-2f8fc644 .e-heading-base,
+.elementor-element-36ec187a .e-heading-base,
+.elementor-element-58ae0245 .e-heading-base,
+.elementor-element-28d62019 .e-heading-base,
+.elementor-element-33142ffa .e-heading-base,
+.elementor-element-627ec02f .e-heading-base {
+    font-size: 1.3rem !important;
+    color: var(--forest-green) !important;
+    margin-bottom: 0.85rem !important;
+    display: block !important;
+    width: 100% !important;
+}
+
+/* Card Paragraphs */
+.elementor-element-4572bed3 .e-paragraph-base,
+.elementor-element-3c8045f1 .e-paragraph-base,
+.elementor-element-17f3502c .e-paragraph-base,
+.elementor-element-440b8b8e .e-paragraph-base,
+.elementor-element-3e2e8fd2 .e-paragraph-base,
+.elementor-element-4e381021 .e-paragraph-base,
+.elementor-element-715406bc .e-paragraph-base,
+.elementor-element-188698bc .e-paragraph-base,
+.elementor-element-3ac47c0 .e-paragraph-base,
+.elementor-element-2f8fc644 .e-paragraph-base,
+.elementor-element-36ec187a .e-paragraph-base,
+.elementor-element-58ae0245 .e-paragraph-base,
+.elementor-element-28d62019 .e-paragraph-base,
+.elementor-element-33142ffa .e-paragraph-base,
+.elementor-element-627ec02f .e-paragraph-base {
+    color: var(--muted-text) !important;
+    font-size: 0.95rem !important;
+    line-height: 1.7 !important;
+    margin-bottom: 0 !important;
+    display: block !important;
+    width: 100% !important;
+}
+
+/* 8. Dish Cards on Home Page */
+.elementor-element-7dc084fb,
+.elementor-element-5e2546a8,
+.elementor-element-59d4bbff,
+.elementor-element-12ede85c,
+.elementor-element-7658a4a0,
+.elementor-element-56120651 {
+    display: flex !important;
+    flex-direction: column !important;
+    background: var(--warm-white) !important;
+    border: 1px solid var(--border-subtle) !important;
+    border-radius: var(--radius-card) !important;
+    overflow: hidden !important;
+    transition: var(--transition-smooth) !important;
+}
+
+.elementor-element-7dc084fb:hover,
+.elementor-element-5e2546a8:hover,
+.elementor-element-59d4bbff:hover,
+.elementor-element-12ede85c:hover,
+.elementor-element-7658a4a0:hover,
+.elementor-element-56120651:hover {
+    transform: translateY(-5px) !important;
+    border-color: var(--sage-green) !important;
+    box-shadow: var(--shadow-hover) !important;
+}
+
+.elementor-element-7dc084fb img,
+.elementor-element-5e2546a8 img,
+.elementor-element-59d4bbff img,
+.elementor-element-12ede85c img,
+.elementor-element-7658a4a0 img,
+.elementor-element-56120651 img {
+    width: 100% !important;
+    height: 220px !important;
+    object-fit: cover !important;
+    border: none !important;
+    border-radius: var(--radius-card) var(--radius-card) 0 0 !important;
+}
+
+.elementor-element-7a2a74cc,
+.elementor-element-ddccc8b,
+.elementor-element-25bfb990,
+.elementor-element-32c2a7ed,
+.elementor-element-6a871914,
+.elementor-element-3c42c24c {
+    display: flex !important;
+    flex-direction: column !important;
+    padding: 1.5rem !important;
+    flex-grow: 1 !important;
+}
+
+/* 9. Hero Sections — Natural light overlays with botanical warmth */
+.elementor-element-38e8dde3,
+.elementor-element-ef9390b,
+.elementor-element-3ebb97ea,
+.elementor-element-64872607,
+.elementor-element-4f91ffee,
+.elementor-element-2e926034 {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+    border-bottom: 1px solid var(--border-warm) !important;
+    box-sizing: border-box !important;
+}
+
+/* Home hero — full-screen panoramic farmland */
+.elementor-element-38e8dde3 {
+    min-height: 82vh !important;
+    padding: 7rem 2rem 6rem !important;
+    background: linear-gradient(0deg, rgba(244, 238, 220, 0.3) 0%, rgba(52, 75, 53, 0.72) 100%),
+                url('https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=1920&q=85') center/cover no-repeat !important;
+}
+
+/* About hero — earthy spice market */
+.elementor-element-ef9390b {
+    min-height: 52vh !important;
+    padding: 6rem 2rem !important;
+    background: linear-gradient(0deg, rgba(244, 238, 220, 0.25) 0%, rgba(52, 75, 53, 0.68) 100%),
+                url('https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=1920&q=85') center/cover no-repeat !important;
+}
+
+/* Menu hero — dum biryani */
+.elementor-element-3ebb97ea {
+    min-height: 52vh !important;
+    padding: 6rem 2rem !important;
+    background: linear-gradient(0deg, rgba(244, 238, 220, 0.25) 0%, rgba(52, 75, 53, 0.70) 100%),
+                url('https://images.unsplash.com/photo-1589302168068-964664d93dc0?auto=format&fit=crop&w=1920&q=85') center/cover no-repeat !important;
+}
+
+/* Reservations hero — intimate dining */
+.elementor-element-64872607 {
+    min-height: 52vh !important;
+    padding: 6rem 2rem !important;
+    background: linear-gradient(0deg, rgba(244, 238, 220, 0.25) 0%, rgba(52, 75, 53, 0.72) 100%),
+                url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1920&q=85') center/cover no-repeat !important;
+}
+
+/* Gallery hero — culinary art */
+.elementor-element-4f91ffee {
+    min-height: 52vh !important;
+    padding: 6rem 2rem !important;
+    background: linear-gradient(0deg, rgba(244, 238, 220, 0.25) 0%, rgba(52, 75, 53, 0.68) 100%),
+                url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1920&q=85') center/cover no-repeat !important;
+}
+
+/* Contact hero — welcoming ambience */
+.elementor-element-2e926034 {
+    min-height: 52vh !important;
+    padding: 6rem 2rem !important;
+    background: linear-gradient(0deg, rgba(244, 238, 220, 0.25) 0%, rgba(52, 75, 53, 0.72) 100%),
+                url('https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=1920&q=85') center/cover no-repeat !important;
+}
+
+/* Hero eyebrow labels */
+.elementor-element-38e8dde3 .e-heading-base:first-child,
+.elementor-element-ef9390b .e-heading-base:first-child,
+.elementor-element-3ebb97ea .e-heading-base:first-child,
+.elementor-element-64872607 .e-heading-base:first-child,
+.elementor-element-4f91ffee .e-heading-base:first-child,
+.elementor-element-2e926034 .e-heading-base:first-child,
+.elementor-element-2e926034 .e-paragraph-base:first-child {
+    color: var(--wheat-gold) !important;
+    font-size: 0.88rem !important;
+    letter-spacing: 3.5px !important;
+    text-transform: uppercase !important;
+    margin-bottom: 1rem !important;
+    font-weight: 700 !important;
+    text-align: center !important;
+    display: block !important;
+}
+
+/* Hero main headings */
+.elementor-element-38e8dde3 h1,
+.elementor-element-ef9390b h1,
+.elementor-element-3ebb97ea h1,
+.elementor-element-64872607 h1,
+.elementor-element-4f91ffee h1,
+.elementor-element-2e926034 h1 {
+    color: var(--warm-white) !important;
+    font-family: var(--font-heading) !important;
+    font-size: 3.5rem !important;
+    margin-bottom: 1.25rem !important;
+    line-height: 1.2 !important;
+    text-align: center !important;
+    max-width: 900px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    display: block !important;
+}
+
+/* Hero sub-paragraphs */
+.elementor-element-38e8dde3 > p,
+.elementor-element-ef9390b > p,
+.elementor-element-3ebb97ea > p,
+.elementor-element-64872607 > p,
+.elementor-element-4f91ffee > p,
+.elementor-element-2e926034 > p,
+.elementor-element-38e8dde3 > .e-paragraph-base,
+.elementor-element-ef9390b > .e-paragraph-base,
+.elementor-element-3ebb97ea > .e-paragraph-base,
+.elementor-element-64872607 > .e-paragraph-base,
+.elementor-element-4f91ffee > .e-paragraph-base,
+.elementor-element-2e926034 > .e-paragraph-base {
+    color: rgba(255, 252, 245, 0.9) !important;
+    font-size: 1.15rem !important;
+    max-width: 700px !important;
+    line-height: 1.8 !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+}
+
+/* 10. CTA Banner Sections — Forest green accent panels */
+.elementor-element-490cc535,
+.elementor-element-67a8ecb2,
+.elementor-element-2197d64f {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    background: var(--warm-white) !important;
+    border: 1px solid var(--border-subtle) !important;
+    border-radius: 16px !important;
+    padding: 4rem 2rem !important;
+    max-width: 900px !important;
+    margin: 3rem auto !important;
+    box-shadow: var(--shadow-card) !important;
+}
+
+/* 11. Section Container Widths */
+.elementor-element-1b252868,
+.elementor-element-7fb873ab,
+.elementor-element-35e3a624,
+.elementor-element-75485836,
+.elementor-element-27fc9345,
+.elementor-element-490626bb,
+.elementor-element-1d0dfba8,
+.elementor-element-12ec63c2,
+.elementor-element-2539d8d6,
+.elementor-element-4e1a1d4a,
+.elementor-element-4df06c2e,
+.elementor-element-728607ee,
+.elementor-element-6bae2821 {
+    padding: 5rem 2rem !important;
+    max-width: 1240px !important;
+    margin: 0 auto !important;
+    width: 100% !important;
+}
+
+/* 12. Responsive Breakpoints */
+@media (max-width: 1024px) {
+    .elementor-element-23ac47f2 { grid-template-columns: repeat(2, 1fr) !important; }
+    .elementor-element-6198878,
+    .elementor-element-427555dd { grid-template-columns: repeat(2, 1fr) !important; }
+    .elementor-element-34c143f2,
+    .elementor-element-4a8053e0,
+    .elementor-element-5458e283,
+    .elementor-element-1684f3ed,
+    .elementor-element-3e7fe74,
+    .elementor-element-7566eaa { gap: 3rem !important; }
+}
+
+@media (max-width: 860px) {
+    .elementor-element-34c143f2,
+    .elementor-element-4a8053e0,
+    .elementor-element-5458e283,
+    .elementor-element-1684f3ed,
+    .elementor-element-3e7fe74,
+    .elementor-element-7566eaa { grid-template-columns: 1fr !important; }
+
+    .elementor-element-23ac47f2,
+    .elementor-element-6198878,
+    .elementor-element-427555dd,
+    .elementor-element-31d333d7,
+    .elementor-element-1c9e9dbd,
+    .elementor-element-512823b4 { grid-template-columns: 1fr !important; }
+
+    .elementor-element-38e8dde3 h1,
+    .elementor-element-ef9390b h1,
+    .elementor-element-3ebb97ea h1,
+    .elementor-element-64872607 h1,
+    .elementor-element-4f91ffee h1,
+    .elementor-element-2e926034 h1 { font-size: 2.4rem !important; }
+
+    .elementor-element-38e8dde3 { min-height: 68vh !important; padding: 5rem 1.5rem !important; }
+    .elementor-element-ef9390b,
+    .elementor-element-3ebb97ea,
+    .elementor-element-64872607,
+    .elementor-element-4f91ffee,
+    .elementor-element-2e926034 { min-height: 44vh !important; padding: 4.5rem 1.5rem !important; }
+}
+
+/* Typography — Organic hierarchy */
+.e-heading-base,
+.elementor-heading-title,
+.e-heading-base h1,
+.e-heading-base h2,
+.e-heading-base h3,
+.e-heading-base h4,
+.e-heading-base h5,
+.e-heading-base h6 {
+    font-family: var(--font-heading) !important;
+    color: var(--forest-green);
+    line-height: 1.25 !important;
+    margin-top: 0 !important;
+    margin-bottom: 1.2rem !important;
+    display: block !important;
+    text-wrap: balance !important;
+}
+
+.e-paragraph-base,
+p.e-paragraph-base,
+.elementor-widget-text-editor p {
+    font-family: var(--font-body) !important;
+    line-height: 1.75 !important;
+    margin-top: 0 !important;
+    margin-bottom: 1.5rem !important;
+    display: block !important;
+    color: var(--muted-text);
+}
+
+/* Images */
+.ember-featured-img,
+.e-image-base img {
+    border-radius: 8px;
+    border: 1px solid var(--border-warm);
+    box-shadow: var(--shadow-card);
+    transition: var(--transition-smooth);
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Section Headers */
+.ember-section-header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+}
+
+.ember-eyebrow {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--terracotta);
+    margin-bottom: 0.75rem;
+}
+
+.ember-heading {
+    font-family: var(--font-heading);
+    font-size: 2.75rem;
+    color: var(--forest-green);
+    margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+    .ember-heading { font-size: 2rem; }
+}
+
+.ember-divider-gold {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1rem auto 1.5rem;
+}
+
+.ember-divider-gold:before,
+.ember-divider-gold:after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--wheat-gold));
+}
+
+.ember-divider-gold:after {
+    background: linear-gradient(90deg, var(--wheat-gold), transparent);
+}
+
+.ember-divider-gold span { color: var(--wheat-gold); font-size: 1rem; }
+
+.ember-subheading {
+    max-width: 680px;
+    margin: 0 auto;
+    color: var(--muted-text);
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+/* ==========================================================================
+   CARDS & FOOD ITEMS — Warm-white surfaces, sage borders
+   ========================================================================== */
+.ember-card {
+    background: var(--warm-white);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    transition: var(--transition-smooth);
+    position: relative;
+    box-shadow: var(--shadow-card);
+}
+
+.ember-card:hover {
+    border-color: var(--sage-green);
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-hover);
+}
+
+.ember-card-img-wrapper {
+    position: relative;
+    overflow: hidden;
+    height: 240px;
+    background: var(--natural-cream);
+}
+
+.ember-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.ember-card:hover .ember-card-img { transform: scale(1.06); }
+
+.ember-badge-veg,
+.ember-badge-nonveg {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    backdrop-filter: blur(8px);
+}
+
+.ember-badge-veg {
+    background: rgba(52, 75, 53, 0.88);
+    color: #c8e6c9;
+    border: 1px solid rgba(120, 133, 104, 0.6);
+}
+
+.ember-badge-veg:before {
+    content: '●';
+    color: #a5d6a7;
+    font-size: 12px;
+}
+
+.ember-badge-nonveg {
+    background: rgba(184, 111, 72, 0.88);
+    color: #fbe9e7;
+    border: 1px solid rgba(184, 111, 72, 0.6);
+}
+
+.ember-badge-nonveg:before {
+    content: '▲';
+    color: #ffccbc;
+    font-size: 10px;
+}
+
+.ember-price-tag {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    background: rgba(255, 252, 245, 0.92);
+    color: var(--forest-green);
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 4px;
+    border: 1px solid var(--border-warm);
+    backdrop-filter: blur(6px);
+}
+
+.ember-card-body { padding: 1.75rem; }
+
+.ember-card-title {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: var(--forest-green);
+}
+
+.ember-card-desc {
+    color: var(--muted-text);
+    font-size: 0.95rem;
+    margin-bottom: 1.25rem;
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   MENU PAGE & TABS — Sage green active tabs
+   ========================================================================== */
+.ember-menu-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-bottom: 3.5rem;
+}
+
+.ember-menu-tab-btn {
+    background: var(--warm-white);
+    border: 1px solid var(--border-subtle);
+    color: var(--body-text);
+    padding: 0.7rem 1.4rem;
+    border-radius: 30px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
+.ember-menu-tab-btn:hover,
+.ember-menu-tab-btn.is-active {
+    background: var(--forest-green);
+    color: var(--warm-white);
+    border-color: var(--forest-green);
+    box-shadow: 0 4px 14px rgba(52, 75, 53, 0.2);
+}
+
+.ember-menu-category { margin-bottom: 4rem; }
+
+.ember-menu-category-title {
+    font-size: 1.9rem;
+    color: var(--forest-green);
+    border-bottom: 2px solid var(--border-warm);
+    padding-bottom: 0.75rem;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.ember-menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 2rem;
+}
+
+@media (max-width: 600px) {
+    .ember-menu-grid { grid-template-columns: 1fr; }
+}
+
+/* ==========================================================================
+   FORMS (RESERVATION & CONTACT) — Cream background, sage accents
+   ========================================================================== */
+.ember-form-card {
+    background: var(--warm-white);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-card);
+    padding: 3rem 2.5rem;
+    max-width: 720px;
+    margin: 0 auto;
+    box-shadow: var(--shadow-card);
+}
+
+@media (max-width: 768px) {
+    .ember-form-card { padding: 2rem 1.5rem; }
+}
+
+.ember-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+@media (max-width: 650px) {
+    .ember-form-grid { grid-template-columns: 1fr; }
+}
+
+.ember-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.ember-form-group.full-width { grid-column: 1 / -1; }
+
+.ember-label {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--forest-green);
+    letter-spacing: 0.3px;
+}
+
+.ember-input,
+.ember-select,
+.ember-textarea {
+    width: 100%;
+    background: var(--natural-cream);
+    border: 1px solid rgba(120, 133, 104, 0.4);
+    border-radius: 6px;
+    padding: 0.85rem 1rem;
+    color: var(--body-text);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    transition: var(--transition-smooth);
+}
+
+.ember-input:focus,
+.ember-select:focus,
+.ember-textarea:focus {
+    outline: none;
+    border-color: var(--sage-green);
+    box-shadow: 0 0 0 3px rgba(120, 133, 104, 0.18);
+}
+
+.ember-textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.ember-form-alert {
+    padding: 1.25rem;
+    border-radius: 6px;
+    margin-top: 1.5rem;
+    display: none;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.ember-form-alert.is-success {
+    display: block;
+    background: rgba(52, 75, 53, 0.08);
+    border: 1px solid var(--sage-green);
+    color: var(--forest-green);
+}
+
+.ember-form-alert.is-error {
+    display: block;
+    background: rgba(184, 111, 72, 0.08);
+    border: 1px solid var(--terracotta);
+    color: var(--terracotta-hover);
+}
+
+/* ==========================================================================
+   GALLERY — Natural cream frames
+   ========================================================================== */
+.ember-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.ember-gallery-item {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 280px;
+    box-shadow: var(--shadow-card);
+    border: 1px solid var(--border-warm);
+}
+
+.ember-gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.ember-gallery-item:hover img { transform: scale(1.07); }
+
+.ember-gallery-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 40%, rgba(52, 75, 53, 0.82) 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1.5rem;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+}
+
+.ember-gallery-item:hover .ember-gallery-overlay { opacity: 1; }
+
+.ember-gallery-title {
+    font-size: 1.1rem;
+    color: var(--warm-white);
+    margin: 0;
+}
+
+.ember-gallery-cat {
+    color: var(--wheat-gold);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ==========================================================================
+   BLOG CARDS & SINGLE POST — Warm surfaces with botanical details
+   ========================================================================== */
+.ember-blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 2rem;
+}
+
+.ember-blog-card {
+    background: var(--warm-white);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: var(--transition-smooth);
+}
+
+.ember-blog-card:hover {
+    border-color: var(--sage-green);
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.ember-blog-img-wrap {
+    height: 220px;
+    overflow: hidden;
+}
+
+.ember-blog-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.ember-blog-card:hover .ember-blog-img-wrap img { transform: scale(1.05); }
+
+.ember-blog-body {
+    padding: 1.75rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.ember-blog-meta {
+    font-size: 0.78rem;
+    color: var(--terracotta);
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    margin-bottom: 0.75rem;
+}
+
+.ember-blog-title {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: var(--forest-green);
+}
+
+.ember-blog-excerpt {
+    color: var(--muted-text);
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+    flex: 1;
+    line-height: 1.65;
+}
+
+.ember-blog-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--terracotta);
+    font-weight: 600;
+    font-size: 0.88rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.ember-blog-link:hover {
+    color: var(--terracotta-hover);
+    gap: 0.75rem;
+}
+
+/* ==========================================================================
+   FOOTER — Forest green footer with cream text
+   ========================================================================== */
+.ember-footer {
+    background: var(--forest-green);
+    border-top: 3px solid var(--sage-green);
+    padding: 4.5rem 2rem 2rem;
+    color: rgba(244, 238, 220, 0.85);
+}
+
+.ember-footer-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    gap: 3rem;
+    margin-bottom: 3.5rem;
+}
+
+@media (max-width: 991px) {
+    .ember-footer-container { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 600px) {
+    .ember-footer-container { grid-template-columns: 1fr; }
+}
+
+.ember-footer .ember-brand-name { color: var(--warm-white); }
+.ember-footer .ember-brand-name span { color: var(--wheat-gold); }
+.ember-footer .ember-brand-sub { color: rgba(185, 154, 101, 0.8); }
+.ember-footer .ember-brand-icon { color: var(--wheat-gold); }
+
+.ember-footer-col h4 {
+    color: var(--wheat-gold);
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    margin-bottom: 1.25rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.ember-footer-col h4:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 28px;
+    height: 2px;
+    background: var(--terracotta);
+}
+
+.ember-footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+}
+
+.ember-footer-links a {
+    color: rgba(244, 238, 220, 0.75);
+    font-size: 0.93rem;
+    transition: var(--transition-smooth);
+}
+
+.ember-footer-links a:hover {
+    color: var(--wheat-gold);
+    padding-left: 5px;
+}
+
+.ember-footer-bottom {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(120, 133, 104, 0.3);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    font-size: 0.84rem;
+    color: rgba(244, 238, 220, 0.6);
+}
+
+.ember-footer-bottom strong { color: var(--warm-white); }
+
+.ember-social-icons { display: flex; gap: 1rem; }
+
+.ember-social-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255, 252, 245, 0.08);
+    border: 1px solid rgba(185, 154, 101, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--wheat-gold);
+    font-size: 0.75rem;
+    font-weight: 700;
+    transition: var(--transition-smooth);
+}
+
+.ember-social-btn:hover {
+    background: var(--terracotta);
+    color: #fff;
+    border-color: var(--terracotta);
+    transform: translateY(-2px);
+}

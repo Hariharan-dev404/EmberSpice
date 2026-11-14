@@ -1,0 +1,54 @@
+# ==============================================================================
+# Ember Spice — Security & Environment Git Ignore
+# ==============================================================================
+
+# Sensitive credentials & configurations
+.vscode/sftp.json
+wordpress/wp-config.php
+wp-config.php
+*.env
+*.env.*
+*.pem
+*.key
+
+# Server logs & process outputs
+*.log
+mysql_err.log
+mysql_out.log
+error_log
+debug.log
+wordpress/wp-content/debug.log
+
+# Large Archives & Compressed Files
+*.zip
+*.tar
+*.tar.gz
+*.rar
+*.7z
+wordpress/wordpress.zip
+
+# WordPress Temporary, Backup & Cache directories
+wordpress/wp-content/upgrade/
+wordpress/wp-content/cache/
+wordpress/wp-content/backups/
+wordpress/wp-content/plugins/*-backup/
+wordpress/wp-content/plugins/*-old/
+
+# SQL Dumps (protects against leaking customer reservation data or passwords)
+*.sql
+*.sql.gz
+
+# System & OS Artifacts
+.DS_Store
+Thumbs.db
+ehthumbs.db
+desktop.ini
+$RECYCLE.BIN/
+
+# Node / Package Artifacts
+node_modules/
+npm-debug.log
+
+# Scratch / Local test scripts
+test_render.php
+scratch/
