@@ -994,13 +994,160 @@ class EmberSpiceCore {
             transform: translateY(-2px) !important;
             box-shadow: 0 12px 28px rgba(184, 111, 72, 0.5) !important;
         }
-            transform: translateY(-2px) !important;
+
+        /* ==========================================================
+           11. HOME PAGE SPECIFIC: FULL-SCREEN SIZE WIDTH & PERFECT SPACING
+           (Changes apply strictly to Home: .home / .elementor-7)
+           - Fill content text content and images width to 100% full screen size
+           - Eliminate all space between contents (no side cream gutters, no card gaps)
+           - Perfect vertical spacing between text content and images (no huge gaps)
+           - Preserve image heights as requested ("current height is okay")
+           ========================================================== */
+
+        /* Zero margins and gaps between all top-level sections on Home */
+        html body.home .elementor-7 > .e-con,
+        html body.home .elementor-7 > .elementor-element,
+        html body.home .elementor-7 > .e-con + .e-con {
+            margin-top: 0 !important;
+            margin-bottom: 0 !important;
+            width: 100% !important;
+            max-width: 100% !important;
+        }
+
+        /* All home section content containers fill 100% full screen width */
+        html body.home .elementor-7 .elementor-element-34c143f2,
+        html body.home .elementor-7 .elementor-element-23ac47f2,
+        html body.home .elementor-7 .elementor-element-6198878,
+        html body.home .elementor-7 .elementor-element-427555dd,
+        html body.home .elementor-7 .elementor-element-35e3a624,
+        html body.home .elementor-7 .elementor-element-4a8053e0,
+        html body.home .elementor-7 .elementor-element-5458e283,
+        html body.home .elementor-7 .elementor-element-ff92bf6-a1f6,
+        html body.home .elementor-7 .elementor-element-7600a2c6-a44b,
+        html body.home .elementor-7 .elementor-element-63d2b48e-d19f {
+            width: 100% !important;
+            max-width: 100% !important;
+            box-sizing: border-box !important;
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+        }
+
+        /* Reservation CTA on Home: Full screen width banner, zero cream side gutters */
+        html body.home .elementor-element-490cc535 {
+            width: 100% !important;
+            max-width: 100% !important;
+            margin: 0 !important;
+            border-radius: 0 !important;
+            border-left: none !important;
+            border-right: none !important;
+            padding: 5.5rem 2rem !important;
+            box-shadow: none !important;
+            box-sizing: border-box !important;
+        }
+
+        /* PERFECT SPACING BETWEEN TEXT AND IMAGE IN HOME FEATURE SECTIONS */
+        /* Heritage & Philosophy (1b252868), Master of Spice (75485836), Atmosphere & Ambience (27fc9345) */
+        html body.home .elementor-element-1b252868,
+        html body.home .elementor-element-75485836,
+        html body.home .elementor-element-27fc9345 {
+            padding: 4.5rem 2.5rem 4rem !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            box-sizing: border-box !important;
+        }
+
+        html body.home .elementor-element-34c143f2,
+        html body.home .elementor-element-4a8053e0,
+        html body.home .elementor-element-5458e283 {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 1.5rem !important;
+            width: 100% !important;
+            max-width: 100% !important;
+        }
+
+        /* Text content columns fill full width on Home */
+        html body.home .elementor-element-4a5dc1c5,
+        html body.home .elementor-element-27942172,
+        html body.home .elementor-element-16ef5e00 {
+            width: 100% !important;
+            max-width: 100% !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: flex-start !important;
+            text-align: left !important;
+        }
+
+        /* Tight, elegant typography spacing - eliminates the huge empty black void */
+        html body.home .elementor-element-4a5dc1c5 .e-heading-base:first-child,
+        html body.home .elementor-element-27942172 .e-heading-base:first-child,
+        html body.home .elementor-element-16ef5e00 .e-heading-base:first-child {
+            margin-bottom: 0.5rem !important;
+        }
+
+        html body.home .elementor-element-4a5dc1c5 h2,
+        html body.home .elementor-element-27942172 h2,
+        html body.home .elementor-element-16ef5e00 h2 {
+            margin-top: 0 !important;
+            margin-bottom: 1rem !important;
+        }
+
+        html body.home .elementor-element-4a5dc1c5 p,
+        html body.home .elementor-element-27942172 p,
+        html body.home .elementor-element-16ef5e00 p,
+        html body.home .elementor-element-4a5dc1c5 .e-paragraph-base,
+        html body.home .elementor-element-27942172 .e-paragraph-base,
+        html body.home .elementor-element-16ef5e00 .e-paragraph-base {
+            margin-top: 0 !important;
+            margin-bottom: 0.85rem !important;
+            max-width: 100% !important;
+            width: 100% !important;
+        }
+
+        html body.home .elementor-element-4a5dc1c5 a,
+        html body.home .elementor-element-4a5dc1c5 .e-button-base {
+            margin-top: 0.5rem !important;
+            margin-bottom: 0 !important;
+        }
+
+        /* FEATURE IMAGES ON HOME: FULL SCREEN WIDTH (100% WIDTH), CURRENT HEIGHT PRESERVED */
+        html body.home .elementor-element-6fa6aad4,
+        html body.home .elementor-element-63a15db4,
+        html body.home .elementor-element-2fa2f402 {
+            width: 100% !important;
+            max-width: 100% !important;
+            margin-top: 1rem !important;
+            margin-bottom: 0 !important;
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+            padding: 0 !important;
+            display: block !important;
+            box-sizing: border-box !important;
+        }
+
+        html body.home .elementor-element-6fa6aad4 img,
+        html body.home .elementor-element-63a15db4 img,
+        html body.home .elementor-element-2fa2f402 img {
+            width: 100% !important;
+            max-width: 100% !important;
+            height: 480px !important;
+            max-height: 480px !important;
+            object-fit: cover !important;
+            border-radius: 14px !important;
+            border: 1px solid rgba(185, 154, 101, 0.45) !important;
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.6) !important;
+            display: block !important;
+            margin: 0 !important;
         }
 
         /* ==========================================================
-           11. FULL-WIDTH SECTIONS — 100% Edge-to-Edge Viewport
+           12. FULL-WIDTH SECTIONS — 100% Edge-to-Edge Viewport
            Eliminate all cream side bars between screen edges.
-           Section backgrounds span full width, inner content stays centered.
+           Section backgrounds span full width.
            ========================================================== */
 
         /* All top-level section containers on homepage & inner pages stretch 100% full width */
