@@ -417,20 +417,20 @@ a.e-button-base:hover,
     max-width: max-content !important;
 }
 
-/* 5. Image Column Containers — Creative Culinary Frame Presentation */
+/* 5. Image Column Containers — Full-Width Column Fit (No Empty Space) */
 .elementor-element-6fa6aad4,
 .elementor-element-63a15db4,
 .elementor-element-2fa2f402,
 .elementor-element-46ceb09d,
 .elementor-element-73ce952f,
-.elementor-element-45617a91 {
+.elementor-element-45617a91,
+.elementor-element-6bae2821 {
     width: 100% !important;
-    max-width: 540px !important;
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    margin: 0 auto !important;
+    max-width: 100% !important;
+    display: block !important;
+    margin: 0 !important;
     position: relative !important;
+    box-sizing: border-box !important;
 }
 
 .elementor-element-6fa6aad4 img,
@@ -438,28 +438,27 @@ a.e-button-base:hover,
 .elementor-element-2fa2f402 img,
 .elementor-element-46ceb09d img,
 .elementor-element-73ce952f img,
-.elementor-element-45617a91 img {
+.elementor-element-45617a91 img,
+.elementor-element-6bae2821 img {
     width: 100% !important;
-    max-width: 500px !important;
-    height: 420px !important;
-    max-height: 420px !important;
+    max-width: 100% !important;
+    height: 520px !important;
+    max-height: 520px !important;
     object-fit: cover !important;
-    border-radius: 20px !important;
-    border: 2px solid rgba(185, 154, 101, 0.45) !important;
-    outline: 5px solid rgba(185, 154, 101, 0.12) !important;
-    outline-offset: 5px !important;
-    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.4), 0 4px 16px rgba(185, 154, 101, 0.2) !important;
+    border-radius: 16px !important;
+    border: 1px solid rgba(185, 154, 101, 0.45) !important;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55), 0 4px 16px rgba(185, 154, 101, 0.2) !important;
     display: block !important;
-    margin: 0 auto !important;
+    margin: 0 !important;
     transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 .elementor-element-6fa6aad4 img:hover,
 .elementor-element-63a15db4 img:hover,
 .elementor-element-2fa2f402 img:hover {
-    transform: translateY(-5px) scale(1.02) !important;
+    transform: translateY(-4px) scale(1.015) !important;
     border-color: rgba(184, 111, 72, 0.75) !important;
-    box-shadow: 0 28px 60px rgba(0, 0, 0, 0.5), 0 6px 20px rgba(184, 111, 72, 0.3) !important;
+    box-shadow: 0 28px 60px rgba(0, 0, 0, 0.6), 0 6px 20px rgba(184, 111, 72, 0.3) !important;
 }
 
 /* 6. Multi-Column Grids */
@@ -738,7 +737,7 @@ a.e-button-base:hover,
     display: block !important;
 }
 
-/* Hero sub-paragraphs */
+/* Hero sub-paragraphs — PURE WHITE (#FFFFFF), HIGH CONTRAST & LUMINOUS */
 .elementor-element-38e8dde3 > p,
 .elementor-element-ef9390b > p,
 .elementor-element-3ebb97ea > p,
@@ -750,16 +749,25 @@ a.e-button-base:hover,
 .elementor-element-3ebb97ea > .e-paragraph-base,
 .elementor-element-64872607 > .e-paragraph-base,
 .elementor-element-4f91ffee > .e-paragraph-base,
-.elementor-element-2e926034 > .e-paragraph-base {
-    color: rgba(255, 252, 245, 0.9) !important;
-    font-size: 1.15rem !important;
-    max-width: 700px !important;
-    line-height: 1.8 !important;
-    margin: 0 auto !important;
+.elementor-element-2e926034 > .e-paragraph-base,
+.e-55ddd3e7-f380,
+.e-59b9377d-1eb2,
+.e-3df2c96b-79ba,
+.e-153998b7-c33e,
+.e-46f507b0-e380 {
+    color: #FFFFFF !important;
+    -webkit-text-fill-color: #FFFFFF !important;
+    font-size: 1.25rem !important;
+    max-width: 820px !important;
+    line-height: 1.85 !important;
+    margin: 0 auto 2rem auto !important;
     text-align: center !important;
+    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.95), 0 1px 4px rgba(0, 0, 0, 0.95) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
 }
 
-/* 10. CTA Banner Sections — Forest green accent panels */
+/* 10. CTA Banner Sections — Royal Forest Green Luxury Card */
 .elementor-element-490cc535,
 .elementor-element-67a8ecb2,
 .elementor-element-2197d64f {
@@ -767,13 +775,38 @@ a.e-button-base:hover,
     flex-direction: column !important;
     align-items: center !important;
     text-align: center !important;
-    background: var(--warm-white) !important;
-    border: 1px solid var(--border-subtle) !important;
-    border-radius: 16px !important;
-    padding: 4rem 2rem !important;
-    max-width: 900px !important;
-    margin: 3rem auto !important;
-    box-shadow: var(--shadow-card) !important;
+    background: #232D23 !important;
+    border: 1px solid rgba(185, 154, 101, 0.45) !important;
+    border-radius: 20px !important;
+    padding: 4.5rem 2.5rem !important;
+    max-width: 1080px !important;
+    margin: 3.5rem auto !important;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35) !important;
+}
+
+.elementor-element-490cc535 h2,
+.elementor-element-490cc535 .e-heading-base,
+.elementor-element-67a8ecb2 h2,
+.elementor-element-2197d64f h2 {
+    color: #FFFFFF !important;
+    -webkit-text-fill-color: #FFFFFF !important;
+    font-family: var(--font-heading) !important;
+    font-size: 2.8rem !important;
+    margin-bottom: 1.2rem !important;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6) !important;
+}
+
+.elementor-element-490cc535 p,
+.elementor-element-490cc535 .e-paragraph-base,
+.elementor-element-67a8ecb2 p,
+.elementor-element-2197d64f p {
+    color: #FFFFFF !important;
+    -webkit-text-fill-color: #FFFFFF !important;
+    font-size: 1.15rem !important;
+    line-height: 1.8 !important;
+    max-width: 720px !important;
+    margin: 0 auto 2.5rem auto !important;
+    opacity: 0.96 !important;
 }
 
 /* 11. Section Container Widths — 100% Full Viewport Width (No cream side gutters) */

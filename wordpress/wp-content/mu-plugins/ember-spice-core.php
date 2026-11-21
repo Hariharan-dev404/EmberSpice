@@ -46,8 +46,9 @@ class EmberSpiceCore {
         // Enqueue assets with high priority so it runs after Elementor
         add_action('wp_enqueue_scripts', [$this, 'enqueue_assets'], 99999);
 
-        // Inject critical layout and full-size image overrides at the very end of head
+        // Inject critical layout and full-size image overrides in head and footer
         add_action('wp_head', [$this, 'print_critical_head_styles'], 999999);
+        add_action('wp_footer', [$this, 'print_critical_head_styles'], 999999);
 
         // Image accuracy filter for Awadhi Galouti Kebab across all frontend outputs
         add_filter('the_content', [$this, 'filter_accurate_dish_images'], 9999);
@@ -272,7 +273,7 @@ class EmberSpiceCore {
            CRITICAL OVERRIDES: FULL-SIZE IMAGES & STRICT VERTICAL FLOW
            ==================================================================== */
 
-        /* 1. Creative Culinary Feature Images — Art-Directed Frame Presentation */
+        /* 1. Creative Culinary Feature Images — Full-Width Column Fit (No Empty Space) */
         html body .elementor-element-6fa6aad4,
         html body .elementor-element-63a15db4,
         html body .elementor-element-2fa2f402,
@@ -281,11 +282,9 @@ class EmberSpiceCore {
         html body .elementor-element-45617a91,
         html body .elementor-element-6bae2821 {
             width: 100% !important;
-            max-width: 540px !important;
-            display: flex !important;
-            justify-content: center !important;
-            align-items: center !important;
-            margin: 0 auto !important;
+            max-width: 100% !important;
+            display: block !important;
+            margin: 0 !important;
             position: relative !important;
             box-sizing: border-box !important;
         }
@@ -298,26 +297,24 @@ class EmberSpiceCore {
         html body .elementor-element-45617a91 img,
         html body .elementor-element-6bae2821 img {
             width: 100% !important;
-            max-width: 500px !important;
-            height: 420px !important;
-            max-height: 420px !important;
+            max-width: 100% !important;
+            height: 520px !important;
+            max-height: 520px !important;
             object-fit: cover !important;
-            border-radius: 20px !important;
-            border: 2px solid rgba(185, 154, 101, 0.45) !important;
-            outline: 5px solid rgba(185, 154, 101, 0.12) !important;
-            outline-offset: 5px !important;
-            box-shadow: 0 20px 48px rgba(0, 0, 0, 0.45), 0 4px 16px rgba(185, 154, 101, 0.2) !important;
+            border-radius: 16px !important;
+            border: 1px solid rgba(185, 154, 101, 0.45) !important;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55), 0 4px 16px rgba(185, 154, 101, 0.2) !important;
             display: block !important;
-            margin: 0 auto !important;
+            margin: 0 !important;
             transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
         }
 
         html body .elementor-element-6fa6aad4 img:hover,
         html body .elementor-element-63a15db4 img:hover,
         html body .elementor-element-2fa2f402 img:hover {
-            transform: translateY(-5px) scale(1.02) !important;
+            transform: translateY(-4px) scale(1.015) !important;
             border-color: rgba(184, 111, 72, 0.75) !important;
-            box-shadow: 0 28px 60px rgba(0, 0, 0, 0.5), 0 6px 20px rgba(184, 111, 72, 0.3) !important;
+            box-shadow: 0 28px 60px rgba(0, 0, 0, 0.6), 0 6px 20px rgba(184, 111, 72, 0.3) !important;
         }
 
         /* 3. Strict 2-column layout for split sections (Home intro, Chef, Exp, About Story, Chef, Ambience) */
@@ -329,11 +326,12 @@ class EmberSpiceCore {
         html body .elementor-element-7566eaa {
             display: grid !important;
             grid-template-columns: 1fr 1fr !important;
-            gap: 4.5rem !important;
+            gap: 4rem !important;
             align-items: center !important;
             width: 100% !important;
-            max-width: 1200px !important;
+            max-width: 1300px !important;
             margin: 0 auto !important;
+            box-sizing: border-box !important;
         }
 
         /* 4. Strict vertical column flow for text containers - NEVER horizontal strips */
@@ -809,7 +807,7 @@ class EmberSpiceCore {
             display: block !important;
         }
 
-        /* HERO PARAGRAPH SUBTITLES ACROSS ALL PAGES — 100% LUMINOUS, CLEAR & HIGH CONTRAST */
+        /* HERO PARAGRAPH SUBTITLES ACROSS ALL PAGES — PURE WHITE (#FFFFFF), LUMINOUS & CRYSTAL CLEAR */
         html body .elementor-element-38e8dde3 p,
         html body .elementor-element-ef9390b p,
         html body .elementor-element-3ebb97ea p,
@@ -823,16 +821,21 @@ class EmberSpiceCore {
         html body .elementor-element-4f91ffee .e-paragraph-base,
         html body .elementor-element-2e926034 .e-paragraph-base,
         html body .elementor-element-38e8dde3 .e-55ddd3e7-f380,
-        html body .e-55ddd3e7-f380 {
-            color: #FFFCF5 !important;
+        html body .e-55ddd3e7-f380,
+        html body .e-59b9377d-1eb2,
+        html body .e-3df2c96b-79ba,
+        html body .e-153998b7-c33e,
+        html body .e-46f507b0-e380 {
+            color: #FFFFFF !important;
+            -webkit-text-fill-color: #FFFFFF !important;
             font-size: 1.25rem !important;
             line-height: 1.85 !important;
             font-weight: 400 !important;
-            max-width: 760px !important;
+            max-width: 820px !important;
             margin: 0 auto 2rem auto !important;
             text-align: center !important;
             display: block !important;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.75), 0 1px 3px rgba(0, 0, 0, 0.9) !important;
+            text-shadow: 0 2px 14px rgba(0, 0, 0, 0.95), 0 1px 4px rgba(0, 0, 0, 0.95) !important;
             opacity: 1 !important;
             visibility: visible !important;
         }
@@ -859,8 +862,8 @@ class EmberSpiceCore {
         }
 
         /* ==========================================================
-           10. DARK FEATURE SECTIONS — HIGH CONTRAST READABLE TYPOGRAPHY
-           Heritage, Chef, Ambience on charcoal backgrounds
+           10. DARK FEATURE SECTIONS — PURE WHITE SECONDARY TEXT
+           Heritage, Chef, Ambience on charcoal/forest backgrounds
            ========================================================== */
         html body .elementor-element-1b252868 h2,
         html body .elementor-element-75485836 h2,
@@ -871,78 +874,126 @@ class EmberSpiceCore {
         html body .e-77f10f2e-a346,
         html body .e-73bf132-cf36,
         html body .e-3d82db9c-371a {
-            color: #FFFCF5 !important;
+            color: #FFFFFF !important;
+            -webkit-text-fill-color: #FFFFFF !important;
             font-family: 'Marcellus', Georgia, serif !important;
             font-size: 2.8rem !important;
             margin-bottom: 1.25rem !important;
             text-align: left !important;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5) !important;
         }
 
+        /* ALL second text content in dark sections: PURE WHITE (#FFFFFF) */
         html body .elementor-element-1b252868 p,
         html body .elementor-element-75485836 p,
         html body .elementor-element-27fc9345 p,
         html body .elementor-element-4a5dc1c5 p,
         html body .elementor-element-16ef5e00 p,
         html body .elementor-element-27942172 p,
+        html body .elementor-element-1684f3ed p,
+        html body .elementor-element-7fdad146 p,
+        html body .elementor-element-3e7fe74 p,
+        html body .elementor-element-2c6ea686 p,
+        html body .elementor-element-7566eaa p,
+        html body .elementor-element-3184349 p,
+        html body .elementor-element-1b252868 .e-paragraph-base,
+        html body .elementor-element-75485836 .e-paragraph-base,
+        html body .elementor-element-27fc9345 .e-paragraph-base,
         html body .e-5d1dd4c5-21c5,
         html body .e-634b225-6cdc,
         html body .e-39c52f44-e908,
         html body .e-c136635-b972 {
-            color: rgba(244, 238, 220, 0.9) !important;
-            font-size: 1.1rem !important;
-            line-height: 1.8 !important;
+            color: #FFFFFF !important;
+            -webkit-text-fill-color: #FFFFFF !important;
+            font-size: 1.12rem !important;
+            line-height: 1.85 !important;
             text-align: left !important;
             margin-bottom: 1.25rem !important;
+            opacity: 0.98 !important;
+            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7) !important;
         }
 
         /* ==========================================================
-           11. RESERVATION CTA SECTION — TARGETED TEXT CONTRAST FIX
-           "Reserve Your Table at Ember Spice" heading must be visible
+           11. RESERVATION CTA SECTION — ROYAL FOREST GREEN LUXURY CARD
+           Both heading and second text content are PURE WHITE (#FFFFFF)
            ========================================================== */
 
         /* Scoped strictly to the reservation CTA card container */
+        html body .elementor-element-490cc535,
+        html body .elementor-element-67a8ecb2,
+        html body .elementor-element-2197d64f {
+            background: #232D23 !important; /* Rich Royal Forest Green */
+            border: 1px solid rgba(185, 154, 101, 0.45) !important;
+            border-radius: 20px !important;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35) !important;
+            padding: 4.5rem 2.5rem !important;
+            max-width: 1080px !important;
+            margin: 3.5rem auto !important;
+            text-align: center !important;
+            box-sizing: border-box !important;
+        }
+
         html body .elementor-element-490cc535 h2,
         html body .elementor-element-d5f04e3-449b h2,
         html body .elementor-element-720a8162-46b9,
-        html body .elementor-inner-section h2 {
-            color: #344B35 !important;
+        html body .elementor-element-490cc535 .e-heading-base {
+            color: #FFFFFF !important;
+            -webkit-text-fill-color: #FFFFFF !important;
             font-family: 'Marcellus', Georgia, serif !important;
+            font-size: 2.8rem !important;
+            margin-bottom: 1.2rem !important;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6) !important;
+            text-align: center !important;
         }
 
-        /* Subtitle / paragraph text in the CTA section */
+        /* Subtitle / paragraph second text in the CTA section: PURE WHITE */
         html body .elementor-element-490cc535 p,
         html body .elementor-element-d5f04e3-449b p,
         html body .elementor-element-695df8b-2bdc,
-        html body .elementor-inner-section p {
-            color: #555347 !important;
-        }
-
-        /* CTA card container: warm white, sage border, soft shadow */
-        html body .elementor-inner-section {
-            background: rgba(255, 252, 245, 0.98) !important;
-            border: 1px solid rgba(120, 133, 104, 0.22) !important;
-            border-radius: 16px !important;
-            box-shadow: 0 8px 36px rgba(52, 75, 53, 0.08) !important;
+        html body .elementor-element-490cc535 .e-paragraph-base {
+            color: #FFFFFF !important;
+            -webkit-text-fill-color: #FFFFFF !important;
+            opacity: 0.96 !important;
+            font-size: 1.15rem !important;
+            line-height: 1.8 !important;
+            max-width: 720px !important;
+            margin: 0 auto 2.5rem auto !important;
+            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) !important;
+            text-align: center !important;
         }
 
         /* "Reserve a Table Online" CTA button: terracotta, white text */
+        html body .elementor-element-490cc535 a,
+        html body .elementor-element-490cc535 .e-button-base,
+        html body .e-1754f325-4e33,
         html body .elementor-inner-section .e-button-base,
         html body .e-con .e-button-base[href*="reservation"],
         html body .e-con .e-button-base[href*="reserv"] {
             background: #B86F48 !important;
             color: #FFFFFF !important;
-            border-color: #B86F48 !important;
+            border: 1px solid #B86F48 !important;
+            padding: 1.1rem 2.8rem !important;
             font-family: 'Plus Jakarta Sans', sans-serif !important;
             font-weight: 700 !important;
             letter-spacing: 1.5px !important;
             text-transform: uppercase !important;
+            border-radius: 8px !important;
+            display: inline-block !important;
+            box-shadow: 0 8px 24px rgba(184, 111, 72, 0.4) !important;
+            transition: all 0.3s ease !important;
         }
 
+        html body .elementor-element-490cc535 a:hover,
+        html body .elementor-element-490cc535 .e-button-base:hover,
+        html body .e-1754f325-4e33:hover,
         html body .elementor-inner-section .e-button-base:hover,
         html body .e-con .e-button-base[href*="reserv"]:hover {
             background: #9f5c38 !important;
             color: #FFFFFF !important;
             border-color: #9f5c38 !important;
+            transform: translateY(-2px) !important;
+            box-shadow: 0 12px 28px rgba(184, 111, 72, 0.5) !important;
+        }
             transform: translateY(-2px) !important;
         }
 
