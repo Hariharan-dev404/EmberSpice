@@ -272,7 +272,24 @@ class EmberSpiceCore {
            CRITICAL OVERRIDES: FULL-SIZE IMAGES & STRICT VERTICAL FLOW
            ==================================================================== */
 
-        /* 1. Ensure all featured and section images display full size without cropping */
+        /* 1. Creative Culinary Feature Images — Art-Directed Frame Presentation */
+        html body .elementor-element-6fa6aad4,
+        html body .elementor-element-63a15db4,
+        html body .elementor-element-2fa2f402,
+        html body .elementor-element-46ceb09d,
+        html body .elementor-element-73ce952f,
+        html body .elementor-element-45617a91,
+        html body .elementor-element-6bae2821 {
+            width: 100% !important;
+            max-width: 540px !important;
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+            margin: 0 auto !important;
+            position: relative !important;
+            box-sizing: border-box !important;
+        }
+
         html body .elementor-element-6fa6aad4 img,
         html body .elementor-element-63a15db4 img,
         html body .elementor-element-2fa2f402 img,
@@ -281,21 +298,26 @@ class EmberSpiceCore {
         html body .elementor-element-45617a91 img,
         html body .elementor-element-6bae2821 img {
             width: 100% !important;
-            height: auto !important;
-            max-height: none !important;
-            aspect-ratio: auto !important;
-            object-fit: contain !important;
-            border-radius: 12px !important;
-            border: 1px solid rgba(120, 133, 104, 0.3) !important;
-            box-shadow: 0 16px 40px rgba(52, 75, 53, 0.12) !important;
+            max-width: 500px !important;
+            height: 420px !important;
+            max-height: 420px !important;
+            object-fit: cover !important;
+            border-radius: 20px !important;
+            border: 2px solid rgba(185, 154, 101, 0.45) !important;
+            outline: 5px solid rgba(185, 154, 101, 0.12) !important;
+            outline-offset: 5px !important;
+            box-shadow: 0 20px 48px rgba(0, 0, 0, 0.45), 0 4px 16px rgba(185, 154, 101, 0.2) !important;
             display: block !important;
+            margin: 0 auto !important;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
         }
 
-        /* 2. Global rule: Never crop images inside feature containers */
-        html body .e-con:has(.e-image) img,
-        html body .e-flexbox-base:has(.e-image) img {
-            max-height: none !important;
-            aspect-ratio: auto !important;
+        html body .elementor-element-6fa6aad4 img:hover,
+        html body .elementor-element-63a15db4 img:hover,
+        html body .elementor-element-2fa2f402 img:hover {
+            transform: translateY(-5px) scale(1.02) !important;
+            border-color: rgba(184, 111, 72, 0.75) !important;
+            box-shadow: 0 28px 60px rgba(0, 0, 0, 0.5), 0 6px 20px rgba(184, 111, 72, 0.3) !important;
         }
 
         /* 3. Strict 2-column layout for split sections (Home intro, Chef, Exp, About Story, Chef, Ambience) */
@@ -787,19 +809,32 @@ class EmberSpiceCore {
             display: block !important;
         }
 
-        html body .elementor-element-38e8dde3 > .e-paragraph-base,
-        html body .elementor-element-ef9390b > .e-paragraph-base,
-        html body .elementor-element-3ebb97ea > .e-paragraph-base,
-        html body .elementor-element-64872607 > .e-paragraph-base,
-        html body .elementor-element-4f91ffee > .e-paragraph-base,
-        html body .elementor-element-2e926034 > .e-paragraph-base {
-            color: rgba(255, 252, 245, 0.88) !important;
-            font-size: 1.2rem !important;
-            max-width: 720px !important;
-            line-height: 1.8 !important;
-            margin: 0 auto !important;
+        /* HERO PARAGRAPH SUBTITLES ACROSS ALL PAGES — 100% LUMINOUS, CLEAR & HIGH CONTRAST */
+        html body .elementor-element-38e8dde3 p,
+        html body .elementor-element-ef9390b p,
+        html body .elementor-element-3ebb97ea p,
+        html body .elementor-element-64872607 p,
+        html body .elementor-element-4f91ffee p,
+        html body .elementor-element-2e926034 p,
+        html body .elementor-element-38e8dde3 .e-paragraph-base,
+        html body .elementor-element-ef9390b .e-paragraph-base,
+        html body .elementor-element-3ebb97ea .e-paragraph-base,
+        html body .elementor-element-64872607 .e-paragraph-base,
+        html body .elementor-element-4f91ffee .e-paragraph-base,
+        html body .elementor-element-2e926034 .e-paragraph-base,
+        html body .elementor-element-38e8dde3 .e-55ddd3e7-f380,
+        html body .e-55ddd3e7-f380 {
+            color: #FFFCF5 !important;
+            font-size: 1.25rem !important;
+            line-height: 1.85 !important;
+            font-weight: 400 !important;
+            max-width: 760px !important;
+            margin: 0 auto 2rem auto !important;
             text-align: center !important;
             display: block !important;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.75), 0 1px 3px rgba(0, 0, 0, 0.9) !important;
+            opacity: 1 !important;
+            visibility: visible !important;
         }
 
         html body .elementor-element-6d941c03,
@@ -816,28 +851,68 @@ class EmberSpiceCore {
 
         /* Hero button inner wrappers - override flex:1 that causes stacking */
         html body .elementor-element-6d941c03 > .elementor-widget,
-        html body .elementor-element-6d941c03 > div {
+        html body .elementor-element-6d941c03 > div,
+        html body .elementor-element-6d941c03 > a {
             flex: 0 0 auto !important;
             width: auto !important;
+            display: inline-flex !important;
         }
 
         /* ==========================================================
-           10. RESERVATION CTA SECTION — TEXT VISIBILITY FIX
+           10. DARK FEATURE SECTIONS — HIGH CONTRAST READABLE TYPOGRAPHY
+           Heritage, Chef, Ambience on charcoal backgrounds
+           ========================================================== */
+        html body .elementor-element-1b252868 h2,
+        html body .elementor-element-75485836 h2,
+        html body .elementor-element-27fc9345 h2,
+        html body .elementor-element-4a5dc1c5 h2,
+        html body .elementor-element-16ef5e00 h2,
+        html body .elementor-element-27942172 h2,
+        html body .e-77f10f2e-a346,
+        html body .e-73bf132-cf36,
+        html body .e-3d82db9c-371a {
+            color: #FFFCF5 !important;
+            font-family: 'Marcellus', Georgia, serif !important;
+            font-size: 2.8rem !important;
+            margin-bottom: 1.25rem !important;
+            text-align: left !important;
+        }
+
+        html body .elementor-element-1b252868 p,
+        html body .elementor-element-75485836 p,
+        html body .elementor-element-27fc9345 p,
+        html body .elementor-element-4a5dc1c5 p,
+        html body .elementor-element-16ef5e00 p,
+        html body .elementor-element-27942172 p,
+        html body .e-5d1dd4c5-21c5,
+        html body .e-634b225-6cdc,
+        html body .e-39c52f44-e908,
+        html body .e-c136635-b972 {
+            color: rgba(244, 238, 220, 0.9) !important;
+            font-size: 1.1rem !important;
+            line-height: 1.8 !important;
+            text-align: left !important;
+            margin-bottom: 1.25rem !important;
+        }
+
+        /* ==========================================================
+           11. RESERVATION CTA SECTION — TARGETED TEXT CONTRAST FIX
            "Reserve Your Table at Ember Spice" heading must be visible
            ========================================================== */
 
-        /* Any h2 on a cream/white background inside the homepage CTA card
-           must render in deep forest green, never in white/ivory */
-        html body .e-con h2,
-        html body .e-con-inner h2,
+        /* Scoped strictly to the reservation CTA card container */
+        html body .elementor-element-490cc535 h2,
+        html body .elementor-element-d5f04e3-449b h2,
+        html body .elementor-element-720a8162-46b9,
         html body .elementor-inner-section h2 {
             color: #344B35 !important;
             font-family: 'Marcellus', Georgia, serif !important;
         }
 
         /* Subtitle / paragraph text in the CTA section */
-        html body .e-con > * > p,
-        html body .e-con-inner > p,
+        html body .elementor-element-490cc535 p,
+        html body .elementor-element-d5f04e3-449b p,
+        html body .elementor-element-695df8b-2bdc,
         html body .elementor-inner-section p {
             color: #555347 !important;
         }
@@ -956,6 +1031,18 @@ class EmberSpiceCore {
             html body .elementor-element-7566eaa {
                 grid-template-columns: 1fr !important;
                 gap: 2.5rem !important;
+            }
+
+            html body .elementor-element-6fa6aad4 img,
+            html body .elementor-element-63a15db4 img,
+            html body .elementor-element-2fa2f402 img,
+            html body .elementor-element-46ceb09d img,
+            html body .elementor-element-73ce952f img,
+            html body .elementor-element-45617a91 img,
+            html body .elementor-element-6bae2821 img {
+                max-height: 280px !important;
+                height: 280px !important;
+                max-width: 100% !important;
             }
 
             html body .elementor-element-23ac47f2,

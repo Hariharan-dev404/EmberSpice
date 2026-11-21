@@ -417,7 +417,7 @@ a.e-button-base:hover,
     max-width: max-content !important;
 }
 
-/* 5. Image Column Containers */
+/* 5. Image Column Containers — Creative Culinary Frame Presentation */
 .elementor-element-6fa6aad4,
 .elementor-element-63a15db4,
 .elementor-element-2fa2f402,
@@ -425,9 +425,12 @@ a.e-button-base:hover,
 .elementor-element-73ce952f,
 .elementor-element-45617a91 {
     width: 100% !important;
+    max-width: 540px !important;
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
+    margin: 0 auto !important;
+    position: relative !important;
 }
 
 .elementor-element-6fa6aad4 img,
@@ -437,14 +440,26 @@ a.e-button-base:hover,
 .elementor-element-73ce952f img,
 .elementor-element-45617a91 img {
     width: 100% !important;
-    height: auto !important;
-    max-height: none !important;
-    aspect-ratio: auto !important;
-    object-fit: contain !important;
-    border-radius: var(--radius-card) !important;
-    border: 1px solid var(--border-warm) !important;
-    box-shadow: 0 12px 36px rgba(52, 75, 53, 0.12) !important;
+    max-width: 500px !important;
+    height: 420px !important;
+    max-height: 420px !important;
+    object-fit: cover !important;
+    border-radius: 20px !important;
+    border: 2px solid rgba(185, 154, 101, 0.45) !important;
+    outline: 5px solid rgba(185, 154, 101, 0.12) !important;
+    outline-offset: 5px !important;
+    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.4), 0 4px 16px rgba(185, 154, 101, 0.2) !important;
     display: block !important;
+    margin: 0 auto !important;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.elementor-element-6fa6aad4 img:hover,
+.elementor-element-63a15db4 img:hover,
+.elementor-element-2fa2f402 img:hover {
+    transform: translateY(-5px) scale(1.02) !important;
+    border-color: rgba(184, 111, 72, 0.75) !important;
+    box-shadow: 0 28px 60px rgba(0, 0, 0, 0.5), 0 6px 20px rgba(184, 111, 72, 0.3) !important;
 }
 
 /* 6. Multi-Column Grids */
@@ -803,6 +818,17 @@ a.e-button-base:hover,
     .elementor-element-1684f3ed,
     .elementor-element-3e7fe74,
     .elementor-element-7566eaa { grid-template-columns: 1fr !important; }
+
+    .elementor-element-6fa6aad4 img,
+    .elementor-element-63a15db4 img,
+    .elementor-element-2fa2f402 img,
+    .elementor-element-46ceb09d img,
+    .elementor-element-73ce952f img,
+    .elementor-element-45617a91 img {
+        max-height: 280px !important;
+        height: 280px !important;
+        max-width: 100% !important;
+    }
 
     .elementor-element-23ac47f2,
     .elementor-element-6198878,
@@ -1558,23 +1584,49 @@ html body .elementor-element h3 {
     /* Allow inheritance — only override where explicitly needed below */
 }
 
-/* Force any heading inside a cream/white Elementor container to be forest green */
-html body .e-con[style*="background"],
-html body .e-con-inner {
-    /* Passthrough — just ensure children inherit */
-}
-
-html body .e-con > * > h2,
-html body .e-con > * > h3,
-html body .e-con-inner > h2,
-html body .e-con-inner > h3 {
+/* ---- FIX 2b: Targeted reservation CTA text contrast ---- */
+/* Scope ONLY to the reservation CTA card container */
+html body .elementor-element-490cc535 h2,
+html body .elementor-element-d5f04e3-449b h2,
+html body .elementor-element-720a8162-46b9,
+html body .elementor-inner-section h2 {
     color: #344B35 !important;
     font-family: 'Marcellus', Georgia, serif !important;
 }
 
-html body .e-con > * > p,
-html body .e-con-inner > p {
+html body .elementor-element-490cc535 p,
+html body .elementor-element-d5f04e3-449b p,
+html body .elementor-element-695df8b-2bdc,
+html body .elementor-inner-section p {
     color: #555347 !important;
+}
+
+/* ---- FIX 2c: HERO SUBTITLES ACROSS ALL PAGES — 100% LUMINOUS & HIGH CONTRAST ---- */
+html body .elementor-element-38e8dde3 p,
+html body .elementor-element-ef9390b p,
+html body .elementor-element-3ebb97ea p,
+html body .elementor-element-64872607 p,
+html body .elementor-element-4f91ffee p,
+html body .elementor-element-2e926034 p,
+html body .elementor-element-38e8dde3 .e-paragraph-base,
+html body .elementor-element-ef9390b .e-paragraph-base,
+html body .elementor-element-3ebb97ea .e-paragraph-base,
+html body .elementor-element-64872607 .e-paragraph-base,
+html body .elementor-element-4f91ffee .e-paragraph-base,
+html body .elementor-element-2e926034 .e-paragraph-base,
+html body .elementor-element-38e8dde3 .e-55ddd3e7-f380,
+html body .e-55ddd3e7-f380 {
+    color: #FFFCF5 !important;
+    font-size: 1.25rem !important;
+    line-height: 1.85 !important;
+    font-weight: 400 !important;
+    max-width: 760px !important;
+    margin: 0 auto 2rem auto !important;
+    text-align: center !important;
+    display: block !important;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.75), 0 1px 3px rgba(0, 0, 0, 0.9) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
 }
 
 /* ---- FIX 3: Full-Width Sections — No side gaps ---- */
