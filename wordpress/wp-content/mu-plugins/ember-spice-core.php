@@ -49,6 +49,11 @@ class EmberSpiceCore {
         // Inject critical layout and full-size image overrides at the very end of head
         add_action('wp_head', [$this, 'print_critical_head_styles'], 999999);
 
+        // Image accuracy filter for Awadhi Galouti Kebab across all frontend outputs
+        add_filter('the_content', [$this, 'filter_accurate_dish_images'], 9999);
+        add_filter('elementor/frontend/the_content', [$this, 'filter_accurate_dish_images'], 9999);
+        add_filter('elementor/widget/render_content', [$this, 'filter_accurate_dish_images'], 9999);
+
         // AJAX handlers
         add_action('wp_ajax_ember_spice_reservation', [$this, 'handle_reservation']);
         add_action('wp_ajax_nopriv_ember_spice_reservation', [$this, 'handle_reservation']);
@@ -190,10 +195,10 @@ class EmberSpiceCore {
     }
 
     public function enqueue_assets() {
-        // Google Fonts
+        // Google Fonts: Marcellus (Royal Restaurant Display), Cormorant Garamond (Editorial Accents), Plus Jakarta Sans (Modern Clean UI)
         wp_enqueue_style(
             'ember-spice-google-fonts',
-            'https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap',
+            'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Marcellus&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap',
             [],
             null
         );
@@ -214,6 +219,24 @@ class EmberSpiceCore {
             'ajax_url' => admin_url('admin-ajax.php'),
             'nonce' => wp_create_nonce('ember_spice_action_nonce')
         ]);
+    }
+
+    /**
+     * Replaces inaccurate dish imagery with authentic high-resolution Awadhi culinary photos
+     */
+    public function filter_accurate_dish_images($content) {
+        if (empty($content) || !is_string($content)) {
+            return $content;
+        }
+        // Replace inaccurate chicken image with authentic Awadhi Galouti Kebab image
+        if (strpos($content, 'photo-1599488615731-7e5c2823ff28') !== false && (strpos($content, '7658a4a0') !== false || strpos($content, '645f1f1a') !== false || strpos($content, 'Galouti') !== false)) {
+            $content = str_replace(
+                'photo-1599488615731-7e5c2823ff28',
+                'photo-1771285119408-04cca3b35036',
+                $content
+            );
+        }
+        return $content;
     }
 
     /**
@@ -344,11 +367,13 @@ class EmberSpiceCore {
         html body .elementor-element-28d62019 .e-heading-base,
         html body .elementor-element-33142ffa .e-heading-base,
         html body .elementor-element-627ec02f .e-heading-base {
-            font-size: 1.35rem !important;
+            font-family: 'Marcellus', 'Playfair Display', Georgia, serif !important;
+            font-size: 1.4rem !important;
             color: #344B35 !important;
             margin-bottom: 0.85rem !important;
             display: block !important;
             width: 100% !important;
+            letter-spacing: 0.2px !important;
         }
 
         html body .elementor-element-4572bed3 .e-paragraph-base,
@@ -366,9 +391,10 @@ class EmberSpiceCore {
         html body .elementor-element-28d62019 .e-paragraph-base,
         html body .elementor-element-33142ffa .e-paragraph-base,
         html body .elementor-element-627ec02f .e-paragraph-base {
-            color: #777568 !important;
+            font-family: 'Plus Jakarta Sans', sans-serif !important;
+            color: #555347 !important;
             font-size: 0.95rem !important;
-            line-height: 1.7 !important;
+            line-height: 1.75 !important;
             margin-bottom: 0 !important;
             display: block !important;
             width: 100% !important;
@@ -413,7 +439,7 @@ class EmberSpiceCore {
             margin: 2.5rem auto !important;
         }
 
-        /* 7. Dish Cards on Home Page */
+        /* 7. Signature Dish Cards on Home Page — Art-Directed Culinary Bento Presentation */
         html body .elementor-element-7dc084fb,
         html body .elementor-element-5e2546a8,
         html body .elementor-element-59d4bbff,
@@ -423,9 +449,36 @@ class EmberSpiceCore {
             display: flex !important;
             flex-direction: column !important;
             background: #FFFCF5 !important;
-            border: 1px solid rgba(120, 133, 104, 0.25) !important;
-            border-radius: 12px !important;
+            border: 1px solid rgba(120, 133, 104, 0.28) !important;
+            border-radius: 16px !important;
             overflow: hidden !important;
+            box-shadow: 0 4px 20px rgba(52, 75, 53, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04) !important;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+            position: relative !important;
+        }
+
+        html body .elementor-element-7dc084fb:hover,
+        html body .elementor-element-5e2546a8:hover,
+        html body .elementor-element-59d4bbff:hover,
+        html body .elementor-element-12ede85c:hover,
+        html body .elementor-element-7658a4a0:hover,
+        html body .elementor-element-56120651:hover {
+            transform: translateY(-8px) !important;
+            border-color: rgba(184, 111, 72, 0.5) !important;
+            box-shadow: 0 20px 42px rgba(52, 75, 53, 0.14), 0 2px 10px rgba(184, 111, 72, 0.08) !important;
+        }
+
+        /* Image frame with smooth zoom on card hover */
+        html body .elementor-element-7dc084fb .e-image,
+        html body .elementor-element-5e2546a8 .e-image,
+        html body .elementor-element-59d4bbff .e-image,
+        html body .elementor-element-12ede85c .e-image,
+        html body .elementor-element-7658a4a0 .e-image,
+        html body .elementor-element-56120651 .e-image {
+            overflow: hidden !important;
+            position: relative !important;
+            height: 240px !important;
+            background: #F4EEDC !important;
         }
 
         html body .elementor-element-7dc084fb img,
@@ -435,13 +488,29 @@ class EmberSpiceCore {
         html body .elementor-element-7658a4a0 img,
         html body .elementor-element-56120651 img {
             width: 100% !important;
-            height: 220px !important;
+            height: 240px !important;
             object-fit: cover !important;
             border: none !important;
-            border-radius: 12px 12px 0 0 !important;
+            border-radius: 0 !important;
             display: block !important;
+            transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1) !important;
         }
 
+        /* Accurate Galouti Kebab image replacement guarantee */
+        html body .elementor-element-7658a4a0 img {
+            content: url('https://images.unsplash.com/photo-1771285119408-04cca3b35036?auto=format&fit=crop&w=800&q=85') !important;
+        }
+
+        html body .elementor-element-7dc084fb:hover img,
+        html body .elementor-element-5e2546a8:hover img,
+        html body .elementor-element-59d4bbff:hover img,
+        html body .elementor-element-12ede85c:hover img,
+        html body .elementor-element-7658a4a0:hover img,
+        html body .elementor-element-56120651:hover img {
+            transform: scale(1.07) !important;
+        }
+
+        /* Card Content Area */
         html body .elementor-element-7a2a74cc,
         html body .elementor-element-ddccc8b,
         html body .elementor-element-25bfb990,
@@ -450,8 +519,141 @@ class EmberSpiceCore {
         html body .elementor-element-3c42c24c {
             display: flex !important;
             flex-direction: column !important;
-            padding: 1.5rem !important;
+            padding: 1.75rem 1.75rem 2rem !important;
             flex-grow: 1 !important;
+            background: #FFFCF5 !important;
+            text-align: left !important;
+            position: relative !important;
+        }
+
+        /* Section Headings & Eyebrow */
+        html body .elementor-element-51e5f1d h4,
+        html body .elementor-element-51e5f1d .e-heading-base {
+            font-family: 'Plus Jakarta Sans', sans-serif !important;
+            font-size: 0.88rem !important;
+            font-weight: 700 !important;
+            letter-spacing: 4px !important;
+            color: #B86F48 !important;
+            text-align: center !important;
+            text-transform: uppercase !important;
+            margin-bottom: 0.5rem !important;
+        }
+
+        html body .elementor-element-34d946b2 h2,
+        html body .elementor-element-34d946b2 .e-heading-base {
+            font-family: 'Marcellus', Georgia, serif !important;
+            font-size: 3rem !important;
+            font-weight: 500 !important;
+            color: #344B35 !important;
+            text-align: center !important;
+            margin-bottom: 1.25rem !important;
+            letter-spacing: 0.5px !important;
+        }
+
+        html body .elementor-element-56360c49 p,
+        html body .elementor-element-56360c49 .e-paragraph-base {
+            font-family: 'Plus Jakarta Sans', sans-serif !important;
+            font-size: 1.15rem !important;
+            color: #615F52 !important;
+            text-align: center !important;
+            max-width: 720px !important;
+            margin: 0 auto 3.5rem auto !important;
+            line-height: 1.8 !important;
+        }
+
+        /* DISH CARD TITLE — 100% VISIBLE, HIGH CONTRAST, LUXURY RESTAURANT SERIF */
+        html body .elementor-element-7dc084fb h3,
+        html body .elementor-element-5e2546a8 h3,
+        html body .elementor-element-59d4bbff h3,
+        html body .elementor-element-12ede85c h3,
+        html body .elementor-element-7658a4a0 h3,
+        html body .elementor-element-56120651 h3,
+        html body .elementor-element-7dc084fb .e-heading-base,
+        html body .elementor-element-5e2546a8 .e-heading-base,
+        html body .elementor-element-59d4bbff .e-heading-base,
+        html body .elementor-element-12ede85c .e-heading-base,
+        html body .elementor-element-7658a4a0 .e-heading-base,
+        html body .elementor-element-56120651 .e-heading-base,
+        html body .elementor-element-66f7399d .e-heading-base,
+        html body .elementor-element-24058366 .e-heading-base,
+        html body .elementor-element-1e17fe01 .e-heading-base,
+        html body .elementor-element-515780ae .e-heading-base,
+        html body .elementor-element-e35b89a .e-heading-base,
+        html body .elementor-element-59770d16 .e-heading-base,
+        html body .elementor-element-66f7399d h3,
+        html body .elementor-element-24058366 h3,
+        html body .elementor-element-1e17fe01 h3,
+        html body .elementor-element-515780ae h3,
+        html body .elementor-element-e35b89a h3,
+        html body .elementor-element-59770d16 h3 {
+            font-family: 'Marcellus', 'Playfair Display', Georgia, serif !important;
+            font-size: 1.45rem !important;
+            font-weight: 600 !important;
+            color: #344B35 !important; /* Rich Forest Green — 100% visible and readable */
+            line-height: 1.35 !important;
+            margin: 0 0 0.5rem 0 !important;
+            padding: 0 !important;
+            display: block !important;
+            letter-spacing: 0.2px !important;
+        }
+
+        /* DISH CARD PRICE & DIETARY BADGE */
+        html body .elementor-element-7dc084fb h6,
+        html body .elementor-element-5e2546a8 h6,
+        html body .elementor-element-59d4bbff h6,
+        html body .elementor-element-12ede85c h6,
+        html body .elementor-element-7658a4a0 h6,
+        html body .elementor-element-56120651 h6,
+        html body .elementor-element-116cd7c7 .e-heading-base,
+        html body .elementor-element-538d8e49 .e-heading-base,
+        html body .elementor-element-54d45709 .e-heading-base,
+        html body .elementor-element-debd4c0 .e-heading-base,
+        html body .elementor-element-6f67f8a6 .e-heading-base,
+        html body .elementor-element-58113816 .e-heading-base,
+        html body .elementor-element-116cd7c7 h6,
+        html body .elementor-element-538d8e49 h6,
+        html body .elementor-element-54d45709 h6,
+        html body .elementor-element-debd4c0 h6,
+        html body .elementor-element-6f67f8a6 h6,
+        html body .elementor-element-58113816 h6 {
+            font-family: 'Plus Jakarta Sans', sans-serif !important;
+            font-size: 0.95rem !important;
+            font-weight: 700 !important;
+            color: #B86F48 !important; /* Earthy Terracotta */
+            letter-spacing: 1px !important;
+            text-transform: uppercase !important;
+            margin: 0 0 0.85rem 0 !important;
+            padding-bottom: 0.65rem !important;
+            border-bottom: 1px solid rgba(120, 133, 104, 0.18) !important;
+            display: block !important;
+            line-height: 1.4 !important;
+        }
+
+        /* DISH CARD DESCRIPTION — CRISP, READABLE CONTRAST */
+        html body .elementor-element-7dc084fb p,
+        html body .elementor-element-5e2546a8 p,
+        html body .elementor-element-59d4bbff p,
+        html body .elementor-element-12ede85c p,
+        html body .elementor-element-7658a4a0 p,
+        html body .elementor-element-56120651 p,
+        html body .elementor-element-49d2fee p,
+        html body .elementor-element-1bdb672e p,
+        html body .elementor-element-7298416 p,
+        html body .elementor-element-4d9af484 p,
+        html body .elementor-element-40bb635a p,
+        html body .elementor-element-6bbbef8d p,
+        html body .elementor-element-49d2fee .e-paragraph-base,
+        html body .elementor-element-1bdb672e .e-paragraph-base,
+        html body .elementor-element-7298416 .e-paragraph-base,
+        html body .elementor-element-4d9af484 .e-paragraph-base,
+        html body .elementor-element-40bb635a .e-paragraph-base,
+        html body .elementor-element-6bbbef8d .e-paragraph-base {
+            font-family: 'Plus Jakarta Sans', sans-serif !important;
+            font-size: 0.92rem !important;
+            color: #555347 !important; /* High contrast, comfortable readable neutral */
+            line-height: 1.75 !important;
+            margin: 0 !important;
+            display: block !important;
         }
 
         /* 8. Hero Sections Across All Pages — Grand Full-Width Photographic Banners (Like Blog Example) */
@@ -552,7 +754,7 @@ class EmberSpiceCore {
         html body .elementor-element-4f91ffee .e-heading-base h1,
         html body .elementor-element-2e926034 .e-heading-base h1 {
             color: #FFFCF5 !important;
-            font-family: 'Playfair Display', Georgia, serif !important;
+            font-family: 'Marcellus', 'Cormorant Garamond', Georgia, serif !important;
             font-size: 3.5rem !important;
             margin-bottom: 1.25rem !important;
             line-height: 1.2 !important;
@@ -1178,8 +1380,8 @@ class EmberSpiceCore {
                 'items' => [
                     // Fish tikka: crispy spiced fish fillet
                     ['name' => 'Amritsari Machhi Tikka', 'type' => 'nonveg', 'price' => 545, 'desc' => 'Crispy river sole fillets marinated in crushed ajwain, yellow mustard and spiced gram flour.', 'img' => 'https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=600&q=80'],
-                    // Galouti kebab: minced meat patties on plate
-                    ['name' => 'Galouti Kebab Sliders', 'type' => 'nonveg', 'price' => 595, 'desc' => 'Melt-in-mouth smoked lamb patties infused with 32 royal Awadhi spices, served on saffron sheermal.', 'img' => 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=600&q=80'],
+                    // Galouti kebab: authentic Awadhi royal minced lamb patties on platter
+                    ['name' => 'Awadhi Galouti Kebab', 'type' => 'nonveg', 'price' => 595, 'desc' => 'Melt-in-mouth smoked lamb patties infused with 32 royal Awadhi spices, served on saffron sheermal with mint chutney and pickled onions.', 'img' => 'https://images.unsplash.com/photo-1771285119408-04cca3b35036?auto=format&fit=crop&w=800&q=85'],
                     // Murgh Malai Tikka: creamy white chicken kebab
                     ['name' => 'Murgh Malai Tikka', 'type' => 'nonveg', 'price' => 495, 'desc' => 'Tender chicken cubes bathed in rich mascarpone, cardamom, green chilies and toasted cashews.', 'img' => 'https://images.unsplash.com/photo-1599488615731-7e5c2823ff28?auto=format&fit=crop&w=600&q=80']
                 ]
@@ -1571,13 +1773,13 @@ class EmberSpiceCore {
             ?>
             <section style="min-height: 48vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 5rem 2rem; background: linear-gradient(rgba(52, 75, 53, 0.78), rgba(52, 75, 53, 0.90)), url('https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat; border-bottom: 1px solid rgba(120, 133, 104, 0.25);">
                 <span style="color: #B99A65; font-size: 1rem; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 1rem; font-weight: 600;">STORIES OF FIRE &amp; HERITAGE</span>
-                <h1 style="color: #FFFCF5; font-family: 'Playfair Display', Georgia, serif; font-size: 3.5rem; margin-bottom: 1.25rem;">The Ember Journal</h1>
-                <p style="color: rgba(255, 252, 245, 0.85); font-size: 1.25rem; max-width: 680px; line-height: 1.8; margin: 0 auto;">Explore the deep-rooted secrets, regional gastronomic histories, and ancient cooking techniques that shape our daily culinary repertoire.</p>
+                <h1 style="color: #FFFCF5; font-family: 'Marcellus', 'Cormorant Garamond', Georgia, serif; font-size: 3.5rem; margin-bottom: 1.25rem;">The Ember Journal</h1>
+                <p style="color: rgba(255, 252, 245, 0.85); font-size: 1.25rem; max-width: 680px; line-height: 1.8; margin: 0 auto; font-family: 'Plus Jakarta Sans', sans-serif;">Explore the deep-rooted secrets, regional gastronomic histories, and ancient cooking techniques that shape our daily culinary repertoire.</p>
             </section>
 
             <section style="padding: 4rem 2rem 1.5rem; background-color: var(--natural-cream); text-align: center;">
                 <span style="color: #B86F48; font-size: 0.85rem; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 0.5rem; font-weight: 700;">FEATURED STORIES</span>
-                <h2 style="color: #344B35; font-family: 'Playfair Display', Georgia, serif; font-size: 2.75rem; margin-bottom: 1rem;">Essays from Our Kitchen Hearth</h2>
+                <h2 style="color: #344B35; font-family: 'Marcellus', 'Cormorant Garamond', Georgia, serif; font-size: 2.75rem; margin-bottom: 1rem;">Essays from Our Kitchen Hearth</h2>
                 <p style="color: #777568; font-size: 1.15rem; max-width: 720px; margin: 0 auto; line-height: 1.8;">Delve into the soul of Indian gastronomy with insights, recipes, and heritage chronicles written by our master chefs and spice purveyors.</p>
             </section>
 
@@ -1620,7 +1822,7 @@ class EmberSpiceCore {
                     <div style="color: #B86F48; font-size: 0.9rem; letter-spacing: 3px; text-transform: uppercase; font-weight: 700; margin-bottom: 1rem;">
                         CULINARY HERITAGE • <?php echo get_the_date('F d, Y', $post); ?>
                     </div>
-                    <h1 style="color: #FFFCF5; font-family: 'Playfair Display', Georgia, serif; font-size: 3.25rem; max-width: 900px; margin: 0 auto 1.5rem; line-height: 1.2;">
+                    <h1 style="color: #FFFCF5; font-family: 'Marcellus', 'Cormorant Garamond', Georgia, serif; font-size: 3.25rem; max-width: 900px; margin: 0 auto 1.5rem; line-height: 1.2;">
                         <?php echo esc_html($post->post_title); ?>
                     </h1>
                     <div style="color: #B99A65; font-size: 1rem; font-style: italic;">

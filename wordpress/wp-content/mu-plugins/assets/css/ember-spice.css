@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Marcellus&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
 /* ==========================================================================
    EMBER SPICE — NATURAL ORGANIC FARM-TO-TABLE DESIGN SYSTEM
    Palette: Forest Green #344B35, Sage #788568, Cream #F4EEDC,
@@ -16,7 +18,7 @@
     --wheat-gold:       #B99A65;
     --wheat-gold-hover: #CDB07C;
     --natural-brown:    #806B52;
-    --muted-text:       #777568;
+    --muted-text:       #555347;
     --body-text:        #2A2C24;
 
     /* Semantic Aliases */
@@ -26,12 +28,13 @@
     --text-secondary:   var(--muted-text);
     --accent-primary:   var(--terracotta);
     --accent-secondary: var(--wheat-gold);
-    --border-subtle:    rgba(120, 133, 104, 0.25);
+    --border-subtle:    rgba(120, 133, 104, 0.28);
     --border-warm:      rgba(185, 154, 101, 0.4);
 
-    /* Typography */
-    --font-heading: 'Playfair Display', Georgia, serif;
-    --font-body:    'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    /* Typography — Luxury Gastronomic Identity */
+    --font-heading:   'Marcellus', 'Cormorant Garamond', Georgia, serif;
+    --font-editorial: 'Cormorant Garamond', Georgia, serif;
+    --font-body:      'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
 
     /* Effects */
     --transition-smooth: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
@@ -921,28 +924,28 @@ p.e-paragraph-base,
 }
 
 /* ==========================================================================
-   CARDS & FOOD ITEMS — Warm-white surfaces, sage borders
+   CARDS & FOOD ITEMS — Art-Directed Culinary Bento Presentation
    ========================================================================== */
 .ember-card {
     background: var(--warm-white);
     border: 1px solid var(--border-subtle);
-    border-radius: var(--radius-card);
+    border-radius: 16px;
     overflow: hidden;
-    transition: var(--transition-smooth);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     position: relative;
-    box-shadow: var(--shadow-card);
+    box-shadow: 0 4px 20px rgba(52, 75, 53, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 
 .ember-card:hover {
-    border-color: var(--sage-green);
-    transform: translateY(-6px);
-    box-shadow: var(--shadow-hover);
+    border-color: rgba(184, 111, 72, 0.5);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 42px rgba(52, 75, 53, 0.14), 0 2px 10px rgba(184, 111, 72, 0.08);
 }
 
 .ember-card-img-wrapper {
     position: relative;
     overflow: hidden;
-    height: 240px;
+    height: 250px;
     background: var(--natural-cream);
 }
 
@@ -950,49 +953,54 @@ p.e-paragraph-base,
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.ember-card:hover .ember-card-img { transform: scale(1.06); }
+.ember-card:hover .ember-card-img {
+    transform: scale(1.07);
+}
 
 .ember-badge-veg,
 .ember-badge-nonveg {
     position: absolute;
     top: 14px;
     left: 14px;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     gap: 6px;
-    padding: 4px 10px;
-    border-radius: 4px;
-    font-size: 0.75rem;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.76rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
-    backdrop-filter: blur(8px);
+    letter-spacing: 0.6px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    z-index: 2;
 }
 
 .ember-badge-veg {
-    background: rgba(52, 75, 53, 0.88);
-    color: #c8e6c9;
-    border: 1px solid rgba(120, 133, 104, 0.6);
+    background: rgba(52, 75, 53, 0.92);
+    color: #e8f5e9;
+    border: 1px solid rgba(165, 214, 167, 0.45);
 }
 
 .ember-badge-veg:before {
     content: '●';
-    color: #a5d6a7;
-    font-size: 12px;
+    color: #81c784;
+    font-size: 11px;
 }
 
 .ember-badge-nonveg {
-    background: rgba(184, 111, 72, 0.88);
-    color: #fbe9e7;
-    border: 1px solid rgba(184, 111, 72, 0.6);
+    background: rgba(184, 111, 72, 0.94);
+    color: #fff5f0;
+    border: 1px solid rgba(255, 204, 188, 0.45);
 }
 
 .ember-badge-nonveg:before {
     content: '▲';
-    color: #ffccbc;
+    color: #ffab91;
     font-size: 10px;
 }
 
@@ -1000,30 +1008,41 @@ p.e-paragraph-base,
     position: absolute;
     top: 14px;
     right: 14px;
-    background: rgba(255, 252, 245, 0.92);
+    background: rgba(255, 252, 245, 0.95);
     color: var(--forest-green);
     font-family: var(--font-heading);
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     font-weight: 700;
-    padding: 4px 12px;
-    border-radius: 4px;
+    padding: 4px 14px;
+    border-radius: 20px;
     border: 1px solid var(--border-warm);
-    backdrop-filter: blur(6px);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 4px 12px rgba(52, 75, 53, 0.08);
+    z-index: 2;
+    letter-spacing: 0.3px;
 }
 
-.ember-card-body { padding: 1.75rem; }
+.ember-card-body {
+    padding: 1.75rem 1.75rem 2rem;
+    background: var(--warm-white);
+}
 
 .ember-card-title {
-    font-size: 1.3rem;
+    font-family: var(--font-heading);
+    font-size: 1.45rem;
+    font-weight: 600;
     margin-bottom: 0.5rem;
     color: var(--forest-green);
+    letter-spacing: 0.2px;
+    line-height: 1.35;
 }
 
 .ember-card-desc {
-    color: var(--muted-text);
-    font-size: 0.95rem;
-    margin-bottom: 1.25rem;
-    line-height: 1.6;
+    color: #555347;
+    font-size: 0.93rem;
+    margin-bottom: 0;
+    line-height: 1.75;
 }
 
 /* ==========================================================================
@@ -1033,28 +1052,39 @@ p.e-paragraph-base,
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 0.75rem;
+    gap: 0.85rem;
     margin-bottom: 3.5rem;
+    padding: 0.5rem;
 }
 
 .ember-menu-tab-btn {
     background: var(--warm-white);
-    border: 1px solid var(--border-subtle);
-    color: var(--body-text);
-    padding: 0.7rem 1.4rem;
+    border: 1px solid rgba(120, 133, 104, 0.28);
+    color: var(--forest-green);
+    padding: 0.75rem 1.6rem;
     border-radius: 30px;
-    font-size: 0.88rem;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
     font-weight: 600;
+    letter-spacing: 0.4px;
     cursor: pointer;
-    transition: var(--transition-smooth);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 2px 8px rgba(52, 75, 53, 0.04);
 }
 
-.ember-menu-tab-btn:hover,
+.ember-menu-tab-btn:hover {
+    border-color: var(--terracotta);
+    color: var(--terracotta);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(184, 111, 72, 0.12);
+}
+
 .ember-menu-tab-btn.is-active {
     background: var(--forest-green);
-    color: var(--warm-white);
+    color: #FFFCF5;
     border-color: var(--forest-green);
-    box-shadow: 0 4px 14px rgba(52, 75, 53, 0.2);
+    box-shadow: 0 6px 20px rgba(52, 75, 53, 0.22);
+    transform: translateY(-2px);
 }
 
 .ember-menu-category { margin-bottom: 4rem; }
