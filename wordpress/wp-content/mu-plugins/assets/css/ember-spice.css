@@ -1,125 +1,314 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Marcellus&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
-
 /* ==========================================================================
-   EMBER SPICE — NATURAL ORGANIC FARM-TO-TABLE DESIGN SYSTEM
-   Palette: Forest Green #344B35, Sage #788568, Cream #F4EEDC,
-            Warm White #FFFCF5, Terracotta #B86F48, Wheat Gold #B99A65,
-            Natural Brown #806B52, Muted Text #777568, Body Text #2A2C24
+   EMBER SPICE — ASTRA-INSPIRED LUXURY RESTAURANT DESIGN SYSTEM
+   Authentic Indian Dining | Comprehensive Site-Wide Styling
    ========================================================================== */
 
+/* --------------------------------------------------------------------------
+   1. DESIGN TOKENS & CSS VARIABLES
+   -------------------------------------------------------------------------- */
 :root {
-    /* Core Palette */
-    --forest-green:     #344B35;
-    --sage-green:       #788568;
-    --natural-cream:    #F4EEDC;
-    --warm-white:       #FFFCF5;
-    --terracotta:       #B86F48;
-    --terracotta-hover: #A05E39;
-    --wheat-gold:       #B99A65;
-    --wheat-gold-hover: #CDB07C;
-    --natural-brown:    #806B52;
-    --muted-text:       #555347;
-    --body-text:        #2A2C24;
-
-    /* Semantic Aliases */
-    --bg-page:          var(--natural-cream);
-    --bg-card:          var(--warm-white);
-    --text-primary:     var(--body-text);
-    --text-secondary:   var(--muted-text);
-    --accent-primary:   var(--terracotta);
-    --accent-secondary: var(--wheat-gold);
-    --border-subtle:    rgba(120, 133, 104, 0.28);
-    --border-warm:      rgba(185, 154, 101, 0.4);
-
-    /* Typography — Luxury Gastronomic Identity */
-    --font-heading:   'Marcellus', 'Cormorant Garamond', Georgia, serif;
-    --font-editorial: 'Cormorant Garamond', Georgia, serif;
-    --font-body:      'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-
-    /* Effects */
-    --transition-smooth: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
-    --shadow-card:  0 4px 20px rgba(52, 75, 53, 0.08);
-    --shadow-hover: 0 12px 36px rgba(52, 75, 53, 0.14), 0 2px 8px rgba(184, 111, 72, 0.08);
-    --radius-card:  12px;
-    --radius-btn:   6px;
+    /* Brand Palette */
+    --forest-green: #243525;
+    --forest-green-dark: #19251a;
+    --forest-green-light: #344B35;
+    --hearth-charcoal: #151A15;
+    --hearth-charcoal-card: #1D231D;
+    
+    --terracotta: #B86F48;
+    --terracotta-hover: #9F5A35;
+    --terracotta-light: rgba(184, 111, 72, 0.12);
+    
+    --warm-cream: #F6F2E9;
+    --warm-cream-dark: #ECE5D6;
+    --warm-white: #FFFFFF;
+    --surface-light: #FFFCF6;
+    
+    --wheat-gold: #B99A65;
+    --wheat-gold-light: rgba(185, 154, 101, 0.18);
+    
+    /* Typography Colors */
+    --text-primary-light: #24261F;
+    --text-secondary-light: #5A5D4F;
+    --text-muted-light: #7E8273;
+    
+    --text-primary-dark: #FFFFFF;
+    --text-secondary-dark: rgba(255, 252, 245, 0.90);
+    --text-muted-dark: rgba(255, 252, 245, 0.70);
+    
+    /* Borders & Accents */
+    --border-light: rgba(120, 133, 104, 0.20);
+    --border-dark: rgba(185, 154, 101, 0.30);
+    --border-gold: rgba(185, 154, 101, 0.50);
+    
+    /* Shadows */
+    --shadow-subtle: 0 4px 16px rgba(0, 0, 0, 0.05);
+    --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.08);
+    --shadow-hover: 0 16px 38px rgba(0, 0, 0, 0.14);
+    --shadow-dark: 0 18px 45px rgba(0, 0, 0, 0.40);
+    
+    /* Border Radii */
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 16px;
+    --radius-full: 9999px;
+    
+    /* Typography */
+    --font-heading: 'Marcellus', 'Cormorant Garamond', Georgia, serif;
+    --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    
+    /* Container Widths */
+    --container-max: 1200px;
+    --container-narrow: 820px;
+    --container-wide: 1360px;
+    
+    /* Spacing Scale */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2.5rem;
+    --spacing-xl: 4rem;
+    --spacing-xxl: 5.5rem;
 }
 
-/* Global Reset & Base */
-html {
-    scroll-behavior: smooth;
+/* --------------------------------------------------------------------------
+   2. GLOBAL BASE STYLES & RESET
+   -------------------------------------------------------------------------- */
+*, *::before, *::after {
     box-sizing: border-box;
 }
 
-*, *:before, *:after {
-    box-sizing: inherit;
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-    background-color: var(--natural-cream) !important;
-    color: var(--body-text) !important;
-    font-family: var(--font-body) !important;
-    font-size: 16px;
-    line-height: 1.7;
     margin: 0;
     padding: 0;
+    background-color: var(--warm-cream);
+    color: var(--text-primary-light);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1.75;
     overflow-x: hidden;
-    -webkit-font-smoothing: antialiased;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-heading) !important;
-    color: var(--forest-green);
-    font-weight: 700;
-    line-height: 1.25;
-    margin-top: 0;
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
 
 a {
     color: var(--terracotta);
     text-decoration: none;
-    transition: var(--transition-smooth);
+    transition: color 0.25s ease, opacity 0.25s ease;
 }
 
 a:hover {
     color: var(--terracotta-hover);
 }
 
-/* Scrollbar */
-::-webkit-scrollbar { width: 10px; }
-::-webkit-scrollbar-track { background: var(--natural-cream); }
-::-webkit-scrollbar-thumb {
-    background: var(--sage-green);
-    border-radius: 5px;
-    border: 2px solid var(--natural-cream);
+/* --------------------------------------------------------------------------
+   3. ASTRA-INSPIRED TYPOGRAPHY SYSTEM
+   -------------------------------------------------------------------------- */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    color: var(--forest-green);
+    font-weight: 500;
+    line-height: 1.25;
+    margin-top: 0;
+    letter-spacing: 0.3px;
 }
-::-webkit-scrollbar-thumb:hover { background: var(--forest-green); }
 
-/* ==========================================================================
-   NAVIGATION HEADER — Warm white frosted navbar
-   ========================================================================== */
+h1 {
+    font-size: 3.5rem;
+    line-height: 1.18;
+}
+
+h2 {
+    font-size: 2.6rem;
+    line-height: 1.25;
+}
+
+h3 {
+    font-size: 1.5rem;
+    line-height: 1.35;
+}
+
+h4 {
+    font-size: 1.25rem;
+    line-height: 1.4;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 1.25rem;
+}
+
+/* Eyebrow / Section Category Tag */
+.ember-eyebrow,
+.e-heading-base:first-child:not(h1):not(h2) {
+    font-family: var(--font-body) !important;
+    font-size: 0.85rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 3.5px !important;
+    text-transform: uppercase !important;
+    color: var(--wheat-gold) !important;
+    margin-bottom: 0.75rem !important;
+    display: inline-block !important;
+}
+
+/* --------------------------------------------------------------------------
+   4. ASTRA CONTAINER & LAYOUT SYSTEM
+   -------------------------------------------------------------------------- */
+/* Standard Content Container */
+.ember-container,
+.elementor-con.e-parent > .e-con-inner,
+.elementor-section.elementor-section-boxed > .elementor-container {
+    width: 100% !important;
+    max-width: var(--container-max) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+    box-sizing: border-box !important;
+}
+
+/* Section Vertical Rhythm */
+section,
+.elementor-con.e-parent,
+.elementor-section {
+    padding-top: var(--spacing-xxl) !important;
+    padding-bottom: var(--spacing-xxl) !important;
+    position: relative;
+    box-sizing: border-box;
+}
+
+/* Full Width Background Spans */
+.elementor-con.e-parent,
+.elementor-section {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+/* Section Header Composition (Centered Title + Subtitle) */
+.ember-section-header {
+    text-align: center;
+    max-width: var(--container-narrow);
+    margin: 0 auto 3.5rem auto;
+}
+
+.ember-section-header h2 {
+    margin-bottom: 1rem;
+}
+
+.ember-section-header p {
+    font-size: 1.15rem;
+    color: var(--text-secondary-light);
+    line-height: 1.8;
+    margin-bottom: 0;
+}
+
+/* --------------------------------------------------------------------------
+   5. BUTTON SYSTEM (ASTRA-INSPIRED LUXURY)
+   -------------------------------------------------------------------------- */
+.ember-btn,
+.e-button-base,
+.elementor-button {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-family: var(--font-body) !important;
+    font-size: 0.92rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 1.2px !important;
+    text-transform: uppercase !important;
+    padding: 0.9rem 2.2rem !important;
+    border-radius: var(--radius-sm) !important;
+    text-decoration: none !important;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    cursor: pointer !important;
+    border: 1px solid transparent !important;
+    line-height: 1.2 !important;
+    white-space: nowrap !important;
+}
+
+/* Primary Button (Terracotta) */
+.ember-btn-primary,
+.e-button-base[href*="reserv"],
+.e-button-base[href*="menu"],
+.elementor-button {
+    background-color: var(--terracotta) !important;
+    color: #FFFFFF !important;
+    border-color: var(--terracotta) !important;
+    box-shadow: 0 4px 14px rgba(184, 111, 72, 0.28) !important;
+}
+
+.ember-btn-primary:hover,
+.e-button-base[href*="reserv"]:hover,
+.e-button-base[href*="menu"]:hover,
+.elementor-button:hover {
+    background-color: var(--terracotta-hover) !important;
+    border-color: var(--terracotta-hover) !important;
+    color: #FFFFFF !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 22px rgba(184, 111, 72, 0.40) !important;
+}
+
+/* Secondary / Outline Button */
+.ember-btn-outline {
+    background-color: transparent !important;
+    color: #FFFFFF !important;
+    border: 1.5px solid rgba(255, 252, 245, 0.75) !important;
+    box-shadow: none !important;
+}
+
+.ember-btn-outline:hover {
+    background-color: rgba(255, 252, 245, 0.12) !important;
+    border-color: #FFFFFF !important;
+    color: #FFFFFF !important;
+    transform: translateY(-2px) !important;
+}
+
+/* Small Button */
+.ember-btn-sm {
+    padding: 0.65rem 1.4rem !important;
+    font-size: 0.82rem !important;
+}
+
+/* --------------------------------------------------------------------------
+   6. HEADER & NAVBAR COMPONENT (.ember-navbar)
+   -------------------------------------------------------------------------- */
 .ember-navbar {
     position: sticky;
     top: 0;
     left: 0;
     width: 100%;
+    height: 76px;
+    background: rgba(246, 242, 233, 0.98);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(120, 133, 104, 0.15);
     z-index: 9999;
-    background: rgba(255, 252, 245, 0.96);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    border-bottom: 1px solid var(--border-subtle);
-    box-shadow: 0 2px 12px rgba(52, 75, 53, 0.07);
-    transition: var(--transition-smooth);
+    box-shadow: 0 2px 14px rgba(0, 0, 0, 0.04);
 }
 
 .ember-nav-container {
-    max-width: 1280px;
+    max-width: var(--container-max);
+    height: 100%;
     margin: 0 auto;
-    padding: 0.9rem 2rem;
+    padding: 0 1.5rem;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
 }
 
+/* Brand Logo */
 .ember-brand {
     display: flex;
     align-items: center;
@@ -131,6 +320,7 @@ a:hover {
     width: 32px;
     height: 32px;
     color: var(--terracotta);
+    flex-shrink: 0;
 }
 
 .ember-brand-text {
@@ -140,11 +330,11 @@ a:hover {
 
 .ember-brand-name {
     font-family: var(--font-heading);
-    font-size: 1.55rem;
-    font-weight: 800;
-    letter-spacing: 2px;
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: 2.5px;
     color: var(--forest-green);
-    text-transform: uppercase;
+    line-height: 1.1;
 }
 
 .ember-brand-name span {
@@ -152,42 +342,44 @@ a:hover {
 }
 
 .ember-brand-sub {
-    font-size: 0.6rem;
-    letter-spacing: 2.5px;
-    color: var(--sage-green);
-    text-transform: uppercase;
+    font-family: var(--font-body);
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+    color: var(--wheat-gold);
     font-weight: 600;
-    margin-top: -3px;
+    text-transform: uppercase;
 }
 
+/* Navigation Links */
 .ember-nav-links {
     display: flex;
     align-items: center;
+    gap: 1.8rem;
     list-style: none;
     margin: 0;
     padding: 0;
-    gap: 2rem;
 }
 
 .ember-nav-links a {
-    color: var(--body-text);
-    font-size: 0.9rem;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
     font-weight: 500;
-    letter-spacing: 0.3px;
+    color: var(--text-primary-light);
+    text-decoration: none;
     position: relative;
-    padding: 0.25rem 0;
-    transition: var(--transition-smooth);
+    padding: 0.35rem 0;
+    transition: color 0.25s ease;
 }
 
-.ember-nav-links a:after {
+.ember-nav-links a::after {
     content: '';
     position: absolute;
     bottom: 0;
     left: 0;
     width: 0;
     height: 2px;
-    background: var(--terracotta);
-    transition: var(--transition-smooth);
+    background-color: var(--terracotta);
+    transition: width 0.3s ease;
 }
 
 .ember-nav-links a:hover,
@@ -195,174 +387,155 @@ a:hover {
     color: var(--terracotta);
 }
 
-.ember-nav-links a:hover:after,
-.ember-nav-links a.active:after {
+.ember-nav-links a:hover::after,
+.ember-nav-links a.active::after {
     width: 100%;
 }
 
-.ember-nav-cta {
-    display: flex;
-    align-items: center;
-}
-
-/* Mobile Menu Toggle */
+/* Mobile Toggle Hamburger */
 .ember-mobile-toggle {
     display: none;
-    background: none;
+    background: transparent;
     border: none;
     cursor: pointer;
-    padding: 0.5rem;
-    color: var(--forest-green);
+    padding: 8px;
+    flex-direction: column;
+    gap: 5px;
+    z-index: 10001;
 }
 
 .ember-mobile-toggle span {
     display: block;
-    width: 26px;
+    width: 24px;
     height: 2px;
     background-color: var(--forest-green);
-    margin: 6px 0;
-    transition: var(--transition-smooth);
+    border-radius: 2px;
+    transition: all 0.3s ease;
 }
 
-@media (max-width: 991px) {
-    .ember-mobile-toggle { display: block; }
-
-    .ember-nav-links {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background: rgba(255, 252, 245, 0.98);
-        border-bottom: 1px solid var(--border-subtle);
-        flex-direction: column;
-        gap: 1.25rem;
-        padding: 2rem;
-        display: none;
-        box-shadow: 0 8px 24px rgba(52, 75, 53, 0.1);
-    }
-
-    .ember-nav-links.is-open { display: flex; }
-    .ember-nav-cta { display: none; }
-}
-
-/* ==========================================================================
-   BUTTONS — Terracotta primary, Sage ghost
-   ========================================================================== */
-.ember-btn,
-.e-button-base,
-button.e-button-base,
-a.e-button-base,
-.elementor-button {
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    padding: 13px 32px !important;
-    font-family: var(--font-body) !important;
-    font-size: 0.9rem !important;
-    font-weight: 600 !important;
-    letter-spacing: 1px !important;
-    text-transform: uppercase !important;
-    border-radius: var(--radius-btn) !important;
-    cursor: pointer !important;
-    transition: var(--transition-smooth) !important;
-    text-decoration: none !important;
-    border: none !important;
-    width: auto !important;
-    max-width: max-content !important;
-    align-self: center !important;
-    flex-grow: 0 !important;
-    flex-shrink: 0 !important;
-    background: var(--terracotta) !important;
-    color: #ffffff !important;
-    box-shadow: 0 4px 14px rgba(184, 111, 72, 0.25) !important;
-    line-height: 1.4 !important;
-    box-sizing: border-box !important;
-}
-
-.ember-btn:hover,
-.e-button-base:hover,
-button.e-button-base:hover,
-a.e-button-base:hover,
-.elementor-button:hover {
-    background: var(--terracotta-hover) !important;
-    color: #ffffff !important;
-    transform: translateY(-2px) !important;
-    box-shadow: 0 8px 22px rgba(184, 111, 72, 0.35) !important;
-}
-
-.ember-btn-primary {
-    background: var(--terracotta) !important;
-    color: #fff !important;
-}
-
-.ember-btn-outline,
-.e-button-outline {
-    background: transparent !important;
-    color: var(--forest-green) !important;
-    border: 2px solid var(--forest-green) !important;
-    box-shadow: none !important;
-}
-
-.ember-btn-outline:hover,
-.e-button-outline:hover {
-    background: var(--forest-green) !important;
-    color: var(--warm-white) !important;
-    transform: translateY(-2px) !important;
-    box-shadow: 0 6px 20px rgba(52, 75, 53, 0.25) !important;
-}
-
-.ember-btn-sm {
-    padding: 0.5rem 1.25rem !important;
-    font-size: 0.82rem !important;
-}
-
-.ember-btn-lg {
-    padding: 1.1rem 2.5rem !important;
-    font-size: 1rem !important;
-}
-
-/* Prevent Flex Containers from Stretching Buttons */
-.e-flexbox-base,
-.e-con {
-    box-sizing: border-box !important;
-}
-
-/* ==========================================================================
-   ELEMENTOR V4 FLEXBOX ARCHITECTURE & SPACING REPAIR
-   ========================================================================== */
-
-/* 1. Global Flexbox Defaults */
-.e-flexbox-base,
-.e-con.e-atomic-element {
-    display: flex !important;
-    flex-direction: column !important;
-    min-width: 0 !important;
-    box-sizing: border-box !important;
-}
-
-.e-flexbox-base > .e-heading-base,
-.e-flexbox-base > .e-paragraph-base,
-.e-con > .e-heading-base,
-.e-con > .e-paragraph-base {
+/* --------------------------------------------------------------------------
+   7. HERO BANNERS ACROSS ALL PAGES
+   -------------------------------------------------------------------------- */
+/* Common Hero Banner Styling */
+.elementor-element-38e8dde3, /* Home */
+.elementor-element-ef9390b,  /* About */
+.elementor-element-3ebb97ea,  /* Menu */
+.elementor-element-64872607,  /* Reservations */
+.elementor-element-4f91ffee,  /* Gallery */
+.elementor-element-2e926034 {  /* Contact */
     width: 100% !important;
     max-width: 100% !important;
-}
-
-/* 2. Horizontal Button Row Containers */
-.elementor-element-6d941c03,
-.elementor-element-15ec9579,
-.e-flexbox-base.ember-button-group {
+    min-height: 60vh !important;
     display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: wrap !important;
+    flex-direction: column !important;
     justify-content: center !important;
     align-items: center !important;
-    gap: 1.25rem !important;
-    width: 100% !important;
-    margin-top: 1.5rem !important;
+    text-align: center !important;
+    padding: 6.5rem 1.5rem 5.5rem !important;
+    position: relative !important;
+    box-sizing: border-box !important;
 }
 
-/* 3. Two-Column Split Sections */
+/* Home Hero Specific: Grand Viewport Height */
+.elementor-element-38e8dde3 {
+    min-height: 80vh !important;
+    background: linear-gradient(0deg, rgba(23, 33, 24, 0.78) 0%, rgba(20, 29, 21, 0.88) 100%),
+                url('https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=1920&q=85') center/cover no-repeat !important;
+}
+
+/* About Hero Specific */
+.elementor-element-ef9390b {
+    background: linear-gradient(0deg, rgba(23, 33, 24, 0.80) 0%, rgba(20, 29, 21, 0.90) 100%),
+                url('https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=1920&q=85') center/cover no-repeat !important;
+}
+
+/* Menu Hero Specific */
+.elementor-element-3ebb97ea {
+    background: linear-gradient(0deg, rgba(23, 33, 24, 0.80) 0%, rgba(20, 29, 21, 0.90) 100%),
+                url('https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=1920&q=85') center/cover no-repeat !important;
+}
+
+/* Reservations Hero Specific */
+.elementor-element-64872607 {
+    background: linear-gradient(0deg, rgba(23, 33, 24, 0.80) 0%, rgba(20, 29, 21, 0.90) 100%),
+                url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1920&q=85') center/cover no-repeat !important;
+}
+
+/* Gallery Hero Specific */
+.elementor-element-4f91ffee {
+    background: linear-gradient(0deg, rgba(23, 33, 24, 0.80) 0%, rgba(20, 29, 21, 0.90) 100%),
+                url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1920&q=85') center/cover no-repeat !important;
+}
+
+/* Contact Hero Specific */
+.elementor-element-2e926034 {
+    background: linear-gradient(0deg, rgba(23, 33, 24, 0.80) 0%, rgba(20, 29, 21, 0.90) 100%),
+                url('https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=1920&q=85') center/cover no-repeat !important;
+}
+
+/* Hero Typography: Pure White Luminous Hierarchy */
+.elementor-element-38e8dde3 h1,
+.elementor-element-ef9390b h1,
+.elementor-element-3ebb97ea h1,
+.elementor-element-64872607 h1,
+.elementor-element-4f91ffee h1,
+.elementor-element-2e926034 h1 {
+    color: #FFFFFF !important;
+    font-size: 3.5rem !important;
+    max-width: 900px !important;
+    margin: 0 auto 1.25rem auto !important;
+    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.8) !important;
+    line-height: 1.18 !important;
+}
+
+/* Hero Subtitle / Second Text Content */
+.elementor-element-38e8dde3 p,
+.elementor-element-ef9390b p,
+.elementor-element-3ebb97ea p,
+.elementor-element-64872607 p,
+.elementor-element-4f91ffee p,
+.elementor-element-2e926034 p,
+.e-55ddd3e7-f380 {
+    color: #FFFFFF !important;
+    -webkit-text-fill-color: #FFFFFF !important;
+    font-size: 1.25rem !important;
+    max-width: 760px !important;
+    margin: 0 auto 2.25rem auto !important;
+    line-height: 1.85 !important;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.85) !important;
+    opacity: 0.98 !important;
+}
+
+/* Hero CTA Button Container */
+.elementor-element-6d941c03,
+.elementor-element-15ec9579 {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 1.25rem !important;
+    justify-content: center !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
+}
+
+/* --------------------------------------------------------------------------
+   8. TWO-COLUMN SPLIT FEATURE SECTIONS
+   (Heritage, Master Chef, Dining Sanctuary, Story)
+   -------------------------------------------------------------------------- */
+/* Dark Feature Section Containers */
+.elementor-element-1b252868, /* Heritage & Philosophy */
+.elementor-element-75485836, /* The Master of Spice */
+.elementor-element-27fc9345, /* Atmosphere & Ambience */
+.elementor-element-1d0dfba8, /* About Story */
+.elementor-element-2539d8d6, /* About Chef */
+.elementor-element-4e1a1d4a  /* About Ambience */
+{
+    background-color: var(--hearth-charcoal) !important;
+    color: var(--text-primary-dark) !important;
+    padding-top: var(--spacing-xxl) !important;
+    padding-bottom: var(--spacing-xxl) !important;
+}
+
+/* Inner 2-Column Split Grid (Astra 1200px Grid) */
 .elementor-element-34c143f2,
 .elementor-element-4a8053e0,
 .elementor-element-5458e283,
@@ -372,52 +545,51 @@ a.e-button-base:hover,
     display: grid !important;
     grid-template-columns: 1fr 1fr !important;
     gap: 4rem !important;
-    align-items: start !important;
+    align-items: center !important;
     width: 100% !important;
-    max-width: 1200px !important;
-    margin: 0 auto !important;
+    max-width: var(--container-max) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+    box-sizing: border-box !important;
 }
 
-/* 4. Text Column Containers */
-.elementor-element-4a5dc1c5,
-.elementor-element-27942172,
-.elementor-element-16ef5e00,
-.elementor-element-7fdad146,
-.elementor-element-2c6ea686,
-.elementor-element-3184349 {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    text-align: left !important;
-    width: 100% !important;
-    gap: 0 !important;
+/* Dark Section Typography: Pure White Luminous Contrast */
+.elementor-element-1b252868 h2,
+.elementor-element-75485836 h2,
+.elementor-element-27fc9345 h2,
+.elementor-element-1d0dfba8 h2,
+.elementor-element-2539d8d6 h2,
+.elementor-element-4e1a1d4a h2,
+.elementor-element-4a5dc1c5 h2,
+.elementor-element-27942172 h2,
+.elementor-element-16ef5e00 h2 {
+    color: #FFFFFF !important;
+    font-size: 2.6rem !important;
+    margin-bottom: 1.25rem !important;
 }
 
-.elementor-element-4a5dc1c5 > *,
-.elementor-element-27942172 > *,
-.elementor-element-16ef5e00 > *,
-.elementor-element-7fdad146 > *,
-.elementor-element-2c6ea686 > *,
-.elementor-element-3184349 > * {
-    width: 100% !important;
-    max-width: 100% !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
+.elementor-element-1b252868 p,
+.elementor-element-75485836 p,
+.elementor-element-27fc9345 p,
+.elementor-element-1d0dfba8 p,
+.elementor-element-2539d8d6 p,
+.elementor-element-4e1a1d4a p,
+.elementor-element-4a5dc1c5 p,
+.elementor-element-27942172 p,
+.elementor-element-16ef5e00 p,
+.e-5d1dd4c5-21c5,
+.e-634b225-6cdc,
+.e-39c52f44-e908 {
+    color: var(--text-secondary-dark) !important;
+    -webkit-text-fill-color: var(--text-secondary-dark) !important;
+    font-size: 1.1rem !important;
+    line-height: 1.8 !important;
+    margin-bottom: 1.25rem !important;
 }
 
-.elementor-element-4a5dc1c5 > .e-button-base,
-.elementor-element-27942172 > .e-button-base,
-.elementor-element-16ef5e00 > .e-button-base,
-.elementor-element-7fdad146 > .e-button-base,
-.elementor-element-2c6ea686 > .e-button-base,
-.elementor-element-3184349 > .e-button-base {
-    align-self: flex-start !important;
-    margin-top: 1rem !important;
-    width: auto !important;
-    max-width: max-content !important;
-}
-
-/* 5. Image Column Containers — Full-Width Column Fit (No Empty Space) */
+/* Feature Images in Split Sections */
 .elementor-element-6fa6aad4,
 .elementor-element-63a15db4,
 .elementor-element-2fa2f402,
@@ -426,11 +598,8 @@ a.e-button-base:hover,
 .elementor-element-45617a91,
 .elementor-element-6bae2821 {
     width: 100% !important;
-    max-width: 100% !important;
     display: block !important;
     margin: 0 !important;
-    position: relative !important;
-    box-sizing: border-box !important;
 }
 
 .elementor-element-6fa6aad4 img,
@@ -441,160 +610,58 @@ a.e-button-base:hover,
 .elementor-element-45617a91 img,
 .elementor-element-6bae2821 img {
     width: 100% !important;
-    max-width: 100% !important;
-    height: 520px !important;
-    max-height: 520px !important;
+    height: 480px !important;
+    max-height: 480px !important;
     object-fit: cover !important;
-    border-radius: 16px !important;
-    border: 1px solid rgba(185, 154, 101, 0.45) !important;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55), 0 4px 16px rgba(185, 154, 101, 0.2) !important;
+    border-radius: var(--radius-md) !important;
+    border: 1px solid var(--border-dark) !important;
+    box-shadow: var(--shadow-dark) !important;
     display: block !important;
-    margin: 0 !important;
-    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    transition: transform 0.4s ease, box-shadow 0.4s ease !important;
 }
 
 .elementor-element-6fa6aad4 img:hover,
 .elementor-element-63a15db4 img:hover,
-.elementor-element-2fa2f402 img:hover {
-    transform: translateY(-4px) scale(1.015) !important;
-    border-color: rgba(184, 111, 72, 0.75) !important;
-    box-shadow: 0 28px 60px rgba(0, 0, 0, 0.6), 0 6px 20px rgba(184, 111, 72, 0.3) !important;
+.elementor-element-2fa2f402 img:hover,
+.elementor-element-46ceb09d img:hover,
+.elementor-element-73ce952f img:hover,
+.elementor-element-45617a91 img:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: 0 24px 50px rgba(0, 0, 0, 0.55) !important;
 }
 
-/* 6. Multi-Column Grids */
+/* --------------------------------------------------------------------------
+   9. DISH CARDS COMPONENT (.elementor-element-23ac47f2 & Grand Menu)
+   -------------------------------------------------------------------------- */
+/* 3-Column Responsive Grid */
 .elementor-element-23ac47f2,
-.elementor-element-6198878,
-.elementor-element-512823b4,
-.elementor-element-427555dd,
-.elementor-element-31d333d7,
-.elementor-element-1c9e9dbd {
+.ember-menu-grid {
     display: grid !important;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+    grid-template-columns: repeat(3, 1fr) !important;
     gap: 2rem !important;
     width: 100% !important;
-    max-width: 1200px !important;
-    margin: 2.5rem auto !important;
-    align-items: stretch !important;
+    max-width: var(--container-max) !important;
+    margin: 0 auto !important;
+    padding: 0 1.5rem !important;
+    box-sizing: border-box !important;
 }
 
-.elementor-element-23ac47f2 { grid-template-columns: repeat(3, 1fr) !important; }
-.elementor-element-6198878,
-.elementor-element-427555dd { grid-template-columns: repeat(4, 1fr) !important; }
-.elementor-element-31d333d7 { grid-template-columns: repeat(3, 1fr) !important; }
-.elementor-element-1c9e9dbd  { grid-template-columns: repeat(2, 1fr) !important; }
-
-/* 7. Individual Cards — Organic warm-white surfaces */
-.elementor-element-4572bed3,
-.elementor-element-3c8045f1,
-.elementor-element-17f3502c,
-.elementor-element-440b8b8e,
-.elementor-element-3e2e8fd2,
-.elementor-element-4e381021,
-.elementor-element-715406bc,
-.elementor-element-35e87e9b,
-.elementor-element-16593cf6,
-.elementor-element-70944290,
-.elementor-element-188698bc,
-.elementor-element-3ac47c0,
-.elementor-element-2f8fc644,
-.elementor-element-36ec187a,
-.elementor-element-58ae0245,
-.elementor-element-28d62019,
-.elementor-element-33142ffa,
-.elementor-element-627ec02f {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    text-align: left !important;
-    background: var(--warm-white) !important;
-    border: 1px solid var(--border-subtle) !important;
-    border-radius: var(--radius-card) !important;
-    padding: 2.2rem 2rem !important;
-    box-shadow: var(--shadow-card) !important;
-    transition: var(--transition-smooth) !important;
-}
-
-.elementor-element-4572bed3:hover,
-.elementor-element-3c8045f1:hover,
-.elementor-element-17f3502c:hover,
-.elementor-element-440b8b8e:hover,
-.elementor-element-3e2e8fd2:hover,
-.elementor-element-4e381021:hover,
-.elementor-element-715406bc:hover,
-.elementor-element-188698bc:hover,
-.elementor-element-3ac47c0:hover,
-.elementor-element-2f8fc644:hover,
-.elementor-element-36ec187a:hover,
-.elementor-element-58ae0245:hover,
-.elementor-element-28d62019:hover,
-.elementor-element-33142ffa:hover,
-.elementor-element-627ec02f:hover {
-    border-color: var(--sage-green) !important;
-    transform: translateY(-4px) !important;
-    box-shadow: var(--shadow-hover) !important;
-}
-
-/* Card Titles */
-.elementor-element-4572bed3 .e-heading-base,
-.elementor-element-3c8045f1 .e-heading-base,
-.elementor-element-17f3502c .e-heading-base,
-.elementor-element-440b8b8e .e-heading-base,
-.elementor-element-3e2e8fd2 .e-heading-base,
-.elementor-element-4e381021 .e-heading-base,
-.elementor-element-715406bc .e-heading-base,
-.elementor-element-188698bc .e-heading-base,
-.elementor-element-3ac47c0 .e-heading-base,
-.elementor-element-2f8fc644 .e-heading-base,
-.elementor-element-36ec187a .e-heading-base,
-.elementor-element-58ae0245 .e-heading-base,
-.elementor-element-28d62019 .e-heading-base,
-.elementor-element-33142ffa .e-heading-base,
-.elementor-element-627ec02f .e-heading-base {
-    font-size: 1.3rem !important;
-    color: var(--forest-green) !important;
-    margin-bottom: 0.85rem !important;
-    display: block !important;
-    width: 100% !important;
-}
-
-/* Card Paragraphs */
-.elementor-element-4572bed3 .e-paragraph-base,
-.elementor-element-3c8045f1 .e-paragraph-base,
-.elementor-element-17f3502c .e-paragraph-base,
-.elementor-element-440b8b8e .e-paragraph-base,
-.elementor-element-3e2e8fd2 .e-paragraph-base,
-.elementor-element-4e381021 .e-paragraph-base,
-.elementor-element-715406bc .e-paragraph-base,
-.elementor-element-188698bc .e-paragraph-base,
-.elementor-element-3ac47c0 .e-paragraph-base,
-.elementor-element-2f8fc644 .e-paragraph-base,
-.elementor-element-36ec187a .e-paragraph-base,
-.elementor-element-58ae0245 .e-paragraph-base,
-.elementor-element-28d62019 .e-paragraph-base,
-.elementor-element-33142ffa .e-paragraph-base,
-.elementor-element-627ec02f .e-paragraph-base {
-    color: var(--muted-text) !important;
-    font-size: 0.95rem !important;
-    line-height: 1.7 !important;
-    margin-bottom: 0 !important;
-    display: block !important;
-    width: 100% !important;
-}
-
-/* 8. Dish Cards on Home Page */
+/* Individual Dish Card */
 .elementor-element-7dc084fb,
 .elementor-element-5e2546a8,
 .elementor-element-59d4bbff,
 .elementor-element-12ede85c,
 .elementor-element-7658a4a0,
-.elementor-element-56120651 {
+.elementor-element-56120651,
+.ember-menu-card {
+    background-color: var(--warm-white) !important;
+    border: 1px solid var(--border-light) !important;
+    border-radius: var(--radius-md) !important;
+    overflow: hidden !important;
+    box-shadow: var(--shadow-card) !important;
     display: flex !important;
     flex-direction: column !important;
-    background: var(--warm-white) !important;
-    border: 1px solid var(--border-subtle) !important;
-    border-radius: var(--radius-card) !important;
-    overflow: hidden !important;
-    transition: var(--transition-smooth) !important;
+    transition: all 0.35s ease !important;
 }
 
 .elementor-element-7dc084fb:hover,
@@ -602,1275 +669,445 @@ a.e-button-base:hover,
 .elementor-element-59d4bbff:hover,
 .elementor-element-12ede85c:hover,
 .elementor-element-7658a4a0:hover,
-.elementor-element-56120651:hover {
-    transform: translateY(-5px) !important;
-    border-color: var(--sage-green) !important;
+.elementor-element-56120651:hover,
+.ember-menu-card:hover {
+    transform: translateY(-6px) !important;
     box-shadow: var(--shadow-hover) !important;
+    border-color: rgba(184, 111, 72, 0.4) !important;
 }
 
+/* Dish Card Image Frame */
 .elementor-element-7dc084fb img,
 .elementor-element-5e2546a8 img,
 .elementor-element-59d4bbff img,
 .elementor-element-12ede85c img,
 .elementor-element-7658a4a0 img,
-.elementor-element-56120651 img {
+.elementor-element-56120651 img,
+.ember-menu-card-img img {
     width: 100% !important;
-    height: 220px !important;
+    height: 230px !important;
     object-fit: cover !important;
+    border-radius: 0 !important;
     border: none !important;
-    border-radius: var(--radius-card) var(--radius-card) 0 0 !important;
+    transition: transform 0.5s ease !important;
 }
 
+.elementor-element-7dc084fb:hover img,
+.elementor-element-5e2546a8:hover img,
+.elementor-element-59d4bbff:hover img,
+.elementor-element-12ede85c:hover img,
+.elementor-element-7658a4a0:hover img,
+.elementor-element-56120651:hover img,
+.ember-menu-card:hover .ember-menu-card-img img {
+    transform: scale(1.05) !important;
+}
+
+/* Dish Card Body Content */
 .elementor-element-7a2a74cc,
 .elementor-element-ddccc8b,
 .elementor-element-25bfb990,
 .elementor-element-32c2a7ed,
 .elementor-element-6a871914,
-.elementor-element-3c42c24c {
+.elementor-element-3c42c24c,
+.ember-menu-card-body {
+    padding: 1.75rem !important;
     display: flex !important;
     flex-direction: column !important;
-    padding: 1.5rem !important;
     flex-grow: 1 !important;
+    text-align: left !important;
 }
 
-/* 9. Hero Sections — Natural light overlays with botanical warmth */
-.elementor-element-38e8dde3,
-.elementor-element-ef9390b,
-.elementor-element-3ebb97ea,
-.elementor-element-64872607,
-.elementor-element-4f91ffee,
-.elementor-element-2e926034 {
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 0 !important;
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: center !important;
-    align-items: center !important;
-    text-align: center !important;
-    border-bottom: 1px solid var(--border-warm) !important;
+/* Dish Title */
+.elementor-element-7dc084fb h3,
+.elementor-element-5e2546a8 h3,
+.elementor-element-59d4bbff h3,
+.elementor-element-12ede85c h3,
+.elementor-element-7658a4a0 h3,
+.elementor-element-56120651 h3,
+.ember-menu-card-title {
+    font-family: var(--font-heading) !important;
+    font-size: 1.35rem !important;
+    color: var(--forest-green) !important;
+    margin-bottom: 0.5rem !important;
+    line-height: 1.3 !important;
+}
+
+/* Dish Price & Tag */
+.elementor-element-7dc084fb h6,
+.elementor-element-5e2546a8 h6,
+.elementor-element-59d4bbff h6,
+.elementor-element-12ede85c h6,
+.elementor-element-7658a4a0 h6,
+.elementor-element-56120651 h6,
+.ember-menu-card-price {
+    font-family: var(--font-body) !important;
+    font-size: 0.95rem !important;
+    font-weight: 700 !important;
+    color: var(--terracotta) !important;
+    letter-spacing: 1px !important;
+    text-transform: uppercase !important;
+    margin-bottom: 0.75rem !important;
+    padding-bottom: 0.5rem !important;
+    border-bottom: 1px solid var(--border-light) !important;
+}
+
+/* Dish Description */
+.elementor-element-7dc084fb p,
+.elementor-element-5e2546a8 p,
+.elementor-element-59d4bbff p,
+.elementor-element-12ede85c p,
+.elementor-element-7658a4a0 p,
+.elementor-element-56120651 p,
+.ember-menu-card-desc {
+    font-size: 0.95rem !important;
+    color: var(--text-secondary-light) !important;
+    line-height: 1.7 !important;
+    margin-bottom: 0 !important;
+}
+
+/* --------------------------------------------------------------------------
+   10. BENTO & PILLAR CARDS (.elementor-element-35e3a624 & About Page)
+   -------------------------------------------------------------------------- */
+.elementor-element-6198878,
+.elementor-element-427555dd {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 1.75rem !important;
+    max-width: var(--container-max) !important;
+    margin: 0 auto !important;
     box-sizing: border-box !important;
 }
 
-/* Home hero — full-screen panoramic farmland */
-.elementor-element-38e8dde3 {
-    min-height: 82vh !important;
-    padding: 7rem 2rem 6rem !important;
-    background: linear-gradient(0deg, rgba(244, 238, 220, 0.3) 0%, rgba(52, 75, 53, 0.72) 100%),
-                url('https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=1920&q=85') center/cover no-repeat !important;
+.elementor-element-4572bed3,
+.elementor-element-3c8045f1,
+.elementor-element-17f3502c,
+.elementor-element-440b8b8e,
+.elementor-element-3e2e8fd2,
+.elementor-element-4e381021,
+.elementor-element-715406bc,
+.elementor-element-35e87e9b {
+    background: var(--warm-white) !important;
+    border: 1px solid var(--border-light) !important;
+    border-radius: var(--radius-md) !important;
+    padding: 2.25rem 2rem !important;
+    box-shadow: var(--shadow-card) !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
 }
 
-/* About hero — earthy spice market */
-.elementor-element-ef9390b {
-    min-height: 52vh !important;
-    padding: 6rem 2rem !important;
-    background: linear-gradient(0deg, rgba(244, 238, 220, 0.25) 0%, rgba(52, 75, 53, 0.68) 100%),
-                url('https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=1920&q=85') center/cover no-repeat !important;
+.elementor-element-4572bed3:hover,
+.elementor-element-3c8045f1:hover,
+.elementor-element-17f3502c:hover,
+.elementor-element-440b8b8e:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: var(--shadow-hover) !important;
 }
 
-/* Menu hero — dum biryani */
-.elementor-element-3ebb97ea {
-    min-height: 52vh !important;
-    padding: 6rem 2rem !important;
-    background: linear-gradient(0deg, rgba(244, 238, 220, 0.25) 0%, rgba(52, 75, 53, 0.70) 100%),
-                url('https://images.unsplash.com/photo-1589302168068-964664d93dc0?auto=format&fit=crop&w=1920&q=85') center/cover no-repeat !important;
+/* --------------------------------------------------------------------------
+   11. TESTIMONIALS / GUEST CHRONICLES (.elementor-element-490626bb)
+   -------------------------------------------------------------------------- */
+.elementor-element-490626bb {
+    background-color: var(--hearth-charcoal) !important;
+    color: var(--text-primary-dark) !important;
 }
 
-/* Reservations hero — intimate dining */
-.elementor-element-64872607 {
-    min-height: 52vh !important;
-    padding: 6rem 2rem !important;
-    background: linear-gradient(0deg, rgba(244, 238, 220, 0.25) 0%, rgba(52, 75, 53, 0.72) 100%),
-                url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1920&q=85') center/cover no-repeat !important;
+.elementor-element-ff92bf6-a1f6 {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 2rem !important;
+    max-width: var(--container-max) !important;
+    margin: 3rem auto 0 auto !important;
 }
 
-/* Gallery hero — culinary art */
-.elementor-element-4f91ffee {
-    min-height: 52vh !important;
-    padding: 6rem 2rem !important;
-    background: linear-gradient(0deg, rgba(244, 238, 220, 0.25) 0%, rgba(52, 75, 53, 0.68) 100%),
-                url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1920&q=85') center/cover no-repeat !important;
+.elementor-element-7721ca41-e033,
+.elementor-element-a7a1b16-1f90,
+.elementor-element-6a5caa86-3a58 {
+    background: var(--hearth-charcoal-card) !important;
+    border: 1px solid var(--border-dark) !important;
+    border-radius: var(--radius-md) !important;
+    padding: 2.5rem 2rem !important;
+    box-shadow: var(--shadow-dark) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
 }
 
-/* Contact hero — welcoming ambience */
-.elementor-element-2e926034 {
-    min-height: 52vh !important;
-    padding: 6rem 2rem !important;
-    background: linear-gradient(0deg, rgba(244, 238, 220, 0.25) 0%, rgba(52, 75, 53, 0.72) 100%),
-                url('https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=1920&q=85') center/cover no-repeat !important;
-}
-
-/* Hero eyebrow labels */
-.elementor-element-38e8dde3 .e-heading-base:first-child,
-.elementor-element-ef9390b .e-heading-base:first-child,
-.elementor-element-3ebb97ea .e-heading-base:first-child,
-.elementor-element-64872607 .e-heading-base:first-child,
-.elementor-element-4f91ffee .e-heading-base:first-child,
-.elementor-element-2e926034 .e-heading-base:first-child,
-.elementor-element-2e926034 .e-paragraph-base:first-child {
-    color: var(--wheat-gold) !important;
-    font-size: 0.88rem !important;
-    letter-spacing: 3.5px !important;
-    text-transform: uppercase !important;
-    margin-bottom: 1rem !important;
-    font-weight: 700 !important;
-    text-align: center !important;
-    display: block !important;
-}
-
-/* Hero main headings */
-.elementor-element-38e8dde3 h1,
-.elementor-element-ef9390b h1,
-.elementor-element-3ebb97ea h1,
-.elementor-element-64872607 h1,
-.elementor-element-4f91ffee h1,
-.elementor-element-2e926034 h1 {
-    color: var(--warm-white) !important;
-    font-family: var(--font-heading) !important;
-    font-size: 3.5rem !important;
-    margin-bottom: 1.25rem !important;
-    line-height: 1.2 !important;
-    text-align: center !important;
-    max-width: 900px !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    display: block !important;
-}
-
-/* Hero sub-paragraphs — PURE WHITE (#FFFFFF), HIGH CONTRAST & LUMINOUS */
-.elementor-element-38e8dde3 > p,
-.elementor-element-ef9390b > p,
-.elementor-element-3ebb97ea > p,
-.elementor-element-64872607 > p,
-.elementor-element-4f91ffee > p,
-.elementor-element-2e926034 > p,
-.elementor-element-38e8dde3 > .e-paragraph-base,
-.elementor-element-ef9390b > .e-paragraph-base,
-.elementor-element-3ebb97ea > .e-paragraph-base,
-.elementor-element-64872607 > .e-paragraph-base,
-.elementor-element-4f91ffee > .e-paragraph-base,
-.elementor-element-2e926034 > .e-paragraph-base,
-.e-55ddd3e7-f380,
-.e-59b9377d-1eb2,
-.e-3df2c96b-79ba,
-.e-153998b7-c33e,
-.e-46f507b0-e380 {
-    color: #FFFFFF !important;
-    -webkit-text-fill-color: #FFFFFF !important;
-    font-size: 1.25rem !important;
-    max-width: 820px !important;
-    line-height: 1.85 !important;
-    margin: 0 auto 2rem auto !important;
-    text-align: center !important;
-    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.95), 0 1px 4px rgba(0, 0, 0, 0.95) !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-}
-
-/* 10. CTA Banner Sections — Royal Forest Green Luxury Card */
+/* --------------------------------------------------------------------------
+   12. RESERVATION CTA FULL-WIDTH BANNER (.elementor-element-490cc535)
+   -------------------------------------------------------------------------- */
 .elementor-element-490cc535,
 .elementor-element-67a8ecb2,
 .elementor-element-2197d64f {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
+    background: linear-gradient(135deg, var(--forest-green-dark) 0%, var(--forest-green) 100%) !important;
+    color: var(--text-primary-dark) !important;
     text-align: center !important;
-    background: #232D23 !important;
-    border: 1px solid rgba(185, 154, 101, 0.45) !important;
-    border-radius: 20px !important;
-    padding: 4.5rem 2.5rem !important;
-    max-width: 1080px !important;
-    margin: 3.5rem auto !important;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35) !important;
-}
-
-/* Home-Specific: Full Screen Width Reservation CTA Banner (Zero Cream Side Gutters) */
-html body.home .elementor-element-490cc535 {
+    padding: 6rem 1.5rem !important;
     width: 100% !important;
     max-width: 100% !important;
     margin: 0 !important;
     border-radius: 0 !important;
-    border-left: none !important;
-    border-right: none !important;
-    padding: 5.5rem 2rem !important;
-    box-shadow: none !important;
     box-sizing: border-box !important;
-}
-
-/* Home-Specific: Full Screen Size Width & Perfect Spacing Between Content */
-html body.home .elementor-7 > .e-con,
-html body.home .elementor-7 > .elementor-element,
-html body.home .elementor-7 > .e-con + .e-con {
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
-    width: 100% !important;
-    max-width: 100% !important;
-}
-
-html body.home .elementor-7 .elementor-element-34c143f2,
-html body.home .elementor-7 .elementor-element-23ac47f2,
-html body.home .elementor-7 .elementor-element-6198878,
-html body.home .elementor-7 .elementor-element-427555dd,
-html body.home .elementor-7 .elementor-element-35e3a624,
-html body.home .elementor-7 .elementor-element-4a8053e0,
-html body.home .elementor-7 .elementor-element-5458e283,
-html body.home .elementor-7 .elementor-element-ff92bf6-a1f6,
-html body.home .elementor-7 .elementor-element-7600a2c6-a44b,
-html body.home .elementor-7 .elementor-element-63d2b48e-d19f {
-    width: 100% !important;
-    max-width: 100% !important;
-    box-sizing: border-box !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-}
-
-/* Home Feature Sections: Perfect Spacing Between Text Content & Images */
-html body.home .elementor-element-1b252868,
-html body.home .elementor-element-75485836,
-html body.home .elementor-element-27fc9345 {
-    padding: 4.5rem 2.5rem 4rem !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    box-sizing: border-box !important;
-}
-
-html body.home .elementor-element-34c143f2,
-html body.home .elementor-element-4a8053e0,
-html body.home .elementor-element-5458e283 {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 1.5rem !important;
-    width: 100% !important;
-    max-width: 100% !important;
-}
-
-html body.home .elementor-element-4a5dc1c5,
-html body.home .elementor-element-27942172,
-html body.home .elementor-element-16ef5e00 {
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 0 !important;
-    padding: 0 !important;
-}
-
-html body.home .elementor-element-4a5dc1c5 p,
-html body.home .elementor-element-27942172 p,
-html body.home .elementor-element-16ef5e00 p,
-html body.home .elementor-element-4a5dc1c5 .e-paragraph-base,
-html body.home .elementor-element-27942172 .e-paragraph-base,
-html body.home .elementor-element-16ef5e00 .e-paragraph-base {
-    margin-top: 0 !important;
-    margin-bottom: 0.85rem !important;
-    max-width: 100% !important;
-    width: 100% !important;
-}
-
-/* Home Feature Images: Full Screen Width, Current Height Preserved */
-html body.home .elementor-element-6fa6aad4,
-html body.home .elementor-element-63a15db4,
-html body.home .elementor-element-2fa2f402 {
-    width: 100% !important;
-    max-width: 100% !important;
-    margin-top: 1rem !important;
-    margin-bottom: 0 !important;
-    padding: 0 !important;
-    display: block !important;
-}
-
-html body.home .elementor-element-6fa6aad4 img,
-html body.home .elementor-element-63a15db4 img,
-html body.home .elementor-element-2fa2f402 img {
-    width: 100% !important;
-    max-width: 100% !important;
-    height: 480px !important;
-    max-height: 480px !important;
-    object-fit: cover !important;
-    border-radius: 14px !important;
-    border: 1px solid rgba(185, 154, 101, 0.45) !important;
-    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.6) !important;
-    display: block !important;
-    margin: 0 !important;
 }
 
 .elementor-element-490cc535 h2,
-.elementor-element-490cc535 .e-heading-base,
 .elementor-element-67a8ecb2 h2,
 .elementor-element-2197d64f h2 {
     color: #FFFFFF !important;
-    -webkit-text-fill-color: #FFFFFF !important;
-    font-family: var(--font-heading) !important;
     font-size: 2.8rem !important;
-    margin-bottom: 1.2rem !important;
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6) !important;
+    margin-bottom: 1.25rem !important;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5) !important;
 }
 
 .elementor-element-490cc535 p,
-.elementor-element-490cc535 .e-paragraph-base,
 .elementor-element-67a8ecb2 p,
 .elementor-element-2197d64f p {
-    color: #FFFFFF !important;
-    -webkit-text-fill-color: #FFFFFF !important;
-    font-size: 1.15rem !important;
-    line-height: 1.8 !important;
-    max-width: 720px !important;
+    color: var(--text-secondary-dark) !important;
+    -webkit-text-fill-color: var(--text-secondary-dark) !important;
+    font-size: 1.2rem !important;
+    max-width: 750px !important;
     margin: 0 auto 2.5rem auto !important;
-    opacity: 0.96 !important;
+    line-height: 1.8 !important;
 }
 
-/* 11. Section Container Widths — 100% Full Viewport Width (No cream side gutters) */
-.elementor-element-1b252868,
-.elementor-element-7fb873ab,
-.elementor-element-35e3a624,
-.elementor-element-75485836,
-.elementor-element-27fc9345,
-.elementor-element-490626bb,
-.elementor-element-1d0dfba8,
-.elementor-element-12ec63c2,
-.elementor-element-2539d8d6,
-.elementor-element-4e1a1d4a,
-.elementor-element-4df06c2e,
-.elementor-element-728607ee,
-.elementor-element-6bae2821 {
-    padding: 5rem 2rem !important;
-    max-width: 100% !important;
-    width: 100% !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    box-sizing: border-box !important;
-}
-
-/* 12. Responsive Breakpoints */
-@media (max-width: 1024px) {
-    .elementor-element-23ac47f2 { grid-template-columns: repeat(2, 1fr) !important; }
-    .elementor-element-6198878,
-    .elementor-element-427555dd { grid-template-columns: repeat(2, 1fr) !important; }
-    .elementor-element-34c143f2,
-    .elementor-element-4a8053e0,
-    .elementor-element-5458e283,
-    .elementor-element-1684f3ed,
-    .elementor-element-3e7fe74,
-    .elementor-element-7566eaa { gap: 3rem !important; }
-}
-
-@media (max-width: 860px) {
-    .elementor-element-34c143f2,
-    .elementor-element-4a8053e0,
-    .elementor-element-5458e283,
-    .elementor-element-1684f3ed,
-    .elementor-element-3e7fe74,
-    .elementor-element-7566eaa { grid-template-columns: 1fr !important; }
-
-    .elementor-element-6fa6aad4 img,
-    .elementor-element-63a15db4 img,
-    .elementor-element-2fa2f402 img,
-    .elementor-element-46ceb09d img,
-    .elementor-element-73ce952f img,
-    .elementor-element-45617a91 img {
-        max-height: 280px !important;
-        height: 280px !important;
-        max-width: 100% !important;
-    }
-
-    .elementor-element-23ac47f2,
-    .elementor-element-6198878,
-    .elementor-element-427555dd,
-    .elementor-element-31d333d7,
-    .elementor-element-1c9e9dbd,
-    .elementor-element-512823b4 { grid-template-columns: 1fr !important; }
-
-    .elementor-element-38e8dde3 h1,
-    .elementor-element-ef9390b h1,
-    .elementor-element-3ebb97ea h1,
-    .elementor-element-64872607 h1,
-    .elementor-element-4f91ffee h1,
-    .elementor-element-2e926034 h1 { font-size: 2.4rem !important; }
-
-    .elementor-element-38e8dde3 { min-height: 68vh !important; padding: 5rem 1.5rem !important; }
-    .elementor-element-ef9390b,
-    .elementor-element-3ebb97ea,
-    .elementor-element-64872607,
-    .elementor-element-4f91ffee,
-    .elementor-element-2e926034 { min-height: 44vh !important; padding: 4.5rem 1.5rem !important; }
-}
-
-/* Typography — Organic hierarchy */
-.e-heading-base,
-.elementor-heading-title,
-.e-heading-base h1,
-.e-heading-base h2,
-.e-heading-base h3,
-.e-heading-base h4,
-.e-heading-base h5,
-.e-heading-base h6 {
-    font-family: var(--font-heading) !important;
-    color: var(--forest-green);
-    line-height: 1.25 !important;
-    margin-top: 0 !important;
-    margin-bottom: 1.2rem !important;
-    display: block !important;
-    text-wrap: balance !important;
-}
-
-.e-paragraph-base,
-p.e-paragraph-base,
-.elementor-widget-text-editor p {
-    font-family: var(--font-body) !important;
-    line-height: 1.75 !important;
-    margin-top: 0 !important;
-    margin-bottom: 1.5rem !important;
-    display: block !important;
-    color: var(--muted-text);
-}
-
-/* Images */
-.ember-featured-img,
-.e-image-base img {
-    border-radius: 8px;
-    border: 1px solid var(--border-warm);
-    box-shadow: var(--shadow-card);
-    transition: var(--transition-smooth);
-    max-width: 100%;
-    height: auto;
-    display: block;
-}
-
-/* Section Headers */
-.ember-section-header {
-    text-align: center;
-    margin-bottom: 3.5rem;
-}
-
-.ember-eyebrow {
-    display: inline-block;
-    font-size: 0.8rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    color: var(--terracotta);
-    margin-bottom: 0.75rem;
-}
-
-.ember-heading {
-    font-family: var(--font-heading);
-    font-size: 2.75rem;
-    color: var(--forest-green);
-    margin-bottom: 1rem;
-}
-
-@media (max-width: 768px) {
-    .ember-heading { font-size: 2rem; }
-}
-
-.ember-divider-gold {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    margin: 1rem auto 1.5rem;
-}
-
-.ember-divider-gold:before,
-.ember-divider-gold:after {
-    content: '';
-    display: block;
-    width: 60px;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--wheat-gold));
-}
-
-.ember-divider-gold:after {
-    background: linear-gradient(90deg, var(--wheat-gold), transparent);
-}
-
-.ember-divider-gold span { color: var(--wheat-gold); font-size: 1rem; }
-
-.ember-subheading {
-    max-width: 680px;
-    margin: 0 auto;
-    color: var(--muted-text);
-    font-size: 1.1rem;
-    line-height: 1.7;
-}
-
-/* ==========================================================================
-   CARDS & FOOD ITEMS — Art-Directed Culinary Bento Presentation
-   ========================================================================== */
-.ember-card {
-    background: var(--warm-white);
-    border: 1px solid var(--border-subtle);
-    border-radius: 16px;
-    overflow: hidden;
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    position: relative;
-    box-shadow: 0 4px 20px rgba(52, 75, 53, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
-}
-
-.ember-card:hover {
-    border-color: rgba(184, 111, 72, 0.5);
-    transform: translateY(-8px);
-    box-shadow: 0 20px 42px rgba(52, 75, 53, 0.14), 0 2px 10px rgba(184, 111, 72, 0.08);
-}
-
-.ember-card-img-wrapper {
-    position: relative;
-    overflow: hidden;
-    height: 250px;
-    background: var(--natural-cream);
-}
-
-.ember-card-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.ember-card:hover .ember-card-img {
-    transform: scale(1.07);
-}
-
-.ember-badge-veg,
-.ember-badge-nonveg {
-    position: absolute;
-    top: 14px;
-    left: 14px;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 5px 12px;
-    border-radius: 20px;
-    font-size: 0.76rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.6px;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-    z-index: 2;
-}
-
-.ember-badge-veg {
-    background: rgba(52, 75, 53, 0.92);
-    color: #e8f5e9;
-    border: 1px solid rgba(165, 214, 167, 0.45);
-}
-
-.ember-badge-veg:before {
-    content: '●';
-    color: #81c784;
-    font-size: 11px;
-}
-
-.ember-badge-nonveg {
-    background: rgba(184, 111, 72, 0.94);
-    color: #fff5f0;
-    border: 1px solid rgba(255, 204, 188, 0.45);
-}
-
-.ember-badge-nonveg:before {
-    content: '▲';
-    color: #ffab91;
-    font-size: 10px;
-}
-
-.ember-price-tag {
-    position: absolute;
-    top: 14px;
-    right: 14px;
-    background: rgba(255, 252, 245, 0.95);
-    color: var(--forest-green);
-    font-family: var(--font-heading);
-    font-size: 1.15rem;
-    font-weight: 700;
-    padding: 4px 14px;
-    border-radius: 20px;
-    border: 1px solid var(--border-warm);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    box-shadow: 0 4px 12px rgba(52, 75, 53, 0.08);
-    z-index: 2;
-    letter-spacing: 0.3px;
-}
-
-.ember-card-body {
-    padding: 1.75rem 1.75rem 2rem;
-    background: var(--warm-white);
-}
-
-.ember-card-title {
-    font-family: var(--font-heading);
-    font-size: 1.45rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    color: var(--forest-green);
-    letter-spacing: 0.2px;
-    line-height: 1.35;
-}
-
-.ember-card-desc {
-    color: #555347;
-    font-size: 0.93rem;
-    margin-bottom: 0;
-    line-height: 1.75;
-}
-
-/* ==========================================================================
-   MENU PAGE & TABS — Sage green active tabs
-   ========================================================================== */
-.ember-menu-tabs {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.85rem;
-    margin-bottom: 3.5rem;
-    padding: 0.5rem;
-}
-
-.ember-menu-tab-btn {
-    background: var(--warm-white);
-    border: 1px solid rgba(120, 133, 104, 0.28);
-    color: var(--forest-green);
-    padding: 0.75rem 1.6rem;
-    border-radius: 30px;
-    font-family: var(--font-body);
-    font-size: 0.9rem;
-    font-weight: 600;
-    letter-spacing: 0.4px;
-    cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    box-shadow: 0 2px 8px rgba(52, 75, 53, 0.04);
-}
-
-.ember-menu-tab-btn:hover {
-    border-color: var(--terracotta);
-    color: var(--terracotta);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(184, 111, 72, 0.12);
-}
-
-.ember-menu-tab-btn.is-active {
-    background: var(--forest-green);
-    color: #FFFCF5;
-    border-color: var(--forest-green);
-    box-shadow: 0 6px 20px rgba(52, 75, 53, 0.22);
-    transform: translateY(-2px);
-}
-
-.ember-menu-category { margin-bottom: 4rem; }
-
-.ember-menu-category-title {
-    font-size: 1.9rem;
-    color: var(--forest-green);
-    border-bottom: 2px solid var(--border-warm);
-    padding-bottom: 0.75rem;
-    margin-bottom: 2rem;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.ember-menu-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-    gap: 2rem;
-}
-
-@media (max-width: 600px) {
-    .ember-menu-grid { grid-template-columns: 1fr; }
-}
-
-/* ==========================================================================
-   FORMS (RESERVATION & CONTACT) — Cream background, sage accents
-   ========================================================================== */
-.ember-form-card {
-    background: var(--warm-white);
-    border: 1px solid var(--border-subtle);
-    border-radius: var(--radius-card);
-    padding: 3rem 2.5rem;
-    max-width: 720px;
-    margin: 0 auto;
-    box-shadow: var(--shadow-card);
-}
-
-@media (max-width: 768px) {
-    .ember-form-card { padding: 2rem 1.5rem; }
-}
-
-.ember-form-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-    margin-bottom: 1.5rem;
-}
-
-@media (max-width: 650px) {
-    .ember-form-grid { grid-template-columns: 1fr; }
-}
-
-.ember-form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-}
-
-.ember-form-group.full-width { grid-column: 1 / -1; }
-
-.ember-label {
-    font-size: 0.88rem;
-    font-weight: 600;
-    color: var(--forest-green);
-    letter-spacing: 0.3px;
-}
-
-.ember-input,
-.ember-select,
-.ember-textarea {
-    width: 100%;
-    background: var(--natural-cream);
-    border: 1px solid rgba(120, 133, 104, 0.4);
-    border-radius: 6px;
-    padding: 0.85rem 1rem;
-    color: var(--body-text);
-    font-family: var(--font-body);
-    font-size: 0.95rem;
-    transition: var(--transition-smooth);
-}
-
-.ember-input:focus,
-.ember-select:focus,
-.ember-textarea:focus {
-    outline: none;
-    border-color: var(--sage-green);
-    box-shadow: 0 0 0 3px rgba(120, 133, 104, 0.18);
-}
-
-.ember-textarea {
-    resize: vertical;
-    min-height: 120px;
-}
-
-.ember-form-alert {
-    padding: 1.25rem;
-    border-radius: 6px;
-    margin-top: 1.5rem;
-    display: none;
-    font-size: 0.95rem;
-    line-height: 1.6;
-}
-
-.ember-form-alert.is-success {
-    display: block;
-    background: rgba(52, 75, 53, 0.08);
-    border: 1px solid var(--sage-green);
-    color: var(--forest-green);
-}
-
-.ember-form-alert.is-error {
-    display: block;
-    background: rgba(184, 111, 72, 0.08);
-    border: 1px solid var(--terracotta);
-    color: var(--terracotta-hover);
-}
-
-/* ==========================================================================
-   GALLERY — Natural cream frames
-   ========================================================================== */
-.ember-gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 1.5rem;
-}
-
-.ember-gallery-item {
-    position: relative;
-    border-radius: 10px;
-    overflow: hidden;
-    height: 280px;
-    box-shadow: var(--shadow-card);
-    border: 1px solid var(--border-warm);
-}
-
-.ember-gallery-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.6s ease;
-}
-
-.ember-gallery-item:hover img { transform: scale(1.07); }
-
-.ember-gallery-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, transparent 40%, rgba(52, 75, 53, 0.82) 100%);
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 1.5rem;
-    opacity: 0;
-    transition: opacity 0.35s ease;
-}
-
-.ember-gallery-item:hover .ember-gallery-overlay { opacity: 1; }
-
-.ember-gallery-title {
-    font-size: 1.1rem;
-    color: var(--warm-white);
-    margin: 0;
-}
-
-.ember-gallery-cat {
-    color: var(--wheat-gold);
-    font-size: 0.78rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-/* ==========================================================================
-   BLOG CARDS & SINGLE POST — Warm surfaces with botanical details
-   ========================================================================== */
-.ember-blog-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-    gap: 2rem;
-}
-
-.ember-blog-card {
-    background: var(--warm-white);
-    border: 1px solid var(--border-subtle);
-    border-radius: var(--radius-card);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    transition: var(--transition-smooth);
-}
-
-.ember-blog-card:hover {
-    border-color: var(--sage-green);
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-hover);
-}
-
-.ember-blog-img-wrap {
-    height: 220px;
-    overflow: hidden;
-}
-
-.ember-blog-img-wrap img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-.ember-blog-card:hover .ember-blog-img-wrap img { transform: scale(1.05); }
-
-.ember-blog-body {
-    padding: 1.75rem;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-}
-
-.ember-blog-meta {
-    font-size: 0.78rem;
-    color: var(--terracotta);
-    text-transform: uppercase;
-    letter-spacing: 1.2px;
-    margin-bottom: 0.75rem;
-}
-
-.ember-blog-title {
-    font-size: 1.3rem;
-    margin-bottom: 1rem;
-    color: var(--forest-green);
-}
-
-.ember-blog-excerpt {
-    color: var(--muted-text);
-    font-size: 0.95rem;
-    margin-bottom: 1.5rem;
-    flex: 1;
-    line-height: 1.65;
-}
-
-.ember-blog-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: var(--terracotta);
-    font-weight: 600;
-    font-size: 0.88rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.ember-blog-link:hover {
-    color: var(--terracotta-hover);
-    gap: 0.75rem;
-}
-
-/* ==========================================================================
-   FOOTER — Forest green footer with cream text
-   ========================================================================== */
+/* --------------------------------------------------------------------------
+   13. FOOTER COMPONENT (.ember-footer)
+   -------------------------------------------------------------------------- */
 .ember-footer {
-    background: var(--forest-green);
-    border-top: 3px solid var(--sage-green);
-    padding: 4.5rem 2rem 2rem;
-    color: rgba(244, 238, 220, 0.85);
+    background-color: var(--forest-green-dark);
+    color: var(--text-secondary-dark);
+    padding: 5rem 1.5rem 2rem 1.5rem;
+    border-top: 1px solid var(--border-dark);
 }
 
 .ember-footer-container {
-    max-width: 1280px;
+    max-width: var(--container-max);
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1.5fr;
-    gap: 3rem;
-    margin-bottom: 3.5rem;
+    grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+    gap: 3.5rem;
+    margin-bottom: 4rem;
 }
-
-@media (max-width: 991px) {
-    .ember-footer-container { grid-template-columns: 1fr 1fr; }
-}
-
-@media (max-width: 600px) {
-    .ember-footer-container { grid-template-columns: 1fr; }
-}
-
-.ember-footer .ember-brand-name { color: var(--warm-white); }
-.ember-footer .ember-brand-name span { color: var(--wheat-gold); }
-.ember-footer .ember-brand-sub { color: rgba(185, 154, 101, 0.8); }
-.ember-footer .ember-brand-icon { color: var(--wheat-gold); }
 
 .ember-footer-col h4 {
-    color: var(--wheat-gold);
     font-family: var(--font-heading);
-    font-size: 1.15rem;
-    margin-bottom: 1.25rem;
+    font-size: 1.35rem;
+    color: #FFFFFF;
+    margin-bottom: 1.5rem;
     position: relative;
     padding-bottom: 0.5rem;
 }
 
-.ember-footer-col h4:after {
+.ember-footer-col h4::after {
     content: '';
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 28px;
+    width: 36px;
     height: 2px;
-    background: var(--terracotta);
+    background-color: var(--wheat-gold);
 }
 
 .ember-footer-links {
     list-style: none;
     padding: 0;
     margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 0.65rem;
+}
+
+.ember-footer-links li {
+    margin-bottom: 0.75rem;
 }
 
 .ember-footer-links a {
-    color: rgba(244, 238, 220, 0.75);
-    font-size: 0.93rem;
-    transition: var(--transition-smooth);
+    color: var(--text-secondary-dark);
+    text-decoration: none;
+    transition: color 0.25s ease, padding-left 0.25s ease;
 }
 
 .ember-footer-links a:hover {
     color: var(--wheat-gold);
-    padding-left: 5px;
+    padding-left: 4px;
 }
 
 .ember-footer-bottom {
-    max-width: 1280px;
+    max-width: var(--container-max);
     margin: 0 auto;
     padding-top: 2rem;
-    border-top: 1px solid rgba(120, 133, 104, 0.3);
+    border-top: 1px solid rgba(255, 252, 245, 0.12);
     display: flex;
     justify-content: space-between;
     align-items: center;
+    font-size: 0.9rem;
+    color: var(--text-muted-dark);
     flex-wrap: wrap;
     gap: 1rem;
-    font-size: 0.84rem;
-    color: rgba(244, 238, 220, 0.6);
 }
 
-.ember-footer-bottom strong { color: var(--warm-white); }
-
-.ember-social-icons { display: flex; gap: 1rem; }
-
-.ember-social-btn {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background: rgba(255, 252, 245, 0.08);
-    border: 1px solid rgba(185, 154, 101, 0.3);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--wheat-gold);
-    font-size: 0.75rem;
-    font-weight: 700;
-    transition: var(--transition-smooth);
+/* --------------------------------------------------------------------------
+   14. FORMS & INPUT CONTROLS (RESERVATIONS & CONTACT)
+   -------------------------------------------------------------------------- */
+.ember-form-card {
+    background-color: var(--warm-white);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    padding: 3rem 2.5rem;
+    box-shadow: var(--shadow-card);
+    max-width: 760px;
+    margin: 0 auto;
 }
 
-.ember-social-btn:hover {
-    background: var(--terracotta);
-    color: #fff;
+.ember-form-group {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.ember-form-group label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--forest-green);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.ember-input,
+.ember-select,
+.ember-textarea {
+    width: 100%;
+    padding: 0.85rem 1.1rem;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--text-primary-light);
+    background-color: var(--warm-cream);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-sm);
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    box-sizing: border-box;
+}
+
+.ember-input:focus,
+.ember-select:focus,
+.ember-textarea:focus {
+    outline: none;
     border-color: var(--terracotta);
-    transform: translateY(-2px);
+    box-shadow: 0 0 0 3px var(--terracotta-light);
+    background-color: #FFFFFF;
 }
 
-/* ============================================================
-   EMBER SPICE — TARGETED UI FIXES v1.3
-   Applied: Hero buttons | CTA visibility | About continuity
-   ============================================================ */
-
-/* ---- FIX 1: Hero CTA Buttons — Side-by-side, never stacked ---- */
-/* Elementor button group container inside hero section */
-.elementor-element-6d941c03,
-.elementor-element-6d941c03 > .e-con-inner,
-.elementor-element-6d941c03 > div {
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: wrap !important;
-    justify-content: center !important;
-    align-items: center !important;
-    gap: 1.25rem !important;
-    width: 100% !important;
-}
-
-/* Individual button wrappers inside the hero CTA group */
-.elementor-element-6d941c03 .e-button-base,
-.elementor-element-6d941c03 .elementor-widget,
-.elementor-element-6d941c03 .elementor-widget-container {
-    display: inline-flex !important;
-    flex: 0 0 auto !important;
-    width: auto !important;
-    min-width: 0 !important;
-}
-
-/* Button wrappers that are DIRECT children of hero — override flex:1 behavior */
-.elementor-element-4daa71ce,
-.elementor-element-15ec9579 {
-    display: inline-flex !important;
-    flex: 0 0 auto !important;
-    width: auto !important;
-}
-
-/* ---- FIX 2: Reservation CTA Section — text visibility ---- */
-/* The CTA card container: clean warm-white card, forest-green text */
-
-/* Force CTA section background to be visible warm white card */
-.elementor-element-720a8162-46b9,
-.elementor-element-4fb73cbe,
-div[class*="elementor-element-"][class*="cta"] {
-    background: rgba(255, 252, 245, 0.98) !important;
-    border: 1px solid rgba(120, 133, 104, 0.25) !important;
-    border-radius: 16px !important;
-    box-shadow: 0 8px 32px rgba(52, 75, 53, 0.08) !important;
-}
-
-/* CTA heading — Forest Green, fully visible */
-.e-heading-base.cta-title,
-[class*="cta_title"] .e-heading-base,
-[class*="cta-heading"] {
-    color: #344B35 !important;
-    font-family: 'Marcellus', Georgia, serif !important;
-}
-
-/* Broad rule: any section that wraps "Reserve Your Table at Ember Spice"
-   We use a universal fallback covering the most likely Elementor nesting. */
-/* Target: section/div with a cream background that holds an h2 about reservations */
-html body section.e-con h2,
-html body .e-con-full h2 {
-    /* Only override if specifically near cream-bg containers — apply via cascade */
-}
-
-/* The specific Elementor section known to hold the homepage CTA card */
-/* Covers ".elementor-element-d5f04e3-449b" and similar unnamed CTA containers */
-html body .elementor-section.elementor-section-boxed .elementor-inner-section h2,
-html body .elementor-inner-section h2,
-html body .e-con > .e-heading-base[tag="h2"],
-html body .e-con h2.e-heading-base,
-html body .e-con h2 {
-    color: #344B35 !important;
-}
-
-/* Sub-text under CTA heading */
-html body .e-con > .e-paragraph-base,
-html body .e-con p.e-paragraph-base {
-    color: #555347 !important;
-}
-
-/* CTA "Reserve a Table Online" button — Terracotta, white text */
-html body .e-con .e-button-base,
-html body .e-con a.e-button-base {
-    background-color: #B86F48 !important;
-    color: #FFFFFF !important;
-    border-color: #B86F48 !important;
-}
-
-html body .e-con .e-button-base:hover,
-html body .e-con a.e-button-base:hover {
-    background-color: #9f5c38 !important;
-    color: #FFFFFF !important;
-    border-color: #9f5c38 !important;
-}
-
-/* ---- FIX 2b: Direct Elementor section override for homepage CTA ---- */
-/* White text on white card — nuclear fix using high specificity */
-html body .elementor-element h2,
-html body .elementor-element h3 {
-    /* Allow inheritance — only override where explicitly needed below */
-}
-
-/* ---- FIX 2b: Targeted reservation CTA text contrast ---- */
-/* Scope ONLY to the reservation CTA card container */
-html body .elementor-element-490cc535 h2,
-html body .elementor-element-d5f04e3-449b h2,
-html body .elementor-element-720a8162-46b9,
-html body .elementor-inner-section h2 {
-    color: #344B35 !important;
-    font-family: 'Marcellus', Georgia, serif !important;
-}
-
-html body .elementor-element-490cc535 p,
-html body .elementor-element-d5f04e3-449b p,
-html body .elementor-element-695df8b-2bdc,
-html body .elementor-inner-section p {
-    color: #555347 !important;
-}
-
-/* ---- FIX 2c: HERO SUBTITLES ACROSS ALL PAGES — 100% LUMINOUS & HIGH CONTRAST ---- */
-html body .elementor-element-38e8dde3 p,
-html body .elementor-element-ef9390b p,
-html body .elementor-element-3ebb97ea p,
-html body .elementor-element-64872607 p,
-html body .elementor-element-4f91ffee p,
-html body .elementor-element-2e926034 p,
-html body .elementor-element-38e8dde3 .e-paragraph-base,
-html body .elementor-element-ef9390b .e-paragraph-base,
-html body .elementor-element-3ebb97ea .e-paragraph-base,
-html body .elementor-element-64872607 .e-paragraph-base,
-html body .elementor-element-4f91ffee .e-paragraph-base,
-html body .elementor-element-2e926034 .e-paragraph-base,
-html body .elementor-element-38e8dde3 .e-55ddd3e7-f380,
-html body .e-55ddd3e7-f380 {
-    color: #FFFCF5 !important;
-    font-size: 1.25rem !important;
-    line-height: 1.85 !important;
-    font-weight: 400 !important;
-    max-width: 760px !important;
-    margin: 0 auto 2rem auto !important;
-    text-align: center !important;
-    display: block !important;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.75), 0 1px 3px rgba(0, 0, 0, 0.9) !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-}
-
-/* ---- FIX 3: Full-Width Sections — No side gaps ---- */
-/* ALL Elementor sections must stretch edge-to-edge.
-   Inner content (text, grids) stays centered via their own max-width. */
-
-/* Force every Elementor section wrapper to be truly full viewport width */
-html body .elementor-section,
-html body .elementor-section.elementor-section-boxed,
-html body .elementor-section.elementor-section-full_width {
-    width: 100% !important;
-    max-width: 100% !important;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    box-sizing: border-box !important;
-    left: auto !important;
-    right: auto !important;
-}
-
-/* The inner Elementor container: also full width so backgrounds bleed edge to edge */
-html body .elementor-section > .elementor-container,
-html body .elementor-section.elementor-section-boxed > .elementor-container {
-    max-width: 100% !important;
-    width: 100% !important;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-}
-
-/* E-con (new Elementor) top-level containers: also full width */
-html body .e-con.e-parent {
-    width: 100% !important;
-    max-width: 100% !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-}
-
-/* Dark heritage section: full-width, NO card-style max-width/border-radius.
-   The dark block should stretch edge-to-edge just like the hero. */
-html body .elementor-section[style*="#211c18"],
-html body .e-con[style*="#211c18"],
-html body .elementor-section[style*="rgb(33, 28, 24)"],
-html body .e-con[style*="rgb(33, 28, 24)"] {
-    width: 100% !important;
-    max-width: 100% !important;
-    border-radius: 0 !important;
-    margin: 0 !important;
-    overflow: visible !important;
-    box-shadow: none !important;
-}
-
-/* About/Heritage text that lives on dark backgrounds — maintain legibility */
-html body .elementor-element-4a5dc1c5 h2,
-html body .elementor-element-27942172 h2,
-html body .elementor-element-16ef5e00 h2 {
-    font-family: 'Marcellus', Georgia, serif !important;
-    font-size: 2.4rem !important;
-    line-height: 1.25 !important;
-    color: #FFFCF5 !important;
-}
-
-/* Zero out section-to-section gaps — no cream space between consecutive blocks */
-html body .elementor-section + .elementor-section,
-html body .elementor-section.elementor-section-full_width + .elementor-section {
-    margin-top: 0 !important;
-}
-
-/* ---- FIX 4: Menu Page Image Accuracy CSS fallback ---- */
-/* Ensure the menu shortcode renders correct images — override any cached CDN substitutions */
-/* Amritsari Machhi Tikka — crispy spiced fish (not dumplings) */
-.es-menu-item[data-name="Amritsari Machhi Tikka"] .es-menu-item-img {
-    object-fit: cover !important;
-}
-
-/* Murgh Malai Tikka — creamy white chicken skewers (not aquarium) */
-.es-menu-item[data-name="Murgh Malai Tikka"] .es-menu-item-img {
-    object-fit: cover !important;
-}
-
-/* ---- Mobile Responsive Fixes for new rules ---- */
-@media (max-width: 768px) {
-    /* Keep hero buttons horizontal on small screens, allow wrapping */
-    .elementor-element-6d941c03 {
-        flex-direction: row !important;
-        flex-wrap: wrap !important;
-        gap: 1rem !important;
-        justify-content: center !important;
+/* --------------------------------------------------------------------------
+   15. RESPONSIVE BREAKPOINTS (ASTRA ADAPTIVE EXCELLENCE)
+   -------------------------------------------------------------------------- */
+/* Laptop / Small Desktop (<= 1024px) */
+@media (max-width: 1024px) {
+    h1 { font-size: 3rem; }
+    h2 { font-size: 2.25rem; }
+    
+    .ember-footer-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 2.5rem;
     }
-
-    .elementor-element-4daa71ce,
-    .elementor-element-15ec9579 {
-        flex: 0 0 auto !important;
-        min-width: 160px !important;
+    
+    .elementor-element-34c143f2,
+    .elementor-element-4a8053e0,
+    .elementor-element-5458e283,
+    .elementor-element-1684f3ed,
+    .elementor-element-3e7fe74,
+    .elementor-element-7566eaa {
+        gap: 2.5rem !important;
     }
+}
 
-    /* About section padding reduced on mobile */
-    html body .elementor-element-34c143f2.elementor-element,
-    html body .elementor-element-4a8053e0.elementor-element {
-        padding: 2.5rem 1.5rem !important;
+/* Tablet (<= 960px) */
+@media (max-width: 960px) {
+    /* Navbar Mobile Drawer */
+    .ember-mobile-toggle {
+        display: flex;
+    }
+    
+    .ember-nav-links {
+        display: none;
+        position: absolute;
+        top: 76px;
+        left: 0;
+        width: 100%;
+        background-color: var(--warm-white);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1.5rem 2rem;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+        border-bottom: 1px solid var(--border-light);
+        gap: 1.25rem;
+    }
+    
+    .ember-nav-links.is-open {
+        display: flex;
+    }
+    
+    .ember-nav-cta {
+        display: none;
+    }
+    
+    /* 2-Column Splits Collapse to 1-Column */
+    .elementor-element-34c143f2,
+    .elementor-element-4a8053e0,
+    .elementor-element-5458e283,
+    .elementor-element-1684f3ed,
+    .elementor-element-3e7fe74,
+    .elementor-element-7566eaa,
+    .elementor-element-6198878,
+    .elementor-element-427555dd {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+    }
+    
+    /* Dish Grids to 2 Columns */
+    .elementor-element-23ac47f2,
+    .ember-menu-grid,
+    .elementor-element-ff92bf6-a1f6 {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+    
+    .elementor-element-6fa6aad4 img,
+    .elementor-element-63a15db4 img,
+    .elementor-element-2fa2f402 img,
+    .elementor-element-46ceb09d img,
+    .elementor-element-73ce952f img,
+    .elementor-element-45617a91 img {
+        height: 380px !important;
+    }
+}
+
+/* Mobile Devices (<= 640px) */
+@media (max-width: 640px) {
+    h1 { font-size: 2.35rem; }
+    h2 { font-size: 1.85rem; }
+    
+    section,
+    .elementor-con.e-parent,
+    .elementor-section {
+        padding-top: 3.5rem !important;
+        padding-bottom: 3.5rem !important;
+    }
+    
+    /* Grids to Single Column */
+    .elementor-element-23ac47f2,
+    .ember-menu-grid,
+    .elementor-element-ff92bf6-a1f6,
+    .ember-footer-container {
+        grid-template-columns: 1fr !important;
+        gap: 1.75rem !important;
+    }
+    
+    .elementor-element-6fa6aad4 img,
+    .elementor-element-63a15db4 img,
+    .elementor-element-2fa2f402 img,
+    .elementor-element-46ceb09d img,
+    .elementor-element-73ce952f img,
+    .elementor-element-45617a91 img {
+        height: 280px !important;
+    }
+    
+    .ember-footer-bottom {
+        flex-direction: column;
+        text-align: center;
     }
 }

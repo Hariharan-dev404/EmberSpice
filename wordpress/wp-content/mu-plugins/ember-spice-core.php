@@ -263,61 +263,112 @@ class EmberSpiceCore {
     }
 
     /**
-     * Injects absolute priority CSS at the bottom of <head>
-     * Guarantees 100% full-size uncropped images and strict vertical content stacking.
+     * Injects high-priority Astra-inspired Design System CSS.
+     * Enforces consistent 1200px container widths, perfect typography, 
+     * responsive 2-column splits, and clean component styling across all pages.
      */
     public function print_critical_head_styles() {
         ?>
         <style id="ember-spice-critical-overrides">
         /* ====================================================================
-           CRITICAL OVERRIDES: FULL-SIZE IMAGES & STRICT VERTICAL FLOW
+           EMBER SPICE — ASTRA-INSPIRED CORE DESIGN SYSTEM OVERRIDES
            ==================================================================== */
 
-        /* 1. Creative Culinary Feature Images — Full-Width Column Fit (No Empty Space) */
-        html body .elementor-element-6fa6aad4,
-        html body .elementor-element-63a15db4,
-        html body .elementor-element-2fa2f402,
-        html body .elementor-element-46ceb09d,
-        html body .elementor-element-73ce952f,
-        html body .elementor-element-45617a91,
-        html body .elementor-element-6bae2821 {
+        /* 1. Global Page Background & Clean Base Typography */
+        html, body {
+            background-color: #F6F2E9 !important;
+            color: #24261F !important;
+            font-family: 'Plus Jakarta Sans', sans-serif !important;
+            overflow-x: hidden !important;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+
+        /* 2. Full-Width Section Containers (No side cream bars outside section backgrounds) */
+        html body .elementor > .e-con,
+        html body .elementor > .elementor-element,
+        html body .elementor-section,
+        html body .e-con.e-parent,
+        html body .elementor-element-38e8dde3,
+        html body .elementor-element-1b252868,
+        html body .elementor-element-7fb873ab,
+        html body .elementor-element-35e3a624,
+        html body .elementor-element-75485836,
+        html body .elementor-element-27fc9345,
+        html body .elementor-element-490626bb,
+        html body .elementor-element-490cc535,
+        html body .elementor-element-ef9390b,
+        html body .elementor-element-1d0dfba8,
+        html body .elementor-element-12ec63c2,
+        html body .elementor-element-2539d8d6,
+        html body .elementor-element-4e1a1d4a,
+        html body .elementor-element-3ebb97ea,
+        html body .elementor-element-64872607,
+        html body .elementor-element-4f91ffee,
+        html body .elementor-element-2e926034 {
             width: 100% !important;
             max-width: 100% !important;
-            display: block !important;
-            margin: 0 !important;
-            position: relative !important;
+            min-width: 100% !important;
+            margin-left: 0 !important;
+            margin-right: 0 !important;
             box-sizing: border-box !important;
         }
 
-        html body .elementor-element-6fa6aad4 img,
-        html body .elementor-element-63a15db4 img,
-        html body .elementor-element-2fa2f402 img,
-        html body .elementor-element-46ceb09d img,
-        html body .elementor-element-73ce952f img,
-        html body .elementor-element-45617a91 img,
-        html body .elementor-element-6bae2821 img {
+        /* Section Backgrounds & Vertical Spacing */
+        html body .elementor-element-1b252868,
+        html body .elementor-element-75485836,
+        html body .elementor-element-27fc9345,
+        html body .elementor-element-490626bb,
+        html body .elementor-element-1d0dfba8,
+        html body .elementor-element-2539d8d6,
+        html body .elementor-element-4e1a1d4a {
+            background-color: #151A15 !important;
+            color: #FFFFFF !important;
+            padding-top: 5.5rem !important;
+            padding-bottom: 5.5rem !important;
+            padding-left: 1.5rem !important;
+            padding-right: 1.5rem !important;
+        }
+
+        html body .elementor-element-7fb873ab,
+        html body .elementor-element-12ec63c2 {
+            background-color: #F6F2E9 !important;
+            padding-top: 5.5rem !important;
+            padding-bottom: 5.5rem !important;
+            padding-left: 1.5rem !important;
+            padding-right: 1.5rem !important;
+        }
+
+        html body .elementor-element-35e3a624 {
+            background-color: #FFFFFF !important;
+            padding-top: 5.5rem !important;
+            padding-bottom: 5.5rem !important;
+            padding-left: 1.5rem !important;
+            padding-right: 1.5rem !important;
+        }
+
+        /* 3. Astra-Standard 1200px Content Container */
+        html body .elementor-element-34c143f2,
+        html body .elementor-element-23ac47f2,
+        html body .elementor-element-6198878,
+        html body .elementor-element-427555dd,
+        html body .elementor-element-4a8053e0,
+        html body .elementor-element-5458e283,
+        html body .elementor-element-512823b4,
+        html body .elementor-element-ff92bf6-a1f6,
+        html body .elementor-element-1684f3ed,
+        html body .elementor-element-3e7fe74,
+        html body .elementor-element-7566eaa,
+        html body .elementor-element-7600a2c6-a44b,
+        html body .elementor-element-63d2b48e-d19f {
             width: 100% !important;
-            max-width: 100% !important;
-            height: 520px !important;
-            max-height: 520px !important;
-            object-fit: cover !important;
-            border-radius: 16px !important;
-            border: 1px solid rgba(185, 154, 101, 0.45) !important;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55), 0 4px 16px rgba(185, 154, 101, 0.2) !important;
-            display: block !important;
-            margin: 0 !important;
-            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
+            max-width: 1200px !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+            box-sizing: border-box !important;
         }
 
-        html body .elementor-element-6fa6aad4 img:hover,
-        html body .elementor-element-63a15db4 img:hover,
-        html body .elementor-element-2fa2f402 img:hover {
-            transform: translateY(-4px) scale(1.015) !important;
-            border-color: rgba(184, 111, 72, 0.75) !important;
-            box-shadow: 0 28px 60px rgba(0, 0, 0, 0.6), 0 6px 20px rgba(184, 111, 72, 0.3) !important;
-        }
-
-        /* 3. Strict 2-column layout for split sections (Home intro, Chef, Exp, About Story, Chef, Ambience) */
+        /* 4. Two-Column Split Sections (Heritage, Chef, Ambience, Story) */
         html body .elementor-element-34c143f2,
         html body .elementor-element-4a8053e0,
         html body .elementor-element-5458e283,
@@ -328,13 +379,11 @@ class EmberSpiceCore {
             grid-template-columns: 1fr 1fr !important;
             gap: 4rem !important;
             align-items: center !important;
-            width: 100% !important;
-            max-width: 1300px !important;
-            margin: 0 auto !important;
-            box-sizing: border-box !important;
+            padding-left: 1.5rem !important;
+            padding-right: 1.5rem !important;
         }
 
-        /* 4. Strict vertical column flow for text containers - NEVER horizontal strips */
+        /* Text Column in Split Sections */
         html body .elementor-element-4a5dc1c5,
         html body .elementor-element-27942172,
         html body .elementor-element-16ef5e00,
@@ -346,157 +395,234 @@ class EmberSpiceCore {
             align-items: flex-start !important;
             text-align: left !important;
             width: 100% !important;
-            gap: 0 !important;
         }
 
-        html body .elementor-element-4a5dc1c5 > *,
-        html body .elementor-element-27942172 > *,
-        html body .elementor-element-16ef5e00 > *,
-        html body .elementor-element-7fdad146 > *,
-        html body .elementor-element-2c6ea686 > *,
-        html body .elementor-element-3184349 > * {
+        /* Harmonious Typography in Split Text Column */
+        html body .elementor-element-4a5dc1c5 .e-heading-base:first-child,
+        html body .elementor-element-27942172 .e-heading-base:first-child,
+        html body .elementor-element-16ef5e00 .e-heading-base:first-child,
+        html body .elementor-element-7fb873ab .e-heading-base:first-child,
+        html body .elementor-element-35e3a624 .e-heading-base:first-child,
+        html body .elementor-element-490626bb .e-heading-base:first-child {
+            color: #B99A65 !important;
+            -webkit-text-fill-color: #B99A65 !important;
+            font-size: 0.85rem !important;
+            font-weight: 700 !important;
+            letter-spacing: 3px !important;
+            text-transform: uppercase !important;
+            margin-bottom: 0.65rem !important;
+            display: inline-block !important;
+        }
+
+        html body .elementor-element-4a5dc1c5 h2,
+        html body .elementor-element-27942172 h2,
+        html body .elementor-element-16ef5e00 h2,
+        html body .elementor-element-7fdad146 h2,
+        html body .elementor-element-2c6ea686 h2,
+        html body .elementor-element-3184349 h2,
+        html body .elementor-element-490626bb h2 {
+            font-family: 'Marcellus', Georgia, serif !important;
+            font-size: 2.6rem !important;
+            color: #FFFFFF !important;
+            -webkit-text-fill-color: #FFFFFF !important;
+            margin-top: 0 !important;
+            margin-bottom: 1.15rem !important;
+            line-height: 1.25 !important;
+        }
+
+        html body .elementor-element-4a5dc1c5 p,
+        html body .elementor-element-27942172 p,
+        html body .elementor-element-16ef5e00 p,
+        html body .elementor-element-7fdad146 p,
+        html body .elementor-element-2c6ea686 p,
+        html body .elementor-element-3184349 p,
+        html body .e-5d1dd4c5-21c5,
+        html body .e-634b225-6cdc,
+        html body .e-39c52f44-e908 {
+            color: rgba(255, 252, 245, 0.92) !important;
+            -webkit-text-fill-color: rgba(255, 252, 245, 0.92) !important;
+            font-size: 1.05rem !important;
+            line-height: 1.8 !important;
+            margin-top: 0 !important;
+            margin-bottom: 1.15rem !important;
+        }
+
+        /* Feature Images in Split Sections */
+        html body .elementor-element-6fa6aad4,
+        html body .elementor-element-63a15db4,
+        html body .elementor-element-2fa2f402,
+        html body .elementor-element-46ceb09d,
+        html body .elementor-element-73ce952f,
+        html body .elementor-element-45617a91,
+        html body .elementor-element-6bae2821 {
+            width: 100% !important;
+            display: block !important;
+            margin: 0 !important;
+        }
+
+        html body .elementor-element-6fa6aad4 img,
+        html body .elementor-element-63a15db4 img,
+        html body .elementor-element-2fa2f402 img,
+        html body .elementor-element-46ceb09d img,
+        html body .elementor-element-73ce952f img,
+        html body .elementor-element-45617a91 img,
+        html body .elementor-element-6bae2821 img {
+            width: 100% !important;
+            height: 460px !important;
+            max-height: 460px !important;
+            object-fit: cover !important;
+            border-radius: 12px !important;
+            border: 1px solid rgba(185, 154, 101, 0.35) !important;
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35) !important;
+            display: block !important;
+            margin: 0 !important;
+            transition: transform 0.4s ease, box-shadow 0.4s ease !important;
+        }
+
+        html body .elementor-element-6fa6aad4 img:hover,
+        html body .elementor-element-63a15db4 img:hover,
+        html body .elementor-element-2fa2f402 img:hover {
+            transform: translateY(-4px) !important;
+            box-shadow: 0 22px 48px rgba(0, 0, 0, 0.5) !important;
+        }
+
+        /* 5. Hero Sections Across All Pages */
+        html body .elementor-element-38e8dde3,
+        html body .elementor-element-ef9390b,
+        html body .elementor-element-3ebb97ea,
+        html body .elementor-element-64872607,
+        html body .elementor-element-4f91ffee,
+        html body .elementor-element-2e926034 {
             width: 100% !important;
             max-width: 100% !important;
-            margin-left: 0 !important;
-            margin-right: 0 !important;
-            display: block !important;
-        }
-
-        /* 5. Individual Cards: Strict vertical stacking (Title on top, description below) */
-        html body .elementor-element-4572bed3,
-        html body .elementor-element-3c8045f1,
-        html body .elementor-element-17f3502c,
-        html body .elementor-element-440b8b8e,
-        html body .elementor-element-3e2e8fd2,
-        html body .elementor-element-4e381021,
-        html body .elementor-element-715406bc,
-        html body .elementor-element-35e87e9b,
-        html body .elementor-element-16593cf6,
-        html body .elementor-element-70944290,
-        html body .elementor-element-188698bc,
-        html body .elementor-element-3ac47c0,
-        html body .elementor-element-2f8fc644,
-        html body .elementor-element-36ec187a,
-        html body .elementor-element-58ae0245,
-        html body .elementor-element-28d62019,
-        html body .elementor-element-33142ffa,
-        html body .elementor-element-627ec02f {
+            min-height: 65vh !important;
             display: flex !important;
             flex-direction: column !important;
-            align-items: flex-start !important;
-            text-align: left !important;
-            background: #FFFCF5 !important;
-            border: 1px solid rgba(120, 133, 104, 0.25) !important;
-            border-radius: 12px !important;
-            padding: 2.2rem 2rem !important;
-            box-shadow: 0 4px 20px rgba(52, 75, 53, 0.08) !important;
-            width: 100% !important;
+            justify-content: center !important;
+            align-items: center !important;
+            text-align: center !important;
+            padding: 7rem 1.5rem 6rem !important;
             box-sizing: border-box !important;
         }
 
-        html body .elementor-element-4572bed3 .e-heading-base,
-        html body .elementor-element-3c8045f1 .e-heading-base,
-        html body .elementor-element-17f3502c .e-heading-base,
-        html body .elementor-element-440b8b8e .e-heading-base,
-        html body .elementor-element-3e2e8fd2 .e-heading-base,
-        html body .elementor-element-4e381021 .e-heading-base,
-        html body .elementor-element-715406bc .e-heading-base,
-        html body .elementor-element-188698bc .e-heading-base,
-        html body .elementor-element-3ac47c0 .e-heading-base,
-        html body .elementor-element-2f8fc644 .e-heading-base,
-        html body .elementor-element-36ec187a .e-heading-base,
-        html body .elementor-element-58ae0245 .e-heading-base,
-        html body .elementor-element-28d62019 .e-heading-base,
-        html body .elementor-element-33142ffa .e-heading-base,
-        html body .elementor-element-627ec02f .e-heading-base {
-            font-family: 'Marcellus', 'Playfair Display', Georgia, serif !important;
-            font-size: 1.4rem !important;
-            color: #344B35 !important;
-            margin-bottom: 0.85rem !important;
-            display: block !important;
-            width: 100% !important;
-            letter-spacing: 0.2px !important;
+        html body .elementor-element-38e8dde3 h1,
+        html body .elementor-element-ef9390b h1,
+        html body .elementor-element-3ebb97ea h1,
+        html body .elementor-element-64872607 h1,
+        html body .elementor-element-4f91ffee h1,
+        html body .elementor-element-2e926034 h1 {
+            color: #FFFFFF !important;
+            -webkit-text-fill-color: #FFFFFF !important;
+            font-family: 'Marcellus', Georgia, serif !important;
+            font-size: 3.5rem !important;
+            max-width: 900px !important;
+            margin: 0 auto 1.25rem auto !important;
+            line-height: 1.18 !important;
+            text-shadow: 0 2px 14px rgba(0, 0, 0, 0.8) !important;
         }
 
-        html body .elementor-element-4572bed3 .e-paragraph-base,
-        html body .elementor-element-3c8045f1 .e-paragraph-base,
-        html body .elementor-element-17f3502c .e-paragraph-base,
-        html body .elementor-element-440b8b8e .e-paragraph-base,
-        html body .elementor-element-3e2e8fd2 .e-paragraph-base,
-        html body .elementor-element-4e381021 .e-paragraph-base,
-        html body .elementor-element-715406bc .e-paragraph-base,
-        html body .elementor-element-188698bc .e-paragraph-base,
-        html body .elementor-element-3ac47c0 .e-paragraph-base,
-        html body .elementor-element-2f8fc644 .e-paragraph-base,
-        html body .elementor-element-36ec187a .e-paragraph-base,
-        html body .elementor-element-58ae0245 .e-paragraph-base,
-        html body .elementor-element-28d62019 .e-paragraph-base,
-        html body .elementor-element-33142ffa .e-paragraph-base,
-        html body .elementor-element-627ec02f .e-paragraph-base {
-            font-family: 'Plus Jakarta Sans', sans-serif !important;
-            color: #555347 !important;
-            font-size: 0.95rem !important;
-            line-height: 1.75 !important;
-            margin-bottom: 0 !important;
-            display: block !important;
-            width: 100% !important;
+        /* Pure White Luminous Hero Description / Second Text */
+        html body .elementor-element-38e8dde3 p,
+        html body .elementor-element-ef9390b p,
+        html body .elementor-element-3ebb97ea p,
+        html body .elementor-element-64872607 p,
+        html body .elementor-element-4f91ffee p,
+        html body .elementor-element-2e926034 p,
+        html body .e-55ddd3e7-f380,
+        html body p[data-interaction-id="3ceeb9f2"] {
+            color: #FFFFFF !important;
+            -webkit-text-fill-color: #FFFFFF !important;
+            font-size: 1.25rem !important;
+            font-weight: 400 !important;
+            max-width: 760px !important;
+            margin: 0 auto 2.25rem auto !important;
+            line-height: 1.85 !important;
+            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.9) !important;
+            opacity: 0.98 !important;
         }
 
-        /* 6. Multi-Column Grids across pages */
+        /* Hero Action Buttons */
+        html body .elementor-element-6d941c03 {
+            display: flex !important;
+            flex-direction: row !important;
+            gap: 1.25rem !important;
+            justify-content: center !important;
+            align-items: center !important;
+            flex-wrap: wrap !important;
+            width: 100% !important;
+            max-width: 600px !important;
+            margin: 0 auto !important;
+        }
+
+        html body .elementor-element-6d941c03 .e-button-base,
+        html body a[data-interaction-id="4daa71ce"],
+        html body a[data-interaction-id="29b1c06"] {
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            padding: 0.95rem 2.2rem !important;
+            font-size: 0.92rem !important;
+            font-weight: 600 !important;
+            letter-spacing: 1.5px !important;
+            text-transform: uppercase !important;
+            border-radius: 6px !important;
+            text-decoration: none !important;
+            white-space: nowrap !important;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        }
+
+        html body a[data-interaction-id="4daa71ce"] {
+            background-color: #B86F48 !important;
+            color: #FFFFFF !important;
+            border: 1.5px solid #B86F48 !important;
+            box-shadow: 0 4px 16px rgba(184, 111, 72, 0.35) !important;
+        }
+
+        html body a[data-interaction-id="4daa71ce"]:hover {
+            background-color: #A05934 !important;
+            border-color: #A05934 !important;
+            transform: translateY(-2px) !important;
+            box-shadow: 0 8px 24px rgba(184, 111, 72, 0.45) !important;
+        }
+
+        html body a[data-interaction-id="29b1c06"] {
+            background-color: transparent !important;
+            color: #FFFFFF !important;
+            border: 1.5px solid rgba(255, 255, 255, 0.8) !important;
+        }
+
+        html body a[data-interaction-id="29b1c06"]:hover {
+            background-color: rgba(255, 255, 255, 0.15) !important;
+            border-color: #FFFFFF !important;
+            transform: translateY(-2px) !important;
+        }
+
+        /* 6. Dish Cards (3-Column Grid) */
         html body .elementor-element-23ac47f2 {
             display: grid !important;
             grid-template-columns: repeat(3, 1fr) !important;
             gap: 2rem !important;
             width: 100% !important;
             max-width: 1200px !important;
-            margin: 2.5rem auto !important;
+            margin: 0 auto !important;
+            box-sizing: border-box !important;
         }
 
-        html body .elementor-element-6198878,
-        html body .elementor-element-427555dd {
-            display: grid !important;
-            grid-template-columns: repeat(4, 1fr) !important;
-            gap: 2rem !important;
-            width: 100% !important;
-            max-width: 1200px !important;
-            margin: 2.5rem auto !important;
-        }
-
-        html body .elementor-element-31d333d7,
-        html body .elementor-element-512823b4 {
-            display: grid !important;
-            grid-template-columns: repeat(3, 1fr) !important;
-            gap: 2rem !important;
-            width: 100% !important;
-            max-width: 1200px !important;
-            margin: 2.5rem auto !important;
-        }
-
-        html body .elementor-element-1c9e9dbd {
-            display: grid !important;
-            grid-template-columns: repeat(2, 1fr) !important;
-            gap: 2rem !important;
-            width: 100% !important;
-            max-width: 1200px !important;
-            margin: 2.5rem auto !important;
-        }
-
-        /* 7. Signature Dish Cards on Home Page — Art-Directed Culinary Bento Presentation */
         html body .elementor-element-7dc084fb,
         html body .elementor-element-5e2546a8,
         html body .elementor-element-59d4bbff,
         html body .elementor-element-12ede85c,
         html body .elementor-element-7658a4a0,
         html body .elementor-element-56120651 {
+            background-color: #FFFFFF !important;
+            border: 1px solid rgba(120, 133, 104, 0.20) !important;
+            border-radius: 10px !important;
+            overflow: hidden !important;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06) !important;
             display: flex !important;
             flex-direction: column !important;
-            background: #FFFCF5 !important;
-            border: 1px solid rgba(120, 133, 104, 0.28) !important;
-            border-radius: 16px !important;
-            overflow: hidden !important;
-            box-shadow: 0 4px 20px rgba(52, 75, 53, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04) !important;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
-            position: relative !important;
+            text-align: left !important;
+            transition: all 0.35s ease !important;
         }
 
         html body .elementor-element-7dc084fb:hover,
@@ -505,22 +631,8 @@ class EmberSpiceCore {
         html body .elementor-element-12ede85c:hover,
         html body .elementor-element-7658a4a0:hover,
         html body .elementor-element-56120651:hover {
-            transform: translateY(-8px) !important;
-            border-color: rgba(184, 111, 72, 0.5) !important;
-            box-shadow: 0 20px 42px rgba(52, 75, 53, 0.14), 0 2px 10px rgba(184, 111, 72, 0.08) !important;
-        }
-
-        /* Image frame with smooth zoom on card hover */
-        html body .elementor-element-7dc084fb .e-image,
-        html body .elementor-element-5e2546a8 .e-image,
-        html body .elementor-element-59d4bbff .e-image,
-        html body .elementor-element-12ede85c .e-image,
-        html body .elementor-element-7658a4a0 .e-image,
-        html body .elementor-element-56120651 .e-image {
-            overflow: hidden !important;
-            position: relative !important;
-            height: 240px !important;
-            background: #F4EEDC !important;
+            transform: translateY(-5px) !important;
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.12) !important;
         }
 
         html body .elementor-element-7dc084fb img,
@@ -530,757 +642,241 @@ class EmberSpiceCore {
         html body .elementor-element-7658a4a0 img,
         html body .elementor-element-56120651 img {
             width: 100% !important;
-            height: 240px !important;
+            height: 220px !important;
+            max-height: 220px !important;
             object-fit: cover !important;
-            border: none !important;
-            border-radius: 0 !important;
             display: block !important;
-            transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1) !important;
+            border-top-left-radius: 9px !important;
+            border-top-right-radius: 9px !important;
         }
 
-        /* Accurate Galouti Kebab image replacement guarantee */
-        html body .elementor-element-7658a4a0 img {
-            content: url('https://images.unsplash.com/photo-1771285119408-04cca3b35036?auto=format&fit=crop&w=800&q=85') !important;
-        }
-
-        html body .elementor-element-7dc084fb:hover img,
-        html body .elementor-element-5e2546a8:hover img,
-        html body .elementor-element-59d4bbff:hover img,
-        html body .elementor-element-12ede85c:hover img,
-        html body .elementor-element-7658a4a0:hover img,
-        html body .elementor-element-56120651:hover img {
-            transform: scale(1.07) !important;
-        }
-
-        /* Card Content Area */
-        html body .elementor-element-7a2a74cc,
-        html body .elementor-element-ddccc8b,
-        html body .elementor-element-25bfb990,
-        html body .elementor-element-32c2a7ed,
-        html body .elementor-element-6a871914,
-        html body .elementor-element-3c42c24c {
-            display: flex !important;
-            flex-direction: column !important;
-            padding: 1.75rem 1.75rem 2rem !important;
-            flex-grow: 1 !important;
-            background: #FFFCF5 !important;
-            text-align: left !important;
-            position: relative !important;
-        }
-
-        /* Section Headings & Eyebrow */
-        html body .elementor-element-51e5f1d h4,
-        html body .elementor-element-51e5f1d .e-heading-base {
-            font-family: 'Plus Jakarta Sans', sans-serif !important;
-            font-size: 0.88rem !important;
-            font-weight: 700 !important;
-            letter-spacing: 4px !important;
-            color: #B86F48 !important;
-            text-align: center !important;
-            text-transform: uppercase !important;
-            margin-bottom: 0.5rem !important;
-        }
-
-        html body .elementor-element-34d946b2 h2,
-        html body .elementor-element-34d946b2 .e-heading-base {
-            font-family: 'Marcellus', Georgia, serif !important;
-            font-size: 3rem !important;
-            font-weight: 500 !important;
-            color: #344B35 !important;
-            text-align: center !important;
-            margin-bottom: 1.25rem !important;
-            letter-spacing: 0.5px !important;
-        }
-
-        html body .elementor-element-56360c49 p,
-        html body .elementor-element-56360c49 .e-paragraph-base {
-            font-family: 'Plus Jakarta Sans', sans-serif !important;
-            font-size: 1.15rem !important;
-            color: #615F52 !important;
-            text-align: center !important;
-            max-width: 720px !important;
-            margin: 0 auto 3.5rem auto !important;
-            line-height: 1.8 !important;
-        }
-
-        /* DISH CARD TITLE — 100% VISIBLE, HIGH CONTRAST, LUXURY RESTAURANT SERIF */
-        html body .elementor-element-7dc084fb h3,
-        html body .elementor-element-5e2546a8 h3,
-        html body .elementor-element-59d4bbff h3,
-        html body .elementor-element-12ede85c h3,
-        html body .elementor-element-7658a4a0 h3,
-        html body .elementor-element-56120651 h3,
-        html body .elementor-element-7dc084fb .e-heading-base,
-        html body .elementor-element-5e2546a8 .e-heading-base,
-        html body .elementor-element-59d4bbff .e-heading-base,
-        html body .elementor-element-12ede85c .e-heading-base,
-        html body .elementor-element-7658a4a0 .e-heading-base,
-        html body .elementor-element-56120651 .e-heading-base,
-        html body .elementor-element-66f7399d .e-heading-base,
-        html body .elementor-element-24058366 .e-heading-base,
-        html body .elementor-element-1e17fe01 .e-heading-base,
-        html body .elementor-element-515780ae .e-heading-base,
-        html body .elementor-element-e35b89a .e-heading-base,
-        html body .elementor-element-59770d16 .e-heading-base,
-        html body .elementor-element-66f7399d h3,
-        html body .elementor-element-24058366 h3,
-        html body .elementor-element-1e17fe01 h3,
-        html body .elementor-element-515780ae h3,
-        html body .elementor-element-e35b89a h3,
-        html body .elementor-element-59770d16 h3 {
-            font-family: 'Marcellus', 'Playfair Display', Georgia, serif !important;
-            font-size: 1.45rem !important;
-            font-weight: 600 !important;
-            color: #344B35 !important; /* Rich Forest Green — 100% visible and readable */
-            line-height: 1.35 !important;
-            margin: 0 0 0.5rem 0 !important;
-            padding: 0 !important;
-            display: block !important;
-            letter-spacing: 0.2px !important;
-        }
-
-        /* DISH CARD PRICE & DIETARY BADGE */
-        html body .elementor-element-7dc084fb h6,
-        html body .elementor-element-5e2546a8 h6,
-        html body .elementor-element-59d4bbff h6,
-        html body .elementor-element-12ede85c h6,
-        html body .elementor-element-7658a4a0 h6,
-        html body .elementor-element-56120651 h6,
-        html body .elementor-element-116cd7c7 .e-heading-base,
-        html body .elementor-element-538d8e49 .e-heading-base,
-        html body .elementor-element-54d45709 .e-heading-base,
-        html body .elementor-element-debd4c0 .e-heading-base,
-        html body .elementor-element-6f67f8a6 .e-heading-base,
-        html body .elementor-element-58113816 .e-heading-base,
-        html body .elementor-element-116cd7c7 h6,
-        html body .elementor-element-538d8e49 h6,
-        html body .elementor-element-54d45709 h6,
-        html body .elementor-element-debd4c0 h6,
-        html body .elementor-element-6f67f8a6 h6,
-        html body .elementor-element-58113816 h6 {
-            font-family: 'Plus Jakarta Sans', sans-serif !important;
-            font-size: 0.95rem !important;
-            font-weight: 700 !important;
-            color: #B86F48 !important; /* Earthy Terracotta */
-            letter-spacing: 1px !important;
-            text-transform: uppercase !important;
-            margin: 0 0 0.85rem 0 !important;
-            padding-bottom: 0.65rem !important;
-            border-bottom: 1px solid rgba(120, 133, 104, 0.18) !important;
-            display: block !important;
-            line-height: 1.4 !important;
-        }
-
-        /* DISH CARD DESCRIPTION — CRISP, READABLE CONTRAST */
-        html body .elementor-element-7dc084fb p,
-        html body .elementor-element-5e2546a8 p,
-        html body .elementor-element-59d4bbff p,
-        html body .elementor-element-12ede85c p,
-        html body .elementor-element-7658a4a0 p,
-        html body .elementor-element-56120651 p,
-        html body .elementor-element-49d2fee p,
-        html body .elementor-element-1bdb672e p,
-        html body .elementor-element-7298416 p,
-        html body .elementor-element-4d9af484 p,
-        html body .elementor-element-40bb635a p,
-        html body .elementor-element-6bbbef8d p,
-        html body .elementor-element-49d2fee .e-paragraph-base,
-        html body .elementor-element-1bdb672e .e-paragraph-base,
-        html body .elementor-element-7298416 .e-paragraph-base,
-        html body .elementor-element-4d9af484 .e-paragraph-base,
-        html body .elementor-element-40bb635a .e-paragraph-base,
-        html body .elementor-element-6bbbef8d .e-paragraph-base {
-            font-family: 'Plus Jakarta Sans', sans-serif !important;
-            font-size: 0.92rem !important;
-            color: #555347 !important; /* High contrast, comfortable readable neutral */
-            line-height: 1.75 !important;
-            margin: 0 !important;
-            display: block !important;
-        }
-
-        /* 8. Hero Sections Across All Pages — Grand Full-Width Photographic Banners (Like Blog Example) */
-        html body .elementor-element-38e8dde3,
-        html body .elementor-element-ef9390b,
-        html body .elementor-element-3ebb97ea,
-        html body .elementor-element-64872607,
-        html body .elementor-element-4f91ffee,
-        html body .elementor-element-2e926034 {
+        /* 7. Experience / Pillars (4-Column Grid) */
+        html body .elementor-element-6198878 {
+            display: grid !important;
+            grid-template-columns: repeat(4, 1fr) !important;
+            gap: 1.75rem !important;
             width: 100% !important;
-            max-width: 100% !important;
-            margin: 0 !important;
-            display: flex !important;
-            flex-direction: column !important;
-            justify-content: center !important;
-            align-items: center !important;
-            text-align: center !important;
-            border-bottom: 1px solid rgba(120, 133, 104, 0.25) !important;
+            max-width: 1200px !important;
+            margin: 0 auto !important;
             box-sizing: border-box !important;
         }
 
-        /* 8a. Home Hero: Full-screen luxury banquet experience */
-        html body .elementor-element-38e8dde3 {
-            min-height: 82vh !important;
-            padding: 7rem 2rem 6rem !important;
-            background: linear-gradient(0deg, rgba(52, 75, 53, 0.72) 0%, rgba(52, 75, 53, 0.85) 100%),
-                        url('https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=1920&q=85') center/cover no-repeat !important;
-        }
-
-        /* 8b. About Us Hero: Whole sacred Indian spices in heritage brass */
-        html body .elementor-element-ef9390b {
-            min-height: 52vh !important;
-            padding: 6rem 2rem !important;
-            background: linear-gradient(0deg, rgba(52, 75, 53, 0.75) 0%, rgba(52, 75, 53, 0.88) 100%),
-                        url('https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=1920&q=85') center/cover no-repeat !important;
-        }
-
-        /* 8c. Our Menu Hero: Saffron Awadhi dum biryani & rich handi curries */
-        html body .elementor-element-3ebb97ea {
-            min-height: 52vh !important;
-            padding: 6rem 2rem !important;
-            background: linear-gradient(0deg, rgba(52, 75, 53, 0.75) 0%, rgba(52, 75, 53, 0.88) 100%),
-                        url('https://images.unsplash.com/photo-1589302168068-964664d93dc0?auto=format&fit=crop&w=1920&q=85') center/cover no-repeat !important;
-        }
-
-        /* 8d. Reservations Hero: Intimate candlelit luxury dining sanctuary */
-        html body .elementor-element-64872607 {
-            min-height: 52vh !important;
-            padding: 6rem 2rem !important;
-            background: linear-gradient(0deg, rgba(52, 75, 53, 0.75) 0%, rgba(52, 75, 53, 0.90) 100%),
-                        url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1920&q=85') center/cover no-repeat !important;
-        }
-
-        /* 8e. Gallery Hero: Chef culinary artistry in charcoal warmth */
-        html body .elementor-element-4f91ffee {
-            min-height: 52vh !important;
-            padding: 6rem 2rem !important;
-            background: linear-gradient(0deg, rgba(52, 75, 53, 0.75) 0%, rgba(52, 75, 53, 0.88) 100%),
-                        url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1920&q=85') center/cover no-repeat !important;
-        }
-
-        /* 8f. Contact Hero: Welcoming restaurant dining ambience */
-        html body .elementor-element-2e926034 {
-            min-height: 52vh !important;
-            padding: 6rem 2rem !important;
-            background: linear-gradient(0deg, rgba(52, 75, 53, 0.75) 0%, rgba(52, 75, 53, 0.90) 100%),
-                        url('https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=1920&q=85') center/cover no-repeat !important;
-        }
-
-        /* Hero Typography Hierarchy — Elegant & Readable */
-        html body .elementor-element-38e8dde3 .e-heading-base:first-child,
-        html body .elementor-element-ef9390b .e-heading-base:first-child,
-        html body .elementor-element-3ebb97ea .e-heading-base:first-child,
-        html body .elementor-element-64872607 .e-heading-base:first-child,
-        html body .elementor-element-4f91ffee .e-heading-base:first-child,
-        html body .elementor-element-2e926034 .e-paragraph-base:first-child,
-        html body .elementor-element-2e926034 .e-heading-base:first-child {
-            color: #B99A65 !important;
-            font-size: 0.95rem !important;
-            letter-spacing: 4px !important;
-            text-transform: uppercase !important;
-            margin-bottom: 1rem !important;
-            font-weight: 700 !important;
+        html body .elementor-element-440b8b8e,
+        html body .elementor-element-3e2e8fd2,
+        html body .elementor-element-4e381021,
+        html body .elementor-element-715406bc {
+            background-color: #F6F2E9 !important;
+            border: 1px solid rgba(120, 133, 104, 0.2) !important;
+            border-radius: 10px !important;
+            padding: 2.5rem 1.75rem !important;
             text-align: center !important;
-            display: block !important;
-        }
-
-        html body .elementor-element-38e8dde3 h1,
-        html body .elementor-element-ef9390b h1,
-        html body .elementor-element-3ebb97ea h1,
-        html body .elementor-element-64872607 h1,
-        html body .elementor-element-4f91ffee h1,
-        html body .elementor-element-2e926034 h1,
-        html body .elementor-element-38e8dde3 .e-heading-base h1,
-        html body .elementor-element-ef9390b .e-heading-base h1,
-        html body .elementor-element-3ebb97ea .e-heading-base h1,
-        html body .elementor-element-64872607 .e-heading-base h1,
-        html body .elementor-element-4f91ffee .e-heading-base h1,
-        html body .elementor-element-2e926034 .e-heading-base h1 {
-            color: #FFFCF5 !important;
-            font-family: 'Marcellus', 'Cormorant Garamond', Georgia, serif !important;
-            font-size: 3.5rem !important;
-            margin-bottom: 1.25rem !important;
-            line-height: 1.2 !important;
-            text-align: center !important;
-            max-width: 900px !important;
-            margin-left: auto !important;
-            margin-right: auto !important;
-            display: block !important;
-        }
-
-        /* HERO PARAGRAPH SUBTITLES ACROSS ALL PAGES — PURE WHITE (#FFFFFF), LUMINOUS & CRYSTAL CLEAR */
-        html body .elementor-element-38e8dde3 p,
-        html body .elementor-element-ef9390b p,
-        html body .elementor-element-3ebb97ea p,
-        html body .elementor-element-64872607 p,
-        html body .elementor-element-4f91ffee p,
-        html body .elementor-element-2e926034 p,
-        html body .elementor-element-38e8dde3 .e-paragraph-base,
-        html body .elementor-element-ef9390b .e-paragraph-base,
-        html body .elementor-element-3ebb97ea .e-paragraph-base,
-        html body .elementor-element-64872607 .e-paragraph-base,
-        html body .elementor-element-4f91ffee .e-paragraph-base,
-        html body .elementor-element-2e926034 .e-paragraph-base,
-        html body .elementor-element-38e8dde3 .e-55ddd3e7-f380,
-        html body .e-55ddd3e7-f380,
-        html body .e-59b9377d-1eb2,
-        html body .e-3df2c96b-79ba,
-        html body .e-153998b7-c33e,
-        html body .e-46f507b0-e380 {
-            color: #FFFFFF !important;
-            -webkit-text-fill-color: #FFFFFF !important;
-            font-size: 1.25rem !important;
-            line-height: 1.85 !important;
-            font-weight: 400 !important;
-            max-width: 820px !important;
-            margin: 0 auto 2rem auto !important;
-            text-align: center !important;
-            display: block !important;
-            text-shadow: 0 2px 14px rgba(0, 0, 0, 0.95), 0 1px 4px rgba(0, 0, 0, 0.95) !important;
-            opacity: 1 !important;
-            visibility: visible !important;
-        }
-
-        html body .elementor-element-6d941c03,
-        html body .elementor-element-15ec9579 {
-            display: flex !important;
-            flex-direction: row !important;
-            flex-wrap: wrap !important;
-            justify-content: center !important;
-            align-items: center !important;
-            gap: 1.25rem !important;
-            width: 100% !important;
-            margin-top: 1.75rem !important;
-        }
-
-        /* Hero button inner wrappers - override flex:1 that causes stacking */
-        html body .elementor-element-6d941c03 > .elementor-widget,
-        html body .elementor-element-6d941c03 > div,
-        html body .elementor-element-6d941c03 > a {
-            flex: 0 0 auto !important;
-            width: auto !important;
-            display: inline-flex !important;
-        }
-
-        /* ==========================================================
-           10. DARK FEATURE SECTIONS — PURE WHITE SECONDARY TEXT
-           Heritage, Chef, Ambience on charcoal/forest backgrounds
-           ========================================================== */
-        html body .elementor-element-1b252868 h2,
-        html body .elementor-element-75485836 h2,
-        html body .elementor-element-27fc9345 h2,
-        html body .elementor-element-4a5dc1c5 h2,
-        html body .elementor-element-16ef5e00 h2,
-        html body .elementor-element-27942172 h2,
-        html body .e-77f10f2e-a346,
-        html body .e-73bf132-cf36,
-        html body .e-3d82db9c-371a {
-            color: #FFFFFF !important;
-            -webkit-text-fill-color: #FFFFFF !important;
-            font-family: 'Marcellus', Georgia, serif !important;
-            font-size: 2.8rem !important;
-            margin-bottom: 1.25rem !important;
-            text-align: left !important;
-            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5) !important;
-        }
-
-        /* ALL second text content in dark sections: PURE WHITE (#FFFFFF) */
-        html body .elementor-element-1b252868 p,
-        html body .elementor-element-75485836 p,
-        html body .elementor-element-27fc9345 p,
-        html body .elementor-element-4a5dc1c5 p,
-        html body .elementor-element-16ef5e00 p,
-        html body .elementor-element-27942172 p,
-        html body .elementor-element-1684f3ed p,
-        html body .elementor-element-7fdad146 p,
-        html body .elementor-element-3e7fe74 p,
-        html body .elementor-element-2c6ea686 p,
-        html body .elementor-element-7566eaa p,
-        html body .elementor-element-3184349 p,
-        html body .elementor-element-1b252868 .e-paragraph-base,
-        html body .elementor-element-75485836 .e-paragraph-base,
-        html body .elementor-element-27fc9345 .e-paragraph-base,
-        html body .e-5d1dd4c5-21c5,
-        html body .e-634b225-6cdc,
-        html body .e-39c52f44-e908,
-        html body .e-c136635-b972 {
-            color: #FFFFFF !important;
-            -webkit-text-fill-color: #FFFFFF !important;
-            font-size: 1.12rem !important;
-            line-height: 1.85 !important;
-            text-align: left !important;
-            margin-bottom: 1.25rem !important;
-            opacity: 0.98 !important;
-            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7) !important;
-        }
-
-        /* ==========================================================
-           11. RESERVATION CTA SECTION — ROYAL FOREST GREEN LUXURY CARD
-           Both heading and second text content are PURE WHITE (#FFFFFF)
-           ========================================================== */
-
-        /* Scoped strictly to the reservation CTA card container */
-        html body .elementor-element-490cc535,
-        html body .elementor-element-67a8ecb2,
-        html body .elementor-element-2197d64f {
-            background: #232D23 !important; /* Rich Royal Forest Green */
-            border: 1px solid rgba(185, 154, 101, 0.45) !important;
-            border-radius: 20px !important;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35) !important;
-            padding: 4.5rem 2.5rem !important;
-            max-width: 1080px !important;
-            margin: 3.5rem auto !important;
-            text-align: center !important;
-            box-sizing: border-box !important;
-        }
-
-        html body .elementor-element-490cc535 h2,
-        html body .elementor-element-d5f04e3-449b h2,
-        html body .elementor-element-720a8162-46b9,
-        html body .elementor-element-490cc535 .e-heading-base {
-            color: #FFFFFF !important;
-            -webkit-text-fill-color: #FFFFFF !important;
-            font-family: 'Marcellus', Georgia, serif !important;
-            font-size: 2.8rem !important;
-            margin-bottom: 1.2rem !important;
-            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6) !important;
-            text-align: center !important;
-        }
-
-        /* Subtitle / paragraph second text in the CTA section: PURE WHITE */
-        html body .elementor-element-490cc535 p,
-        html body .elementor-element-d5f04e3-449b p,
-        html body .elementor-element-695df8b-2bdc,
-        html body .elementor-element-490cc535 .e-paragraph-base {
-            color: #FFFFFF !important;
-            -webkit-text-fill-color: #FFFFFF !important;
-            opacity: 0.96 !important;
-            font-size: 1.15rem !important;
-            line-height: 1.8 !important;
-            max-width: 720px !important;
-            margin: 0 auto 2.5rem auto !important;
-            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) !important;
-            text-align: center !important;
-        }
-
-        /* "Reserve a Table Online" CTA button: terracotta, white text */
-        html body .elementor-element-490cc535 a,
-        html body .elementor-element-490cc535 .e-button-base,
-        html body .e-1754f325-4e33,
-        html body .elementor-inner-section .e-button-base,
-        html body .e-con .e-button-base[href*="reservation"],
-        html body .e-con .e-button-base[href*="reserv"] {
-            background: #B86F48 !important;
-            color: #FFFFFF !important;
-            border: 1px solid #B86F48 !important;
-            padding: 1.1rem 2.8rem !important;
-            font-family: 'Plus Jakarta Sans', sans-serif !important;
-            font-weight: 700 !important;
-            letter-spacing: 1.5px !important;
-            text-transform: uppercase !important;
-            border-radius: 8px !important;
-            display: inline-block !important;
-            box-shadow: 0 8px 24px rgba(184, 111, 72, 0.4) !important;
             transition: all 0.3s ease !important;
         }
 
-        html body .elementor-element-490cc535 a:hover,
-        html body .elementor-element-490cc535 .e-button-base:hover,
-        html body .e-1754f325-4e33:hover,
-        html body .elementor-inner-section .e-button-base:hover,
-        html body .e-con .e-button-base[href*="reserv"]:hover {
-            background: #9f5c38 !important;
-            color: #FFFFFF !important;
-            border-color: #9f5c38 !important;
-            transform: translateY(-2px) !important;
-            box-shadow: 0 12px 28px rgba(184, 111, 72, 0.5) !important;
+        html body .elementor-element-440b8b8e:hover,
+        html body .elementor-element-3e2e8fd2:hover,
+        html body .elementor-element-4e381021:hover,
+        html body .elementor-element-715406bc:hover {
+            transform: translateY(-4px) !important;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08) !important;
+            border-color: #B86F48 !important;
         }
 
-        /* ==========================================================
-           11. HOME PAGE SPECIFIC: FULL-SCREEN SIZE WIDTH & PERFECT SPACING
-           (Changes apply strictly to Home: .home / .elementor-7)
-           - Fill content text content and images width to 100% full screen size
-           - Eliminate all space between contents (no side cream gutters, no card gaps)
-           - Perfect vertical spacing between text content and images (no huge gaps)
-           - Preserve image heights as requested ("current height is okay")
-           ========================================================== */
-
-        /* Zero margins and gaps between all top-level sections on Home */
-        html body.home .elementor-7 > .e-con,
-        html body.home .elementor-7 > .elementor-element,
-        html body.home .elementor-7 > .e-con + .e-con {
-            margin-top: 0 !important;
-            margin-bottom: 0 !important;
-            width: 100% !important;
-            max-width: 100% !important;
-        }
-
-        /* All home section content containers fill 100% full screen width */
-        html body.home .elementor-7 .elementor-element-34c143f2,
-        html body.home .elementor-7 .elementor-element-23ac47f2,
-        html body.home .elementor-7 .elementor-element-6198878,
-        html body.home .elementor-7 .elementor-element-427555dd,
-        html body.home .elementor-7 .elementor-element-35e3a624,
-        html body.home .elementor-7 .elementor-element-4a8053e0,
-        html body.home .elementor-7 .elementor-element-5458e283,
-        html body.home .elementor-7 .elementor-element-ff92bf6-a1f6,
-        html body.home .elementor-7 .elementor-element-7600a2c6-a44b,
-        html body.home .elementor-7 .elementor-element-63d2b48e-d19f {
-            width: 100% !important;
-            max-width: 100% !important;
-            box-sizing: border-box !important;
-            margin-left: 0 !important;
-            margin-right: 0 !important;
-            padding-left: 0 !important;
-            padding-right: 0 !important;
-        }
-
-        /* Reservation CTA on Home: Full screen width banner, zero cream side gutters */
-        html body.home .elementor-element-490cc535 {
-            width: 100% !important;
-            max-width: 100% !important;
-            margin: 0 !important;
-            border-radius: 0 !important;
-            border-left: none !important;
-            border-right: none !important;
-            padding: 5.5rem 2rem !important;
-            box-shadow: none !important;
-            box-sizing: border-box !important;
-        }
-
-        /* PERFECT SPACING BETWEEN TEXT AND IMAGE IN HOME FEATURE SECTIONS */
-        /* Heritage & Philosophy (1b252868), Master of Spice (75485836), Atmosphere & Ambience (27fc9345) */
-        html body.home .elementor-element-1b252868,
-        html body.home .elementor-element-75485836,
-        html body.home .elementor-element-27fc9345 {
-            padding: 4.5rem 2.5rem 4rem !important;
-            width: 100% !important;
-            max-width: 100% !important;
-            box-sizing: border-box !important;
-        }
-
-        html body.home .elementor-element-34c143f2,
-        html body.home .elementor-element-4a8053e0,
-        html body.home .elementor-element-5458e283 {
-            display: flex !important;
-            flex-direction: column !important;
-            gap: 1.5rem !important;
-            width: 100% !important;
-            max-width: 100% !important;
-        }
-
-        /* Text content columns fill full width on Home */
-        html body.home .elementor-element-4a5dc1c5,
-        html body.home .elementor-element-27942172,
-        html body.home .elementor-element-16ef5e00 {
-            width: 100% !important;
-            max-width: 100% !important;
-            margin: 0 !important;
-            padding: 0 !important;
-            display: flex !important;
-            flex-direction: column !important;
-            align-items: flex-start !important;
-            text-align: left !important;
-        }
-
-        /* Tight, elegant typography spacing - eliminates the huge empty black void */
-        html body.home .elementor-element-4a5dc1c5 .e-heading-base:first-child,
-        html body.home .elementor-element-27942172 .e-heading-base:first-child,
-        html body.home .elementor-element-16ef5e00 .e-heading-base:first-child {
-            margin-bottom: 0.5rem !important;
-        }
-
-        html body.home .elementor-element-4a5dc1c5 h2,
-        html body.home .elementor-element-27942172 h2,
-        html body.home .elementor-element-16ef5e00 h2 {
-            margin-top: 0 !important;
-            margin-bottom: 1rem !important;
-        }
-
-        html body.home .elementor-element-4a5dc1c5 p,
-        html body.home .elementor-element-27942172 p,
-        html body.home .elementor-element-16ef5e00 p,
-        html body.home .elementor-element-4a5dc1c5 .e-paragraph-base,
-        html body.home .elementor-element-27942172 .e-paragraph-base,
-        html body.home .elementor-element-16ef5e00 .e-paragraph-base {
-            margin-top: 0 !important;
-            margin-bottom: 0.85rem !important;
-            max-width: 100% !important;
-            width: 100% !important;
-        }
-
-        html body.home .elementor-element-4a5dc1c5 a,
-        html body.home .elementor-element-4a5dc1c5 .e-button-base {
-            margin-top: 0.5rem !important;
-            margin-bottom: 0 !important;
-        }
-
-        /* FEATURE IMAGES ON HOME: FULL SCREEN WIDTH (100% WIDTH), CURRENT HEIGHT PRESERVED */
-        html body.home .elementor-element-6fa6aad4,
-        html body.home .elementor-element-63a15db4,
-        html body.home .elementor-element-2fa2f402 {
-            width: 100% !important;
-            max-width: 100% !important;
-            margin-top: 1rem !important;
-            margin-bottom: 0 !important;
-            margin-left: 0 !important;
-            margin-right: 0 !important;
-            padding: 0 !important;
-            display: block !important;
-            box-sizing: border-box !important;
-        }
-
-        html body.home .elementor-element-6fa6aad4 img,
-        html body.home .elementor-element-63a15db4 img,
-        html body.home .elementor-element-2fa2f402 img {
-            width: 100% !important;
-            max-width: 100% !important;
-            height: 480px !important;
-            max-height: 480px !important;
-            object-fit: cover !important;
-            border-radius: 14px !important;
-            border: 1px solid rgba(185, 154, 101, 0.45) !important;
-            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.6) !important;
-            display: block !important;
-            margin: 0 !important;
-        }
-
-        /* ==========================================================
-           12. FULL-WIDTH SECTIONS — 100% Edge-to-Edge Viewport
-           Eliminate all cream side bars between screen edges.
-           Section backgrounds span full width.
-           ========================================================== */
-
-        /* All top-level section containers on homepage & inner pages stretch 100% full width */
-        html body .elementor > .e-con,
-        html body .elementor > .elementor-element,
-        html body .elementor-7 > .e-con,
-        html body .elementor-7 > .elementor-element,
-        html body .elementor-section,
-        html body .elementor-section.elementor-section-boxed,
-        html body .elementor-section.elementor-section-full_width,
-        html body .elementor-element-38e8dde3,
-        html body .elementor-element-1b252868,
-        html body .elementor-element-7fb873ab,
-        html body .elementor-element-35e3a624,
-        html body .elementor-element-75485836,
-        html body .elementor-element-27fc9345,
-        html body .elementor-element-490626bb,
-        html body .elementor-element-490cc535,
-        html body .elementor-element-1d0dfba8,
-        html body .elementor-element-12ec63c2,
-        html body .elementor-element-2539d8d6,
-        html body .elementor-element-4e1a1d4a,
-        html body .elementor-element-4df06c2e,
-        html body .elementor-element-728607ee,
-        html body .elementor-element-6bae2821,
-        html body .e-con.e-parent {
-            width: 100% !important;
-            max-width: 100% !important;
-            padding-left: 0 !important;
-            padding-right: 0 !important;
-            margin-left: 0 !important;
-            margin-right: 0 !important;
-            box-sizing: border-box !important;
-            border-radius: 0 !important;
-            box-shadow: none !important;
-        }
-
-        /* Section containers with padding keep their internal breathing room without shrinking container width */
-        html body .elementor-element-1b252868,
-        html body .elementor-element-7fb873ab,
-        html body .elementor-element-35e3a624,
-        html body .elementor-element-75485836,
-        html body .elementor-element-27fc9345,
-        html body .elementor-element-490626bb {
-            padding: 5rem 2rem !important;
-        }
-
-        /* Inner content wrappers stay nicely centered with balanced readable max-width */
-        html body .elementor-element-34c143f2,
-        html body .elementor-element-23ac47f2,
-        html body .elementor-element-6198878,
-        html body .elementor-element-427555dd,
-        html body .elementor-element-31d333d7,
-        html body .elementor-element-512823b4,
-        html body .elementor-element-1c9e9dbd,
-        html body .elementor-element-7600a2c6-a44b,
-        html body .elementor-element-63d2b48e-d19f,
-        html body .elementor-element-ff92bf6-a1f6 {
+        /* 8. Testimonials / Guest Chronicles (3-Column Grid) */
+        html body .elementor-element-512823b4 {
+            display: grid !important;
+            grid-template-columns: repeat(3, 1fr) !important;
+            gap: 2rem !important;
             width: 100% !important;
             max-width: 1200px !important;
-            margin-left: auto !important;
-            margin-right: auto !important;
+            margin: 0 auto 2rem auto !important;
             box-sizing: border-box !important;
         }
 
-        /* Zero section-to-section gap */
-        html body .elementor-section + .elementor-section,
-        html body .elementor-7 > .e-con + .e-con {
-            margin-top: 0 !important;
+        html body .elementor-element-35e87e9b,
+        html body .elementor-element-16593cf6,
+        html body .elementor-element-70944290 {
+            background: rgba(255, 255, 255, 0.04) !important;
+            border: 1px solid rgba(185, 154, 101, 0.25) !important;
+            border-radius: 10px !important;
+            padding: 2.5rem 2rem !important;
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: space-between !important;
+            text-align: left !important;
+            transition: all 0.3s ease !important;
         }
 
-        /* 9. Responsive Mobile Breakpoints */
-        @media (max-width: 860px) {
-            html body .elementor-element-34c143f2,
-            html body .elementor-element-4a8053e0,
-            html body .elementor-element-5458e283,
-            html body .elementor-element-1684f3ed,
-            html body .elementor-element-3e7fe74,
-            html body .elementor-element-7566eaa {
-                grid-template-columns: 1fr !important;
-                gap: 2.5rem !important;
-            }
+        html body .elementor-element-35e87e9b:hover,
+        html body .elementor-element-16593cf6:hover,
+        html body .elementor-element-70944290:hover {
+            border-color: rgba(185, 154, 101, 0.5) !important;
+            transform: translateY(-4px) !important;
+            box-shadow: 0 14px 36px rgba(0, 0, 0, 0.3) !important;
+        }
 
-            html body .elementor-element-6fa6aad4 img,
-            html body .elementor-element-63a15db4 img,
-            html body .elementor-element-2fa2f402 img,
-            html body .elementor-element-46ceb09d img,
-            html body .elementor-element-73ce952f img,
-            html body .elementor-element-45617a91 img,
-            html body .elementor-element-6bae2821 img {
-                max-height: 280px !important;
-                height: 280px !important;
-                max-width: 100% !important;
-            }
+        html body .elementor-element-35e87e9b p,
+        html body .elementor-element-16593cf6 p,
+        html body .elementor-element-70944290 p {
+            color: rgba(255, 252, 245, 0.92) !important;
+            -webkit-text-fill-color: rgba(255, 252, 245, 0.92) !important;
+            font-size: 1.05rem !important;
+            line-height: 1.75 !important;
+            font-style: italic !important;
+            margin-bottom: 1.5rem !important;
+        }
 
-            html body .elementor-element-23ac47f2,
-            html body .elementor-element-6198878,
-            html body .elementor-element-427555dd,
-            html body .elementor-element-31d333d7,
-            html body .elementor-element-1c9e9dbd,
-            html body .elementor-element-512823b4 {
-                grid-template-columns: 1fr !important;
-            }
+        html body .elementor-element-35e87e9b h5,
+        html body .elementor-element-35e87e9b h4,
+        html body .elementor-element-35e87e9b .e-heading-base,
+        html body .elementor-element-16593cf6 h5,
+        html body .elementor-element-16593cf6 h4,
+        html body .elementor-element-16593cf6 .e-heading-base,
+        html body .elementor-element-70944290 h5,
+        html body .elementor-element-70944290 h4,
+        html body .elementor-element-70944290 .e-heading-base {
+            color: #B99A65 !important;
+            -webkit-text-fill-color: #B99A65 !important;
+            font-size: 0.88rem !important;
+            letter-spacing: 1.5px !important;
+            font-weight: 600 !important;
+            text-transform: uppercase !important;
+        }
 
-            /* Responsive Hero Banners */
-            html body .elementor-element-38e8dde3 {
-                min-height: 68vh !important;
-                padding: 5rem 1.5rem !important;
-            }
-            html body .elementor-element-ef9390b,
-            html body .elementor-element-3ebb97ea,
-            html body .elementor-element-64872607,
-            html body .elementor-element-4f91ffee,
-            html body .elementor-element-2e926034 {
-                min-height: 44vh !important;
-                padding: 4.5rem 1.5rem !important;
-            }
+        /* 9. Full-Width Reservation CTA Section */
+        html body .elementor-element-490cc535 {
+            background: linear-gradient(135deg, #1d2c1e 0%, #243525 50%, #172418 100%) !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            min-width: 100% !important;
+            margin: 0 !important;
+            padding: 6rem 1.5rem !important;
+            border-radius: 0 !important;
+            text-align: center !important;
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            justify-content: center !important;
+            box-sizing: border-box !important;
+        }
+
+        html body .elementor-element-490cc535 h2 {
+            color: #FFFFFF !important;
+            -webkit-text-fill-color: #FFFFFF !important;
+            font-family: 'Marcellus', Georgia, serif !important;
+            font-size: 2.8rem !important;
+            max-width: 800px !important;
+            margin: 0 auto 1.25rem auto !important;
+            line-height: 1.25 !important;
+        }
+
+        html body .elementor-element-490cc535 p {
+            color: rgba(255, 252, 245, 0.92) !important;
+            -webkit-text-fill-color: rgba(255, 252, 245, 0.92) !important;
+            font-size: 1.15rem !important;
+            max-width: 680px !important;
+            margin: 0 auto 2.25rem auto !important;
+            line-height: 1.8 !important;
+        }
+
+        html body .elementor-element-490cc535 .e-button-base,
+        html body a[data-interaction-id="7c110f0b"] {
+            background-color: #B86F48 !important;
+            color: #FFFFFF !important;
+            border: 1.5px solid #B86F48 !important;
+            padding: 0.95rem 2.5rem !important;
+            font-size: 0.95rem !important;
+            font-weight: 600 !important;
+            letter-spacing: 1.5px !important;
+            text-transform: uppercase !important;
+            border-radius: 6px !important;
+            box-shadow: 0 4px 16px rgba(184, 111, 72, 0.35) !important;
+            transition: all 0.3s ease !important;
+            text-decoration: none !important;
+            display: inline-block !important;
+        }
+
+        html body .elementor-element-490cc535 .e-button-base:hover,
+        html body a[data-interaction-id="7c110f0b"]:hover {
+            background-color: #A05934 !important;
+            border-color: #A05934 !important;
+            transform: translateY(-2px) !important;
+            box-shadow: 0 8px 24px rgba(184, 111, 72, 0.45) !important;
+        }
+
+        /* 10. Responsive Breakpoints (Laptop, Tablet, Mobile) */
+        @media (max-width: 1024px) {
             html body .elementor-element-38e8dde3 h1,
             html body .elementor-element-ef9390b h1,
             html body .elementor-element-3ebb97ea h1,
             html body .elementor-element-64872607 h1,
             html body .elementor-element-4f91ffee h1,
             html body .elementor-element-2e926034 h1 {
-                font-size: 2.35rem !important;
+                font-size: 2.8rem !important;
+            }
+            html body .elementor-element-6198878 {
+                grid-template-columns: repeat(2, 1fr) !important;
+            }
+        }
+
+        @media (max-width: 960px) {
+            html body .elementor-element-34c143f2,
+            html body .elementor-element-4a8053e0,
+            html body .elementor-element-5458e283,
+            html body .elementor-element-1684f3ed,
+            html body .elementor-element-3e7fe74,
+            html body .elementor-element-7566eaa,
+            html body .elementor-element-512823b4 {
+                grid-template-columns: 1fr !important;
+                gap: 2.5rem !important;
+            }
+            html body .elementor-element-23ac47f2 {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 1.5rem !important;
+            }
+            html body .elementor-element-6fa6aad4 img,
+            html body .elementor-element-63a15db4 img,
+            html body .elementor-element-2fa2f402 img,
+            html body .elementor-element-46ceb09d img,
+            html body .elementor-element-73ce952f img,
+            html body .elementor-element-45617a91 img {
+                height: 360px !important;
+            }
+        }
+
+        @media (max-width: 640px) {
+            html body .elementor-element-38e8dde3 h1,
+            html body .elementor-element-ef9390b h1,
+            html body .elementor-element-3ebb97ea h1,
+            html body .elementor-element-64872607 h1,
+            html body .elementor-element-4f91ffee h1,
+            html body .elementor-element-2e926034 h1 {
+                font-size: 2.2rem !important;
+            }
+            html body .elementor-element-23ac47f2,
+            html body .elementor-element-6198878 {
+                grid-template-columns: 1fr !important;
+            }
+            html body .elementor-element-6fa6aad4 img,
+            html body .elementor-element-63a15db4 img,
+            html body .elementor-element-2fa2f402 img,
+            html body .elementor-element-46ceb09d img,
+            html body .elementor-element-73ce952f img,
+            html body .elementor-element-45617a91 img {
+                height: 260px !important;
+            }
+            html body .elementor-element-6d941c03 {
+                flex-direction: column !important;
+                width: 100% !important;
+            }
+            html body .elementor-element-6d941c03 .e-button-base {
+                width: 100% !important;
             }
         }
         </style>
         <?php
     }
 
-    /**
-     * Builds a luxury responsive HTML email template for Ember Spice notifications.
-     */
     private function build_email_template($eyebrow, $heading, $intro_html, $details_rows, $notice_html = '', $cta_html = '') {
         $year = date('Y');
 
