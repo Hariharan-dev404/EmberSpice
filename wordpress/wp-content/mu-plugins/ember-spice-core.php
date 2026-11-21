@@ -222,20 +222,42 @@ class EmberSpiceCore {
     }
 
     /**
-     * Replaces inaccurate dish imagery with authentic high-resolution Awadhi culinary photos
+     * Replaces inaccurate dish imagery with authentic high-resolution culinary photos.
+     * Runs on all Elementor widget content and standard post content filters.
      */
     public function filter_accurate_dish_images($content) {
         if (empty($content) || !is_string($content)) {
             return $content;
         }
-        // Replace inaccurate chicken image with authentic Awadhi Galouti Kebab image
-        if (strpos($content, 'photo-1599488615731-7e5c2823ff28') !== false && (strpos($content, '7658a4a0') !== false || strpos($content, '645f1f1a') !== false || strpos($content, 'Galouti') !== false)) {
+
+        // Fix 1: Replace Asian-dumplings image used for Amritsari Machhi Tikka
+        // photo-1534422298391 = dim sum/dumplings → replace with crispy spiced golden fish
+        $content = str_replace(
+            'photo-1534422298391-e4f8c172dddb',
+            'photo-1578020190125-f4f7c18bc9cb',  // grilled spiced fish fillet, warm tones
+            $content
+        );
+
+        // Fix 2: Replace neon aquarium fish used for Murgh Malai Tikka
+        // photo-1522069169874 = aquarium fish tank → replace with creamy chicken skewers
+        $content = str_replace(
+            'photo-1522069169874-c58ec4b76be5',
+            'photo-1588166524941-3bf61a9c41db',  // creamy white grilled chicken skewers
+            $content
+        );
+
+        // Fix 3: Galouti Kebab accuracy — replace wrong chicken photo when adjacent to Galouti context
+        if (strpos($content, 'photo-1599488615731-7e5c2823ff28') !== false
+            && (strpos($content, '7658a4a0') !== false
+                || strpos($content, '645f1f1a') !== false
+                || strpos($content, 'Galouti') !== false)) {
             $content = str_replace(
                 'photo-1599488615731-7e5c2823ff28',
                 'photo-1771285119408-04cca3b35036',
                 $content
             );
         }
+
         return $content;
     }
 
@@ -790,6 +812,81 @@ class EmberSpiceCore {
             gap: 1.25rem !important;
             width: 100% !important;
             margin-top: 1.75rem !important;
+        }
+
+        /* Hero button inner wrappers - override flex:1 that causes stacking */
+        html body .elementor-element-6d941c03 > .elementor-widget,
+        html body .elementor-element-6d941c03 > div {
+            flex: 0 0 auto !important;
+            width: auto !important;
+        }
+
+        /* ==========================================================
+           10. RESERVATION CTA SECTION — TEXT VISIBILITY FIX
+           "Reserve Your Table at Ember Spice" heading must be visible
+           ========================================================== */
+
+        /* Any h2 on a cream/white background inside the homepage CTA card
+           must render in deep forest green, never in white/ivory */
+        html body .e-con h2,
+        html body .e-con-inner h2,
+        html body .elementor-inner-section h2 {
+            color: #344B35 !important;
+            font-family: 'Marcellus', Georgia, serif !important;
+        }
+
+        /* Subtitle / paragraph text in the CTA section */
+        html body .e-con > * > p,
+        html body .e-con-inner > p,
+        html body .elementor-inner-section p {
+            color: #555347 !important;
+        }
+
+        /* CTA card container: warm white, sage border, soft shadow */
+        html body .elementor-inner-section {
+            background: rgba(255, 252, 245, 0.98) !important;
+            border: 1px solid rgba(120, 133, 104, 0.22) !important;
+            border-radius: 16px !important;
+            box-shadow: 0 8px 36px rgba(52, 75, 53, 0.08) !important;
+        }
+
+        /* "Reserve a Table Online" CTA button: terracotta, white text */
+        html body .elementor-inner-section .e-button-base,
+        html body .e-con .e-button-base[href*="reservation"],
+        html body .e-con .e-button-base[href*="reserv"] {
+            background: #B86F48 !important;
+            color: #FFFFFF !important;
+            border-color: #B86F48 !important;
+            font-family: 'Plus Jakarta Sans', sans-serif !important;
+            font-weight: 700 !important;
+            letter-spacing: 1.5px !important;
+            text-transform: uppercase !important;
+        }
+
+        html body .elementor-inner-section .e-button-base:hover,
+        html body .e-con .e-button-base[href*="reserv"]:hover {
+            background: #9f5c38 !important;
+            color: #FFFFFF !important;
+            border-color: #9f5c38 !important;
+            transform: translateY(-2px) !important;
+        }
+
+        /* ==========================================================
+           11. ABOUT / HERITAGE SECTION — VISUAL CONTINUITY
+           ========================================================== */
+
+        /* Dark charcoal heritage block: round its corners so it feels
+           like a styled card rather than a harsh full-bleed rupture */
+        html body .elementor-section[style*="211c18"],
+        html body .elementor-section[style*="rgb(33"],
+        html body .e-con[style*="211c18"],
+        html body .e-con[style*="rgb(33"] {
+            border-radius: 20px !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+            max-width: 1240px !important;
+            overflow: hidden !important;
+            box-shadow: 0 24px 60px rgba(33, 28, 24, 0.22) !important;
         }
 
         /* 9. Responsive Mobile Breakpoints */
@@ -1378,12 +1475,12 @@ class EmberSpiceCore {
                 'title' => 'Starters',
                 'desc' => 'Tempting appetizers to begin your culinary journey.',
                 'items' => [
-                    // Fish tikka: crispy spiced fish fillet
-                    ['name' => 'Amritsari Machhi Tikka', 'type' => 'nonveg', 'price' => 545, 'desc' => 'Crispy river sole fillets marinated in crushed ajwain, yellow mustard and spiced gram flour.', 'img' => 'https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=600&q=80'],
+                    // Fish tikka: crispy golden spiced sole fillets — Amritsari style
+                    ['name' => 'Amritsari Machhi Tikka', 'type' => 'nonveg', 'price' => 545, 'desc' => 'Crispy river sole fillets marinated in crushed ajwain, yellow mustard and spiced gram flour.', 'img' => 'https://images.unsplash.com/photo-1578020190125-f4f7c18bc9cb?auto=format&fit=crop&w=600&q=80'],
                     // Galouti kebab: authentic Awadhi royal minced lamb patties on platter
                     ['name' => 'Awadhi Galouti Kebab', 'type' => 'nonveg', 'price' => 595, 'desc' => 'Melt-in-mouth smoked lamb patties infused with 32 royal Awadhi spices, served on saffron sheermal with mint chutney and pickled onions.', 'img' => 'https://images.unsplash.com/photo-1771285119408-04cca3b35036?auto=format&fit=crop&w=800&q=85'],
-                    // Murgh Malai Tikka: creamy white chicken kebab
-                    ['name' => 'Murgh Malai Tikka', 'type' => 'nonveg', 'price' => 495, 'desc' => 'Tender chicken cubes bathed in rich mascarpone, cardamom, green chilies and toasted cashews.', 'img' => 'https://images.unsplash.com/photo-1599488615731-7e5c2823ff28?auto=format&fit=crop&w=600&q=80']
+                    // Murgh Malai Tikka: creamy white chicken kebab on skewers
+                    ['name' => 'Murgh Malai Tikka', 'type' => 'nonveg', 'price' => 495, 'desc' => 'Tender chicken cubes bathed in rich mascarpone, cardamom, green chilies and toasted cashews.', 'img' => 'https://images.unsplash.com/photo-1588166524941-3bf61a9c41db?auto=format&fit=crop&w=600&q=80']
                 ]
             ],
             'veg-starters' => [
