@@ -872,21 +872,57 @@ class EmberSpiceCore {
         }
 
         /* ==========================================================
-           11. ABOUT / HERITAGE SECTION — VISUAL CONTINUITY
+           11. FULL-WIDTH SECTIONS — No side cream gaps
+           All sections stretch edge-to-edge. Inner content grids
+           remain centered via their own max-width containers.
            ========================================================== */
 
-        /* Dark charcoal heritage block: round its corners so it feels
-           like a styled card rather than a harsh full-bleed rupture */
+        /* Every Elementor section: truly full-width, no padding/margin on sides */
+        html body .elementor-section,
+        html body .elementor-section.elementor-section-boxed,
+        html body .elementor-section.elementor-section-full_width {
+            width: 100% !important;
+            max-width: 100% !important;
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+            box-sizing: border-box !important;
+        }
+
+        /* Inner Elementor container: full width so backgrounds bleed edge to edge */
+        html body .elementor-section > .elementor-container,
+        html body .elementor-section.elementor-section-boxed > .elementor-container {
+            max-width: 100% !important;
+            width: 100% !important;
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+        }
+
+        /* E-con top-level containers: full width */
+        html body .e-con.e-parent {
+            width: 100% !important;
+            max-width: 100% !important;
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+        }
+
+        /* Dark heritage section: full-width, no card box, no max-width constraint */
         html body .elementor-section[style*="211c18"],
         html body .elementor-section[style*="rgb(33"],
         html body .e-con[style*="211c18"],
         html body .e-con[style*="rgb(33"] {
-            border-radius: 20px !important;
-            margin-left: auto !important;
-            margin-right: auto !important;
-            max-width: 1240px !important;
-            overflow: hidden !important;
-            box-shadow: 0 24px 60px rgba(33, 28, 24, 0.22) !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            border-radius: 0 !important;
+            margin: 0 !important;
+            overflow: visible !important;
+            box-shadow: none !important;
+        }
+
+        /* Zero section-to-section gap */
+        html body .elementor-section + .elementor-section {
+            margin-top: 0 !important;
         }
 
         /* 9. Responsive Mobile Breakpoints */

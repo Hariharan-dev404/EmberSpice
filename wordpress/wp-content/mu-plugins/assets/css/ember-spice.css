@@ -1575,30 +1575,56 @@ html body .e-con-inner > p {
     color: #555347 !important;
 }
 
-/* ---- FIX 3: About / Heritage Section — Visual Continuity ---- */
-/* The dark charcoal section (#211c18) that abruptly interrupts the cream page.
-   We smooth its edges and ensure it blends as a styled "feature block" rather
-   than a jarring full-bleed rupture. */
+/* ---- FIX 3: Full-Width Sections — No side gaps ---- */
+/* ALL Elementor sections must stretch edge-to-edge.
+   Inner content (text, grids) stays centered via their own max-width. */
 
-/* Identify the about/heritage section by its known Elementor IDs or by its
-   role as a content section with dark background inside a cream page wrapper. */
+/* Force every Elementor section wrapper to be truly full viewport width */
+html body .elementor-section,
+html body .elementor-section.elementor-section-boxed,
+html body .elementor-section.elementor-section-full_width {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    box-sizing: border-box !important;
+    left: auto !important;
+    right: auto !important;
+}
 
-/* General dark-bg content blocks inside the page — round corners, margin breathing room */
+/* The inner Elementor container: also full width so backgrounds bleed edge to edge */
+html body .elementor-section > .elementor-container,
+html body .elementor-section.elementor-section-boxed > .elementor-container {
+    max-width: 100% !important;
+    width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+/* E-con (new Elementor) top-level containers: also full width */
+html body .e-con.e-parent {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+/* Dark heritage section: full-width, NO card-style max-width/border-radius.
+   The dark block should stretch edge-to-edge just like the hero. */
 html body .elementor-section[style*="#211c18"],
 html body .e-con[style*="#211c18"],
 html body .elementor-section[style*="rgb(33, 28, 24)"],
 html body .e-con[style*="rgb(33, 28, 24)"] {
-    border-radius: 20px !important;
-    margin: 2rem auto !important;
-    max-width: 1200px !important;
-    overflow: hidden !important;
-    box-shadow: 0 20px 60px rgba(33, 28, 24, 0.25), 0 2px 8px rgba(0,0,0,0.12) !important;
-}
-
-/* Known About section containers by Elementor ID */
-html body .elementor-element-34c143f2.elementor-element,
-html body .elementor-element-4a8053e0.elementor-element {
-    padding: 4rem 3.5rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+    overflow: visible !important;
+    box-shadow: none !important;
 }
 
 /* About/Heritage text that lives on dark backgrounds — maintain legibility */
@@ -1611,17 +1637,10 @@ html body .elementor-element-16ef5e00 h2 {
     color: #FFFCF5 !important;
 }
 
-/* Page section wrapper surrounding the heritage block — give it proper vertical rhythm */
-html body .elementor-section.elementor-section-full_width + .elementor-section,
-html body .elementor-section + .elementor-section-boxed {
+/* Zero out section-to-section gaps — no cream space between consecutive blocks */
+html body .elementor-section + .elementor-section,
+html body .elementor-section.elementor-section-full_width + .elementor-section {
     margin-top: 0 !important;
-}
-
-/* Smooth top/bottom page section gutters globally */
-html body .elementor-section,
-html body .e-con.e-parent {
-    padding-top: 5rem;
-    padding-bottom: 5rem;
 }
 
 /* ---- FIX 4: Menu Page Image Accuracy CSS fallback ---- */
