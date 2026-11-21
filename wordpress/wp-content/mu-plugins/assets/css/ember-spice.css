@@ -761,7 +761,7 @@ a.e-button-base:hover,
     box-shadow: var(--shadow-card) !important;
 }
 
-/* 11. Section Container Widths */
+/* 11. Section Container Widths — 100% Full Viewport Width (No cream side gutters) */
 .elementor-element-1b252868,
 .elementor-element-7fb873ab,
 .elementor-element-35e3a624,
@@ -776,9 +776,11 @@ a.e-button-base:hover,
 .elementor-element-728607ee,
 .elementor-element-6bae2821 {
     padding: 5rem 2rem !important;
-    max-width: 1240px !important;
-    margin: 0 auto !important;
+    max-width: 100% !important;
     width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    box-sizing: border-box !important;
 }
 
 /* 12. Responsive Breakpoints */

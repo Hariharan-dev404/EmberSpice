@@ -872,15 +872,35 @@ class EmberSpiceCore {
         }
 
         /* ==========================================================
-           11. FULL-WIDTH SECTIONS — No side cream gaps
-           All sections stretch edge-to-edge. Inner content grids
-           remain centered via their own max-width containers.
+           11. FULL-WIDTH SECTIONS — 100% Edge-to-Edge Viewport
+           Eliminate all cream side bars between screen edges.
+           Section backgrounds span full width, inner content stays centered.
            ========================================================== */
 
-        /* Every Elementor section: truly full-width, no padding/margin on sides */
+        /* All top-level section containers on homepage & inner pages stretch 100% full width */
+        html body .elementor > .e-con,
+        html body .elementor > .elementor-element,
+        html body .elementor-7 > .e-con,
+        html body .elementor-7 > .elementor-element,
         html body .elementor-section,
         html body .elementor-section.elementor-section-boxed,
-        html body .elementor-section.elementor-section-full_width {
+        html body .elementor-section.elementor-section-full_width,
+        html body .elementor-element-38e8dde3,
+        html body .elementor-element-1b252868,
+        html body .elementor-element-7fb873ab,
+        html body .elementor-element-35e3a624,
+        html body .elementor-element-75485836,
+        html body .elementor-element-27fc9345,
+        html body .elementor-element-490626bb,
+        html body .elementor-element-490cc535,
+        html body .elementor-element-1d0dfba8,
+        html body .elementor-element-12ec63c2,
+        html body .elementor-element-2539d8d6,
+        html body .elementor-element-4e1a1d4a,
+        html body .elementor-element-4df06c2e,
+        html body .elementor-element-728607ee,
+        html body .elementor-element-6bae2821,
+        html body .e-con.e-parent {
             width: 100% !important;
             max-width: 100% !important;
             padding-left: 0 !important;
@@ -888,40 +908,41 @@ class EmberSpiceCore {
             margin-left: 0 !important;
             margin-right: 0 !important;
             box-sizing: border-box !important;
-        }
-
-        /* Inner Elementor container: full width so backgrounds bleed edge to edge */
-        html body .elementor-section > .elementor-container,
-        html body .elementor-section.elementor-section-boxed > .elementor-container {
-            max-width: 100% !important;
-            width: 100% !important;
-            padding-left: 0 !important;
-            padding-right: 0 !important;
-        }
-
-        /* E-con top-level containers: full width */
-        html body .e-con.e-parent {
-            width: 100% !important;
-            max-width: 100% !important;
-            margin-left: 0 !important;
-            margin-right: 0 !important;
-        }
-
-        /* Dark heritage section: full-width, no card box, no max-width constraint */
-        html body .elementor-section[style*="211c18"],
-        html body .elementor-section[style*="rgb(33"],
-        html body .e-con[style*="211c18"],
-        html body .e-con[style*="rgb(33"] {
-            width: 100% !important;
-            max-width: 100% !important;
             border-radius: 0 !important;
-            margin: 0 !important;
-            overflow: visible !important;
             box-shadow: none !important;
         }
 
+        /* Section containers with padding keep their internal breathing room without shrinking container width */
+        html body .elementor-element-1b252868,
+        html body .elementor-element-7fb873ab,
+        html body .elementor-element-35e3a624,
+        html body .elementor-element-75485836,
+        html body .elementor-element-27fc9345,
+        html body .elementor-element-490626bb {
+            padding: 5rem 2rem !important;
+        }
+
+        /* Inner content wrappers stay nicely centered with balanced readable max-width */
+        html body .elementor-element-34c143f2,
+        html body .elementor-element-23ac47f2,
+        html body .elementor-element-6198878,
+        html body .elementor-element-427555dd,
+        html body .elementor-element-31d333d7,
+        html body .elementor-element-512823b4,
+        html body .elementor-element-1c9e9dbd,
+        html body .elementor-element-7600a2c6-a44b,
+        html body .elementor-element-63d2b48e-d19f,
+        html body .elementor-element-ff92bf6-a1f6 {
+            width: 100% !important;
+            max-width: 1200px !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+            box-sizing: border-box !important;
+        }
+
         /* Zero section-to-section gap */
-        html body .elementor-section + .elementor-section {
+        html body .elementor-section + .elementor-section,
+        html body .elementor-7 > .e-con + .e-con {
             margin-top: 0 !important;
         }
 
