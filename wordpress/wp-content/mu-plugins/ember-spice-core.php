@@ -271,7 +271,7 @@ class EmberSpiceCore {
         ?>
         <style id="ember-spice-critical-overrides">
         /* ====================================================================
-           EMBER SPICE — ASTRA-INSPIRED CORE DESIGN SYSTEM OVERRIDES
+           EMBER SPICE — COMPLETE ASTRA-INSPIRED DESIGN SYSTEM & COMPONENT OVERRIDES
            ==================================================================== */
 
         /* 1. Global Page Background & Clean Base Typography */
@@ -284,7 +284,7 @@ class EmberSpiceCore {
             padding: 0 !important;
         }
 
-        /* 2. Full-Width Section Containers (No side cream bars outside section backgrounds) */
+        /* 2. Full-Width Section Containers (No Side Cream Bars) */
         html body .elementor > .e-con,
         html body .elementor > .elementor-element,
         html body .elementor-section,
@@ -304,6 +304,7 @@ class EmberSpiceCore {
         html body .elementor-element-4e1a1d4a,
         html body .elementor-element-3ebb97ea,
         html body .elementor-element-64872607,
+        html body .elementor-element-4df06c2e,
         html body .elementor-element-4f91ffee,
         html body .elementor-element-2e926034 {
             width: 100% !important;
@@ -331,7 +332,8 @@ class EmberSpiceCore {
         }
 
         html body .elementor-element-7fb873ab,
-        html body .elementor-element-12ec63c2 {
+        html body .elementor-element-12ec63c2,
+        html body .elementor-element-4df06c2e {
             background-color: #F6F2E9 !important;
             padding-top: 5.5rem !important;
             padding-bottom: 5.5rem !important;
@@ -347,11 +349,201 @@ class EmberSpiceCore {
             padding-right: 1.5rem !important;
         }
 
-        /* 3. Astra-Standard 1200px Content Container */
+        /* 3. Section Headings on Light / Cream Backgrounds */
+        html body .elementor-element-35e3a624 h2,
+        html body .elementor-element-12ec63c2 h2,
+        html body .elementor-element-7fb873ab h2,
+        html body .elementor-element-4df06c2e h2,
+        html body [data-interaction-id="579bf25b"],
+        html body [data-interaction-id="5cb050a5"],
+        html body [data-interaction-id="34d946b2"],
+        html body [data-interaction-id="32403487"] {
+            color: #243525 !important;
+            -webkit-text-fill-color: #243525 !important;
+            font-family: 'Marcellus', Georgia, serif !important;
+            font-size: 2.6rem !important;
+            font-weight: 500 !important;
+            line-height: 1.25 !important;
+            margin-top: 0 !important;
+            margin-bottom: 2.5rem !important;
+            text-align: center !important;
+            display: block !important;
+        }
+
+        html body .elementor-element-35e3a624 h4,
+        html body .elementor-element-12ec63c2 h4,
+        html body .elementor-element-7fb873ab h4,
+        html body .elementor-element-4df06c2e h4,
+        html body [data-interaction-id="589f4eaa"],
+        html body [data-interaction-id="6d8b1425"],
+        html body [data-interaction-id="51e5f1d"],
+        html body [data-interaction-id="5d5aab7d"] {
+            color: #B99A65 !important;
+            -webkit-text-fill-color: #B99A65 !important;
+            font-family: 'Plus Jakarta Sans', sans-serif !important;
+            font-size: 0.85rem !important;
+            font-weight: 700 !important;
+            letter-spacing: 3px !important;
+            text-transform: uppercase !important;
+            margin-bottom: 0.65rem !important;
+            text-align: center !important;
+            display: block !important;
+        }
+
+        /* 4. All Pillar & Feature Card Boxes: Head on Top, Body Below It (ALL PAGES) */
+        html body .elementor-element-440b8b8e,
+        html body .elementor-element-3e2e8fd2,
+        html body .elementor-element-4e381021,
+        html body .elementor-element-715406bc,
+        html body .elementor-element-188698bc,
+        html body .elementor-element-3ac47c0,
+        html body .elementor-element-2f8fc644,
+        html body .elementor-element-36ec187a,
+        html body .elementor-element-4572bed3,
+        html body .elementor-element-3c8045f1,
+        html body .elementor-element-17f3502c,
+        html body .elementor-element-58ae0245,
+        html body .elementor-element-28d62019,
+        html body .elementor-element-33142ffa,
+        html body .elementor-element-627ec02f {
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: flex-start !important;
+            align-items: flex-start !important;
+            text-align: left !important;
+            background-color: #FFFFFF !important;
+            border: 1px solid rgba(120, 133, 104, 0.22) !important;
+            border-radius: 12px !important;
+            padding: 2.25rem 1.85rem !important;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05) !important;
+            transition: all 0.35s ease !important;
+            box-sizing: border-box !important;
+            height: 100% !important;
+        }
+
+        /* Headings inside these cards (Always on Top) */
+        html body .elementor-element-440b8b8e h3,
+        html body .elementor-element-3e2e8fd2 h3,
+        html body .elementor-element-4e381021 h3,
+        html body .elementor-element-715406bc h3,
+        html body .elementor-element-188698bc h3,
+        html body .elementor-element-3ac47c0 h3,
+        html body .elementor-element-2f8fc644 h3,
+        html body .elementor-element-36ec187a h3,
+        html body .elementor-element-4572bed3 h3,
+        html body .elementor-element-3c8045f1 h3,
+        html body .elementor-element-17f3502c h3,
+        html body .elementor-element-58ae0245 h3,
+        html body .elementor-element-28d62019 h3,
+        html body .elementor-element-33142ffa h3,
+        html body .elementor-element-627ec02f h3,
+        html body .elementor-element-440b8b8e .e-heading-base,
+        html body .elementor-element-3e2e8fd2 .e-heading-base,
+        html body .elementor-element-4e381021 .e-heading-base,
+        html body .elementor-element-715406bc .e-heading-base,
+        html body .elementor-element-188698bc .e-heading-base,
+        html body .elementor-element-3ac47c0 .e-heading-base,
+        html body .elementor-element-2f8fc644 .e-heading-base,
+        html body .elementor-element-36ec187a .e-heading-base,
+        html body .elementor-element-4572bed3 .e-heading-base,
+        html body .elementor-element-3c8045f1 .e-heading-base,
+        html body .elementor-element-17f3502c .e-heading-base {
+            color: #243525 !important;
+            -webkit-text-fill-color: #243525 !important;
+            font-family: 'Marcellus', Georgia, serif !important;
+            font-size: 1.25rem !important;
+            font-weight: 600 !important;
+            line-height: 1.35 !important;
+            letter-spacing: 0.5px !important;
+            margin-top: 0 !important;
+            margin-bottom: 0.85rem !important;
+            width: 100% !important;
+            text-align: left !important;
+            display: block !important;
+        }
+
+        /* Body Paragraphs inside these cards (Always Below Head) */
+        html body .elementor-element-440b8b8e p,
+        html body .elementor-element-3e2e8fd2 p,
+        html body .elementor-element-4e381021 p,
+        html body .elementor-element-715406bc p,
+        html body .elementor-element-188698bc p,
+        html body .elementor-element-3ac47c0 p,
+        html body .elementor-element-2f8fc644 p,
+        html body .elementor-element-36ec187a p,
+        html body .elementor-element-4572bed3 p,
+        html body .elementor-element-3c8045f1 p,
+        html body .elementor-element-17f3502c p,
+        html body .elementor-element-58ae0245 p,
+        html body .elementor-element-28d62019 p,
+        html body .elementor-element-33142ffa p,
+        html body .elementor-element-627ec02f p,
+        html body .elementor-element-440b8b8e .e-paragraph-base,
+        html body .elementor-element-3e2e8fd2 .e-paragraph-base,
+        html body .elementor-element-4e381021 .e-paragraph-base,
+        html body .elementor-element-715406bc .e-paragraph-base,
+        html body .elementor-element-188698bc .e-paragraph-base,
+        html body .elementor-element-3ac47c0 .e-paragraph-base,
+        html body .elementor-element-2f8fc644 .e-paragraph-base,
+        html body .elementor-element-36ec187a .e-paragraph-base,
+        html body .elementor-element-4572bed3 .e-paragraph-base,
+        html body .elementor-element-3c8045f1 .e-paragraph-base,
+        html body .elementor-element-17f3502c .e-paragraph-base {
+            color: #4A4D42 !important;
+            -webkit-text-fill-color: #4A4D42 !important;
+            font-family: 'Plus Jakarta Sans', sans-serif !important;
+            font-size: 0.95rem !important;
+            font-weight: 400 !important;
+            line-height: 1.7 !important;
+            margin-top: 0 !important;
+            margin-bottom: 0 !important;
+            width: 100% !important;
+            text-align: left !important;
+            display: block !important;
+        }
+
+        /* Card Hover */
+        html body .elementor-element-440b8b8e:hover,
+        html body .elementor-element-3e2e8fd2:hover,
+        html body .elementor-element-4e381021:hover,
+        html body .elementor-element-715406bc:hover,
+        html body .elementor-element-188698bc:hover,
+        html body .elementor-element-3ac47c0:hover,
+        html body .elementor-element-2f8fc644:hover,
+        html body .elementor-element-36ec187a:hover,
+        html body .elementor-element-4572bed3:hover,
+        html body .elementor-element-3c8045f1:hover,
+        html body .elementor-element-17f3502c:hover {
+            transform: translateY(-4px) !important;
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.1) !important;
+            border-color: #B86F48 !important;
+        }
+
+        /* Card Grids Layout */
+        html body .elementor-element-6198878,
+        html body .elementor-element-427555dd {
+            display: grid !important;
+            grid-template-columns: repeat(4, 1fr) !important;
+            gap: 1.75rem !important;
+            width: 100% !important;
+            max-width: 1200px !important;
+            margin: 0 auto !important;
+            box-sizing: border-box !important;
+        }
+
+        html body .elementor-element-31d333d7 {
+            display: grid !important;
+            grid-template-columns: repeat(3, 1fr) !important;
+            gap: 2rem !important;
+            width: 100% !important;
+            max-width: 1200px !important;
+            margin: 0 auto !important;
+            box-sizing: border-box !important;
+        }
+
+        /* 5. Astra-Standard 1200px Content Container */
         html body .elementor-element-34c143f2,
         html body .elementor-element-23ac47f2,
-        html body .elementor-element-6198878,
-        html body .elementor-element-427555dd,
         html body .elementor-element-4a8053e0,
         html body .elementor-element-5458e283,
         html body .elementor-element-512823b4,
@@ -368,7 +560,7 @@ class EmberSpiceCore {
             box-sizing: border-box !important;
         }
 
-        /* 4. Two-Column Split Sections (Heritage, Chef, Ambience, Story) */
+        /* 6. Two-Column Split Sections (Heritage, Chef, Ambience, Story) */
         html body .elementor-element-34c143f2,
         html body .elementor-element-4a8053e0,
         html body .elementor-element-5458e283,
@@ -397,12 +589,9 @@ class EmberSpiceCore {
             width: 100% !important;
         }
 
-        /* Harmonious Typography in Split Text Column */
         html body .elementor-element-4a5dc1c5 .e-heading-base:first-child,
         html body .elementor-element-27942172 .e-heading-base:first-child,
         html body .elementor-element-16ef5e00 .e-heading-base:first-child,
-        html body .elementor-element-7fb873ab .e-heading-base:first-child,
-        html body .elementor-element-35e3a624 .e-heading-base:first-child,
         html body .elementor-element-490626bb .e-heading-base:first-child {
             color: #B99A65 !important;
             -webkit-text-fill-color: #B99A65 !important;
@@ -486,7 +675,7 @@ class EmberSpiceCore {
             box-shadow: 0 22px 48px rgba(0, 0, 0, 0.5) !important;
         }
 
-        /* 5. Hero Sections Across All Pages */
+        /* 7. Hero Sections Across All Pages */
         html body .elementor-element-38e8dde3,
         html body .elementor-element-ef9390b,
         html body .elementor-element-3ebb97ea,
@@ -521,7 +710,7 @@ class EmberSpiceCore {
             text-shadow: 0 2px 14px rgba(0, 0, 0, 0.8) !important;
         }
 
-        /* Pure White Luminous Hero Description / Second Text */
+        /* Pure White Luminous Hero Description */
         html body .elementor-element-38e8dde3 p,
         html body .elementor-element-ef9390b p,
         html body .elementor-element-3ebb97ea p,
@@ -597,7 +786,7 @@ class EmberSpiceCore {
             transform: translateY(-2px) !important;
         }
 
-        /* 6. Dish Cards (3-Column Grid) */
+        /* 8. Home Page Dish Cards (3-Column Grid) */
         html body .elementor-element-23ac47f2 {
             display: grid !important;
             grid-template-columns: repeat(3, 1fr) !important;
@@ -650,101 +839,389 @@ class EmberSpiceCore {
             border-top-right-radius: 9px !important;
         }
 
-        /* 7. Experience / Pillars (4-Column Grid) */
-        html body .elementor-element-6198878 {
-            display: grid !important;
-            grid-template-columns: repeat(4, 1fr) !important;
-            gap: 1.75rem !important;
-            width: 100% !important;
-            max-width: 1200px !important;
-            margin: 0 auto !important;
-            box-sizing: border-box !important;
+        /* 9. Our Menu Page Components (.ember-card, .ember-menu-tabs, etc.) */
+        .ember-menu-tabs {
+            display: flex !important;
+            flex-wrap: wrap !important;
+            justify-content: center !important;
+            align-items: center !important;
+            gap: 0.75rem !important;
+            margin-bottom: 3.5rem !important;
         }
 
-        html body .elementor-element-440b8b8e,
-        html body .elementor-element-3e2e8fd2,
-        html body .elementor-element-4e381021,
-        html body .elementor-element-715406bc {
-            background-color: #F6F2E9 !important;
-            border: 1px solid rgba(120, 133, 104, 0.2) !important;
-            border-radius: 10px !important;
-            padding: 2.5rem 1.75rem !important;
-            text-align: center !important;
-            transition: all 0.3s ease !important;
+        .ember-menu-tab-btn {
+            background-color: #FFFFFF !important;
+            color: #243525 !important;
+            border: 1.5px solid rgba(120, 133, 104, 0.3) !important;
+            border-radius: 30px !important;
+            padding: 0.65rem 1.4rem !important;
+            font-family: 'Plus Jakarta Sans', sans-serif !important;
+            font-size: 0.88rem !important;
+            font-weight: 600 !important;
+            cursor: pointer !important;
+            transition: all 0.25s ease !important;
         }
 
-        html body .elementor-element-440b8b8e:hover,
-        html body .elementor-element-3e2e8fd2:hover,
-        html body .elementor-element-4e381021:hover,
-        html body .elementor-element-715406bc:hover {
-            transform: translateY(-4px) !important;
-            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08) !important;
+        .ember-menu-tab-btn:hover,
+        .ember-menu-tab-btn.is-active {
+            background-color: #B86F48 !important;
+            color: #FFFFFF !important;
             border-color: #B86F48 !important;
+            box-shadow: 0 4px 14px rgba(184, 111, 72, 0.35) !important;
+            transform: translateY(-2px) !important;
         }
 
-        /* 8. Testimonials / Guest Chronicles (3-Column Grid) */
-        html body .elementor-element-512823b4 {
+        .ember-menu-category {
+            margin-bottom: 4.5rem !important;
+        }
+
+        .ember-menu-category-title {
+            font-family: 'Marcellus', Georgia, serif !important;
+            font-size: 2.2rem !important;
+            color: #243525 !important;
+            margin-bottom: 0.5rem !important;
+            display: inline-block !important;
+            border-bottom: 2px solid #B86F48 !important;
+            padding-bottom: 0.4rem !important;
+        }
+
+        .ember-menu-grid {
             display: grid !important;
             grid-template-columns: repeat(3, 1fr) !important;
             gap: 2rem !important;
             width: 100% !important;
-            max-width: 1200px !important;
-            margin: 0 auto 2rem auto !important;
             box-sizing: border-box !important;
         }
 
-        html body .elementor-element-35e87e9b,
-        html body .elementor-element-16593cf6,
-        html body .elementor-element-70944290 {
-            background: rgba(255, 255, 255, 0.04) !important;
-            border: 1px solid rgba(185, 154, 101, 0.25) !important;
-            border-radius: 10px !important;
-            padding: 2.5rem 2rem !important;
+        .ember-card {
+            background-color: #FFFFFF !important;
+            border: 1px solid rgba(120, 133, 104, 0.2) !important;
+            border-radius: 12px !important;
+            overflow: hidden !important;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06) !important;
             display: flex !important;
             flex-direction: column !important;
-            justify-content: space-between !important;
-            text-align: left !important;
-            transition: all 0.3s ease !important;
+            transition: all 0.35s ease !important;
         }
 
-        html body .elementor-element-35e87e9b:hover,
-        html body .elementor-element-16593cf6:hover,
-        html body .elementor-element-70944290:hover {
-            border-color: rgba(185, 154, 101, 0.5) !important;
-            transform: translateY(-4px) !important;
-            box-shadow: 0 14px 36px rgba(0, 0, 0, 0.3) !important;
+        .ember-card:hover {
+            transform: translateY(-5px) !important;
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.12) !important;
+            border-color: #B86F48 !important;
         }
 
-        html body .elementor-element-35e87e9b p,
-        html body .elementor-element-16593cf6 p,
-        html body .elementor-element-70944290 p {
-            color: rgba(255, 252, 245, 0.92) !important;
-            -webkit-text-fill-color: rgba(255, 252, 245, 0.92) !important;
-            font-size: 1.05rem !important;
-            line-height: 1.75 !important;
-            font-style: italic !important;
-            margin-bottom: 1.5rem !important;
+        .ember-card-img-wrapper {
+            position: relative !important;
+            height: 220px !important;
+            overflow: hidden !important;
         }
 
-        html body .elementor-element-35e87e9b h5,
-        html body .elementor-element-35e87e9b h4,
-        html body .elementor-element-35e87e9b .e-heading-base,
-        html body .elementor-element-16593cf6 h5,
-        html body .elementor-element-16593cf6 h4,
-        html body .elementor-element-16593cf6 .e-heading-base,
-        html body .elementor-element-70944290 h5,
-        html body .elementor-element-70944290 h4,
-        html body .elementor-element-70944290 .e-heading-base {
-            color: #B99A65 !important;
-            -webkit-text-fill-color: #B99A65 !important;
-            font-size: 0.88rem !important;
-            letter-spacing: 1.5px !important;
-            font-weight: 600 !important;
+        .ember-card-img {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+            display: block !important;
+            transition: transform 0.5s ease !important;
+        }
+
+        .ember-card:hover .ember-card-img {
+            transform: scale(1.06) !important;
+        }
+
+        .ember-badge-veg,
+        .ember-badge-nonveg {
+            position: absolute !important;
+            top: 12px !important;
+            left: 12px !important;
+            padding: 4px 10px !important;
+            font-size: 0.72rem !important;
+            font-weight: 700 !important;
+            border-radius: 4px !important;
             text-transform: uppercase !important;
+            letter-spacing: 0.5px !important;
+            z-index: 2 !important;
         }
 
-        /* 9. Full-Width Reservation CTA Section */
-        html body .elementor-element-490cc535 {
+        .ember-badge-veg {
+            background-color: #2E7D32 !important;
+            color: #FFFFFF !important;
+        }
+
+        .ember-badge-nonveg {
+            background-color: #C62828 !important;
+            color: #FFFFFF !important;
+        }
+
+        .ember-price-tag {
+            position: absolute !important;
+            bottom: 12px !important;
+            right: 12px !important;
+            background: rgba(21, 26, 21, 0.88) !important;
+            backdrop-filter: blur(4px) !important;
+            color: #B99A65 !important;
+            font-weight: 700 !important;
+            font-size: 1rem !important;
+            padding: 4px 12px !important;
+            border-radius: 20px !important;
+            border: 1px solid rgba(185, 154, 101, 0.4) !important;
+            z-index: 2 !important;
+        }
+
+        .ember-card-body {
+            padding: 1.5rem !important;
+            display: flex !important;
+            flex-direction: column !important;
+            flex-grow: 1 !important;
+            text-align: left !important;
+        }
+
+        .ember-card-title {
+            font-family: 'Marcellus', Georgia, serif !important;
+            font-size: 1.25rem !important;
+            color: #243525 !important;
+            margin-top: 0 !important;
+            margin-bottom: 0.65rem !important;
+            font-weight: 600 !important;
+            line-height: 1.35 !important;
+        }
+
+        .ember-card-desc {
+            font-family: 'Plus Jakarta Sans', sans-serif !important;
+            font-size: 0.92rem !important;
+            color: #5A5D4F !important;
+            line-height: 1.65 !important;
+            margin: 0 !important;
+        }
+
+        /* 10. Reservations Page Form Card & Inputs */
+        .ember-form-card {
+            background-color: #FFFFFF !important;
+            border: 1px solid rgba(120, 133, 104, 0.25) !important;
+            border-radius: 14px !important;
+            padding: 3.5rem 3rem !important;
+            box-shadow: 0 16px 44px rgba(0, 0, 0, 0.08) !important;
+            max-width: 860px !important;
+            margin: 0 auto !important;
+            box-sizing: border-box !important;
+        }
+
+        .ember-form-grid {
+            display: grid !important;
+            grid-template-columns: 1fr 1fr !important;
+            gap: 1.5rem !important;
+            margin-bottom: 2rem !important;
+        }
+
+        .ember-form-group.full-width {
+            grid-column: span 2 !important;
+        }
+
+        .ember-label {
+            display: block !important;
+            font-size: 0.85rem !important;
+            font-weight: 600 !important;
+            color: #243525 !important;
+            margin-bottom: 0.45rem !important;
+            text-transform: uppercase !important;
+            letter-spacing: 0.5px !important;
+            text-align: left !important;
+        }
+
+        .ember-input,
+        .ember-select,
+        .ember-textarea {
+            width: 100% !important;
+            padding: 0.85rem 1.15rem !important;
+            font-family: 'Plus Jakarta Sans', sans-serif !important;
+            font-size: 0.95rem !important;
+            color: #24261F !important;
+            background-color: #FDFCFA !important;
+            border: 1.5px solid rgba(120, 133, 104, 0.28) !important;
+            border-radius: 8px !important;
+            transition: all 0.25s ease !important;
+            box-sizing: border-box !important;
+        }
+
+        .ember-input:focus,
+        .ember-select:focus,
+        .ember-textarea:focus {
+            outline: none !important;
+            border-color: #B86F48 !important;
+            box-shadow: 0 0 0 3px rgba(184, 111, 72, 0.18) !important;
+            background-color: #FFFFFF !important;
+        }
+
+        /* 11. Gallery Page Grid & Overlay */
+        .ember-gallery-grid {
+            display: grid !important;
+            grid-template-columns: repeat(3, 1fr) !important;
+            gap: 1.75rem !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
+        }
+
+        .ember-gallery-item {
+            position: relative !important;
+            border-radius: 12px !important;
+            overflow: hidden !important;
+            height: 320px !important;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08) !important;
+            border: 1px solid rgba(185, 154, 101, 0.3) !important;
+            cursor: pointer !important;
+        }
+
+        .ember-gallery-item img {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+            display: block !important;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        }
+
+        .ember-gallery-item:hover img {
+            transform: scale(1.06) !important;
+        }
+
+        .ember-gallery-overlay {
+            position: absolute !important;
+            inset: 0 !important;
+            background: linear-gradient(180deg, transparent 40%, rgba(20, 26, 21, 0.92) 100%) !important;
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: flex-end !important;
+            padding: 1.5rem !important;
+            text-align: left !important;
+        }
+
+        .ember-gallery-cat {
+            font-size: 0.75rem !important;
+            font-weight: 700 !important;
+            color: #B99A65 !important;
+            text-transform: uppercase !important;
+            letter-spacing: 2px !important;
+            margin-bottom: 0.35rem !important;
+        }
+
+        .ember-gallery-title {
+            font-family: 'Marcellus', Georgia, serif !important;
+            font-size: 1.25rem !important;
+            color: #FFFFFF !important;
+            font-weight: 500 !important;
+            margin: 0 !important;
+        }
+
+        /* 12. Blog Page Grid & Article Cards */
+        .ember-blog-grid {
+            display: grid !important;
+            grid-template-columns: repeat(3, 1fr) !important;
+            gap: 2rem !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
+        }
+
+        .ember-blog-card {
+            background-color: #FFFFFF !important;
+            border: 1px solid rgba(120, 133, 104, 0.2) !important;
+            border-radius: 12px !important;
+            overflow: hidden !important;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06) !important;
+            display: flex !important;
+            flex-direction: column !important;
+            transition: all 0.35s ease !important;
+        }
+
+        .ember-blog-card:hover {
+            transform: translateY(-5px) !important;
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.12) !important;
+            border-color: #B86F48 !important;
+        }
+
+        .ember-blog-img-wrap {
+            height: 220px !important;
+            overflow: hidden !important;
+        }
+
+        .ember-blog-img-wrap img {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+            display: block !important;
+            transition: transform 0.5s ease !important;
+        }
+
+        .ember-blog-card:hover .ember-blog-img-wrap img {
+            transform: scale(1.06) !important;
+        }
+
+        .ember-blog-body {
+            padding: 1.75rem !important;
+            display: flex !important;
+            flex-direction: column !important;
+            flex-grow: 1 !important;
+            text-align: left !important;
+        }
+
+        .ember-blog-meta {
+            font-size: 0.78rem !important;
+            font-weight: 600 !important;
+            color: #B99A65 !important;
+            text-transform: uppercase !important;
+            letter-spacing: 1.5px !important;
+            margin-bottom: 0.65rem !important;
+        }
+
+        .ember-blog-title {
+            font-family: 'Marcellus', Georgia, serif !important;
+            font-size: 1.3rem !important;
+            color: #243525 !important;
+            line-height: 1.35 !important;
+            margin-top: 0 !important;
+            margin-bottom: 0.85rem !important;
+            font-weight: 600 !important;
+        }
+
+        .ember-blog-title a {
+            color: #243525 !important;
+            text-decoration: none !important;
+            transition: color 0.25s ease !important;
+        }
+
+        .ember-blog-title a:hover {
+            color: #B86F48 !important;
+        }
+
+        .ember-blog-excerpt {
+            font-family: 'Plus Jakarta Sans', sans-serif !important;
+            font-size: 0.95rem !important;
+            color: #5A5D4F !important;
+            line-height: 1.7 !important;
+            margin-top: 0 !important;
+            margin-bottom: 1.25rem !important;
+            flex-grow: 1 !important;
+        }
+
+        .ember-blog-link {
+            font-size: 0.88rem !important;
+            font-weight: 600 !important;
+            color: #B86F48 !important;
+            text-transform: uppercase !important;
+            letter-spacing: 1px !important;
+            text-decoration: none !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            gap: 0.4rem !important;
+            transition: gap 0.25s ease !important;
+        }
+
+        .ember-blog-link:hover {
+            color: #A05934 !important;
+            gap: 0.7rem !important;
+        }
+
+        /* 13. Full-Width Reservation CTA Section */
+        html body .elementor-element-490cc535,
+        html body .elementor-element-67a8ecb2,
+        html body .elementor-element-2197d64f {
             background: linear-gradient(135deg, #1d2c1e 0%, #243525 50%, #172418 100%) !important;
             width: 100% !important;
             max-width: 100% !important;
@@ -760,7 +1237,9 @@ class EmberSpiceCore {
             box-sizing: border-box !important;
         }
 
-        html body .elementor-element-490cc535 h2 {
+        html body .elementor-element-490cc535 h2,
+        html body .elementor-element-67a8ecb2 h2,
+        html body .elementor-element-2197d64f h2 {
             color: #FFFFFF !important;
             -webkit-text-fill-color: #FFFFFF !important;
             font-family: 'Marcellus', Georgia, serif !important;
@@ -770,7 +1249,9 @@ class EmberSpiceCore {
             line-height: 1.25 !important;
         }
 
-        html body .elementor-element-490cc535 p {
+        html body .elementor-element-490cc535 p,
+        html body .elementor-element-67a8ecb2 p,
+        html body .elementor-element-2197d64f p {
             color: rgba(255, 252, 245, 0.92) !important;
             -webkit-text-fill-color: rgba(255, 252, 245, 0.92) !important;
             font-size: 1.15rem !important;
@@ -796,15 +1277,7 @@ class EmberSpiceCore {
             display: inline-block !important;
         }
 
-        html body .elementor-element-490cc535 .e-button-base:hover,
-        html body a[data-interaction-id="7c110f0b"]:hover {
-            background-color: #A05934 !important;
-            border-color: #A05934 !important;
-            transform: translateY(-2px) !important;
-            box-shadow: 0 8px 24px rgba(184, 111, 72, 0.45) !important;
-        }
-
-        /* 10. Responsive Breakpoints (Laptop, Tablet, Mobile) */
+        /* 14. Responsive Breakpoints (Laptop, Tablet, Mobile) */
         @media (max-width: 1024px) {
             html body .elementor-element-38e8dde3 h1,
             html body .elementor-element-ef9390b h1,
@@ -814,7 +1287,8 @@ class EmberSpiceCore {
             html body .elementor-element-2e926034 h1 {
                 font-size: 2.8rem !important;
             }
-            html body .elementor-element-6198878 {
+            html body .elementor-element-6198878,
+            html body .elementor-element-427555dd {
                 grid-template-columns: repeat(2, 1fr) !important;
             }
         }
@@ -826,11 +1300,16 @@ class EmberSpiceCore {
             html body .elementor-element-1684f3ed,
             html body .elementor-element-3e7fe74,
             html body .elementor-element-7566eaa,
-            html body .elementor-element-512823b4 {
+            html body .elementor-element-512823b4,
+            html body .elementor-element-31d333d7,
+            .ember-form-grid {
                 grid-template-columns: 1fr !important;
-                gap: 2.5rem !important;
+                gap: 2rem !important;
             }
-            html body .elementor-element-23ac47f2 {
+            html body .elementor-element-23ac47f2,
+            .ember-menu-grid,
+            .ember-gallery-grid,
+            .ember-blog-grid {
                 grid-template-columns: repeat(2, 1fr) !important;
                 gap: 1.5rem !important;
             }
@@ -854,7 +1333,11 @@ class EmberSpiceCore {
                 font-size: 2.2rem !important;
             }
             html body .elementor-element-23ac47f2,
-            html body .elementor-element-6198878 {
+            html body .elementor-element-6198878,
+            html body .elementor-element-427555dd,
+            .ember-menu-grid,
+            .ember-gallery-grid,
+            .ember-blog-grid {
                 grid-template-columns: 1fr !important;
             }
             html body .elementor-element-6fa6aad4 img,

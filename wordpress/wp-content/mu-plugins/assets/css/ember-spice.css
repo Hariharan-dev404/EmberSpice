@@ -766,44 +766,505 @@ section,
 }
 
 /* --------------------------------------------------------------------------
-   10. BENTO & PILLAR CARDS (.elementor-element-35e3a624 & About Page)
+   /* --------------------------------------------------------------------------
+   10. BENTO & PILLAR CARDS (ALL PAGES - HEAD ON TOP, BODY BELOW IT)
    -------------------------------------------------------------------------- */
+.elementor-element-35e3a624 h2,
+.elementor-element-12ec63c2 h2,
+.elementor-element-7fb873ab h2,
+.elementor-element-4df06c2e h2,
+[data-interaction-id="579bf25b"],
+[data-interaction-id="5cb050a5"],
+[data-interaction-id="34d946b2"],
+[data-interaction-id="32403487"] {
+    color: var(--forest-green) !important;
+    -webkit-text-fill-color: var(--forest-green) !important;
+    font-family: var(--font-heading) !important;
+    font-size: 2.6rem !important;
+    font-weight: 500 !important;
+    line-height: 1.25 !important;
+    margin-top: 0 !important;
+    margin-bottom: 2.5rem !important;
+    text-align: center !important;
+    display: block !important;
+}
+
+.elementor-element-35e3a624 h4,
+.elementor-element-12ec63c2 h4,
+.elementor-element-7fb873ab h4,
+.elementor-element-4df06c2e h4,
+[data-interaction-id="589f4eaa"],
+[data-interaction-id="6d8b1425"],
+[data-interaction-id="51e5f1d"],
+[data-interaction-id="5d5aab7d"] {
+    color: var(--wheat-gold) !important;
+    -webkit-text-fill-color: var(--wheat-gold) !important;
+    font-family: var(--font-body) !important;
+    font-size: 0.85rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 3px !important;
+    text-transform: uppercase !important;
+    margin-bottom: 0.65rem !important;
+    text-align: center !important;
+    display: block !important;
+}
+
+.elementor-element-440b8b8e,
+.elementor-element-3e2e8fd2,
+.elementor-element-4e381021,
+.elementor-element-715406bc,
+.elementor-element-188698bc,
+.elementor-element-3ac47c0,
+.elementor-element-2f8fc644,
+.elementor-element-36ec187a,
+.elementor-element-4572bed3,
+.elementor-element-3c8045f1,
+.elementor-element-17f3502c,
+.elementor-element-58ae0245,
+.elementor-element-28d62019,
+.elementor-element-33142ffa,
+.elementor-element-627ec02f {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    align-items: flex-start !important;
+    text-align: left !important;
+    background-color: #FFFFFF !important;
+    border: 1px solid rgba(120, 133, 104, 0.22) !important;
+    border-radius: 12px !important;
+    padding: 2.25rem 1.85rem !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05) !important;
+    transition: all 0.35s ease !important;
+    box-sizing: border-box !important;
+    height: 100% !important;
+}
+
+.elementor-element-440b8b8e h3,
+.elementor-element-3e2e8fd2 h3,
+.elementor-element-4e381021 h3,
+.elementor-element-715406bc h3,
+.elementor-element-188698bc h3,
+.elementor-element-3ac47c0 h3,
+.elementor-element-2f8fc644 h3,
+.elementor-element-36ec187a h3,
+.elementor-element-4572bed3 h3,
+.elementor-element-3c8045f1 h3,
+.elementor-element-17f3502c h3,
+.elementor-element-58ae0245 h3,
+.elementor-element-28d62019 h3,
+.elementor-element-33142ffa h3,
+.elementor-element-627ec02f h3,
+.elementor-element-440b8b8e .e-heading-base,
+.elementor-element-3e2e8fd2 .e-heading-base,
+.elementor-element-4e381021 .e-heading-base,
+.elementor-element-715406bc .e-heading-base,
+.elementor-element-188698bc .e-heading-base,
+.elementor-element-3ac47c0 .e-heading-base,
+.elementor-element-2f8fc644 .e-heading-base,
+.elementor-element-36ec187a .e-heading-base,
+.elementor-element-4572bed3 .e-heading-base,
+.elementor-element-3c8045f1 .e-heading-base,
+.elementor-element-17f3502c .e-heading-base {
+    color: var(--forest-green) !important;
+    -webkit-text-fill-color: var(--forest-green) !important;
+    font-family: var(--font-heading) !important;
+    font-size: 1.25rem !important;
+    font-weight: 600 !important;
+    line-height: 1.35 !important;
+    letter-spacing: 0.5px !important;
+    margin-top: 0 !important;
+    margin-bottom: 0.85rem !important;
+    width: 100% !important;
+    text-align: left !important;
+    display: block !important;
+}
+
+.elementor-element-440b8b8e p,
+.elementor-element-3e2e8fd2 p,
+.elementor-element-4e381021 p,
+.elementor-element-715406bc p,
+.elementor-element-188698bc p,
+.elementor-element-3ac47c0 p,
+.elementor-element-2f8fc644 p,
+.elementor-element-36ec187a p,
+.elementor-element-4572bed3 p,
+.elementor-element-3c8045f1 p,
+.elementor-element-17f3502c p,
+.elementor-element-58ae0245 p,
+.elementor-element-28d62019 p,
+.elementor-element-33142ffa p,
+.elementor-element-627ec02f p,
+.elementor-element-440b8b8e .e-paragraph-base,
+.elementor-element-3e2e8fd2 .e-paragraph-base,
+.elementor-element-4e381021 .e-paragraph-base,
+.elementor-element-715406bc .e-paragraph-base,
+.elementor-element-188698bc .e-paragraph-base,
+.elementor-element-3ac47c0 .e-paragraph-base,
+.elementor-element-2f8fc644 .e-paragraph-base,
+.elementor-element-36ec187a .e-paragraph-base,
+.elementor-element-4572bed3 .e-paragraph-base,
+.elementor-element-3c8045f1 .e-paragraph-base,
+.elementor-element-17f3502c .e-paragraph-base {
+    color: #4A4D42 !important;
+    -webkit-text-fill-color: #4A4D42 !important;
+    font-family: var(--font-body) !important;
+    font-size: 0.95rem !important;
+    font-weight: 400 !important;
+    line-height: 1.7 !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    width: 100% !important;
+    text-align: left !important;
+    display: block !important;
+}
+
+/* Card Grids */
 .elementor-element-6198878,
 .elementor-element-427555dd {
     display: grid !important;
-    grid-template-columns: 1fr 1fr !important;
+    grid-template-columns: repeat(4, 1fr) !important;
     gap: 1.75rem !important;
+    width: 100% !important;
     max-width: var(--container-max) !important;
     margin: 0 auto !important;
     box-sizing: border-box !important;
 }
 
-.elementor-element-4572bed3,
-.elementor-element-3c8045f1,
-.elementor-element-17f3502c,
-.elementor-element-440b8b8e,
-.elementor-element-3e2e8fd2,
-.elementor-element-4e381021,
-.elementor-element-715406bc,
-.elementor-element-35e87e9b {
-    background: var(--warm-white) !important;
-    border: 1px solid var(--border-light) !important;
-    border-radius: var(--radius-md) !important;
-    padding: 2.25rem 2rem !important;
-    box-shadow: var(--shadow-card) !important;
-    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
-}
-
-.elementor-element-4572bed3:hover,
-.elementor-element-3c8045f1:hover,
-.elementor-element-17f3502c:hover,
-.elementor-element-440b8b8e:hover {
-    transform: translateY(-4px) !important;
-    box-shadow: var(--shadow-hover) !important;
+.elementor-element-31d333d7 {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 2rem !important;
+    width: 100% !important;
+    max-width: var(--container-max) !important;
+    margin: 0 auto !important;
+    box-sizing: border-box !important;
 }
 
 /* --------------------------------------------------------------------------
-   11. TESTIMONIALS / GUEST CHRONICLES (.elementor-element-490626bb)
+   10B. MENU PAGE SPECIALTIES & CARDS (.ember-card, .ember-menu-tabs)
+   -------------------------------------------------------------------------- */
+.ember-menu-tabs {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 0.75rem !important;
+    margin-bottom: 3.5rem !important;
+}
+
+.ember-menu-tab-btn {
+    background-color: #FFFFFF !important;
+    color: var(--forest-green) !important;
+    border: 1.5px solid rgba(120, 133, 104, 0.3) !important;
+    border-radius: 30px !important;
+    padding: 0.65rem 1.4rem !important;
+    font-family: var(--font-body) !important;
+    font-size: 0.88rem !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    transition: all 0.25s ease !important;
+}
+
+.ember-menu-tab-btn:hover,
+.ember-menu-tab-btn.is-active {
+    background-color: var(--terracotta) !important;
+    color: #FFFFFF !important;
+    border-color: var(--terracotta) !important;
+    box-shadow: 0 4px 14px rgba(184, 111, 72, 0.35) !important;
+    transform: translateY(-2px) !important;
+}
+
+.ember-menu-category {
+    margin-bottom: 4.5rem !important;
+}
+
+.ember-menu-category-title {
+    font-family: var(--font-heading) !important;
+    font-size: 2.2rem !important;
+    color: var(--forest-green) !important;
+    margin-bottom: 0.5rem !important;
+    display: inline-block !important;
+    border-bottom: 2px solid var(--terracotta) !important;
+    padding-bottom: 0.4rem !important;
+}
+
+.ember-menu-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 2rem !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+.ember-card {
+    background-color: #FFFFFF !important;
+    border: 1px solid rgba(120, 133, 104, 0.2) !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    transition: all 0.35s ease !important;
+}
+
+.ember-card:hover {
+    transform: translateY(-5px) !important;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.12) !important;
+    border-color: var(--terracotta) !important;
+}
+
+.ember-card-img-wrapper {
+    position: relative !important;
+    height: 220px !important;
+    overflow: hidden !important;
+}
+
+.ember-card-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+    transition: transform 0.5s ease !important;
+}
+
+.ember-card:hover .ember-card-img {
+    transform: scale(1.06) !important;
+}
+
+.ember-badge-veg,
+.ember-badge-nonveg {
+    position: absolute !important;
+    top: 12px !important;
+    left: 12px !important;
+    padding: 4px 10px !important;
+    font-size: 0.72rem !important;
+    font-weight: 700 !important;
+    border-radius: 4px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    z-index: 2 !important;
+}
+
+.ember-badge-veg {
+    background-color: #2E7D32 !important;
+    color: #FFFFFF !important;
+}
+
+.ember-badge-nonveg {
+    background-color: #C62828 !important;
+    color: #FFFFFF !important;
+}
+
+.ember-price-tag {
+    position: absolute !important;
+    bottom: 12px !important;
+    right: 12px !important;
+    background: rgba(21, 26, 21, 0.88) !important;
+    backdrop-filter: blur(4px) !important;
+    color: var(--wheat-gold) !important;
+    font-weight: 700 !important;
+    font-size: 1rem !important;
+    padding: 4px 12px !important;
+    border-radius: 20px !important;
+    border: 1px solid rgba(185, 154, 101, 0.4) !important;
+    z-index: 2 !important;
+}
+
+.ember-card-body {
+    padding: 1.5rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+    flex-grow: 1 !important;
+    text-align: left !important;
+}
+
+.ember-card-title {
+    font-family: var(--font-heading) !important;
+    font-size: 1.25rem !important;
+    color: var(--forest-green) !important;
+    margin-top: 0 !important;
+    margin-bottom: 0.65rem !important;
+    font-weight: 600 !important;
+    line-height: 1.35 !important;
+}
+
+.ember-card-desc {
+    font-family: var(--font-body) !important;
+    font-size: 0.92rem !important;
+    color: var(--text-secondary-light) !important;
+    line-height: 1.65 !important;
+    margin: 0 !important;
+}
+
+/* --------------------------------------------------------------------------
+   10C. GALLERY & BLOG COMPONENTS
+   -------------------------------------------------------------------------- */
+.ember-gallery-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 1.75rem !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+.ember-gallery-item {
+    position: relative !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+    height: 320px !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08) !important;
+    border: 1px solid rgba(185, 154, 101, 0.3) !important;
+    cursor: pointer !important;
+}
+
+.ember-gallery-item img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.ember-gallery-item:hover img {
+    transform: scale(1.06) !important;
+}
+
+.ember-gallery-overlay {
+    position: absolute !important;
+    inset: 0 !important;
+    background: linear-gradient(180deg, transparent 40%, rgba(20, 26, 21, 0.92) 100%) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-end !important;
+    padding: 1.5rem !important;
+    text-align: left !important;
+}
+
+.ember-gallery-cat {
+    font-size: 0.75rem !important;
+    font-weight: 700 !important;
+    color: var(--wheat-gold) !important;
+    text-transform: uppercase !important;
+    letter-spacing: 2px !important;
+    margin-bottom: 0.35rem !important;
+}
+
+.ember-gallery-title {
+    font-family: var(--font-heading) !important;
+    font-size: 1.25rem !important;
+    color: #FFFFFF !important;
+    font-weight: 500 !important;
+    margin: 0 !important;
+}
+
+.ember-blog-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 2rem !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+.ember-blog-card {
+    background-color: #FFFFFF !important;
+    border: 1px solid rgba(120, 133, 104, 0.2) !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    transition: all 0.35s ease !important;
+}
+
+.ember-blog-card:hover {
+    transform: translateY(-5px) !important;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.12) !important;
+    border-color: var(--terracotta) !important;
+}
+
+.ember-blog-img-wrap {
+    height: 220px !important;
+    overflow: hidden !important;
+}
+
+.ember-blog-img-wrap img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+    transition: transform 0.5s ease !important;
+}
+
+.ember-blog-card:hover .ember-blog-img-wrap img {
+    transform: scale(1.06) !important;
+}
+
+.ember-blog-body {
+    padding: 1.75rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+    flex-grow: 1 !important;
+    text-align: left !important;
+}
+
+.ember-blog-meta {
+    font-size: 0.78rem !important;
+    font-weight: 600 !important;
+    color: var(--wheat-gold) !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1.5px !important;
+    margin-bottom: 0.65rem !important;
+}
+
+.ember-blog-title {
+    font-family: var(--font-heading) !important;
+    font-size: 1.3rem !important;
+    color: var(--forest-green) !important;
+    line-height: 1.35 !important;
+    margin-top: 0 !important;
+    margin-bottom: 0.85rem !important;
+    font-weight: 600 !important;
+}
+
+.ember-blog-title a {
+    color: var(--forest-green) !important;
+    text-decoration: none !important;
+    transition: color 0.25s ease !important;
+}
+
+.ember-blog-title a:hover {
+    color: var(--terracotta) !important;
+}
+
+.ember-blog-excerpt {
+    font-family: var(--font-body) !important;
+    font-size: 0.95rem !important;
+    color: var(--text-secondary-light) !important;
+    line-height: 1.7 !important;
+    margin-top: 0 !important;
+    margin-bottom: 1.25rem !important;
+    flex-grow: 1 !important;
+}
+
+.ember-blog-link {
+    font-size: 0.88rem !important;
+    font-weight: 600 !important;
+    color: var(--terracotta) !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+    text-decoration: none !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.4rem !important;
+    transition: gap 0.25s ease !important;
+}
+
+.ember-blog-link:hover {
+    color: var(--terracotta-hover) !important;
+    gap: 0.7rem !important;
+}
+
+11. TESTIMONIALS / GUEST CHRONICLES (.elementor-element-490626bb)
    -------------------------------------------------------------------------- */
 .elementor-element-490626bb {
     background-color: var(--hearth-charcoal) !important;
