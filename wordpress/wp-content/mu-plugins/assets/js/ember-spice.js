@@ -3,13 +3,34 @@
  */
 
 document.addEventListener('DOMContentLoaded', function () {
-    // 1. Mobile Menu Toggle
+    // 1. Mobile Menu Toggle & Click-Outside Handling
     const mobileToggle = document.querySelector('.ember-mobile-toggle');
     const navLinks = document.querySelector('.ember-nav-links');
 
     if (mobileToggle && navLinks) {
-        mobileToggle.addEventListener('click', function () {
-            navLinks.classList.toggle('is-open');
+        mobileToggle.addEventListener('click', function (e) {
+            e.stopPropagation();
+            const isOpen = navLinks.classList.toggle('is-open');
+            mobileToggle.classList.toggle('is-active', isOpen);
+            mobileToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        });
+
+        // Close drawer on navigation link click
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function () {
+                navLinks.classList.remove('is-open');
+                mobileToggle.classList.remove('is-active');
+                mobileToggle.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        // Close drawer on tap outside
+        document.addEventListener('click', function (e) {
+            if (!mobileToggle.contains(e.target) && !navLinks.contains(e.target)) {
+                navLinks.classList.remove('is-open');
+                mobileToggle.classList.remove('is-active');
+                mobileToggle.setAttribute('aria-expanded', 'false');
+            }
         });
     }
 
@@ -56,7 +77,9 @@ document.addEventListener('DOMContentLoaded', function () {
             const formData = new FormData(resForm);
             formData.append('action', 'ember_spice_reservation');
 
-            fetch(emberSpiceData.ajax_url, {
+            const ajaxUrl = (typeof emberSpiceData !== 'undefined' && emberSpiceData.ajax_url) ? emberSpiceData.ajax_url : '/wp-admin/admin-ajax.php';
+
+            fetch(ajaxUrl, {
                 method: 'POST',
                 body: formData
             })
@@ -74,6 +97,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         alertBox.className = 'ember-form-alert is-error';
                         alertBox.innerHTML = `<strong>Notice:</strong> ${data.data.message || 'Unable to process request. Please try again.'}`;
                     }
+                    alertBox.style.display = 'block';
                 }
             })
             .catch(err => {
@@ -82,6 +106,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (alertBox) {
                     alertBox.className = 'ember-form-alert is-error';
                     alertBox.innerHTML = '<strong>Connection Error:</strong> Could not connect to the server. Please call us directly.';
+                    alertBox.style.display = 'block';
                 }
             });
         });
@@ -106,7 +131,9 @@ document.addEventListener('DOMContentLoaded', function () {
             const formData = new FormData(contactForm);
             formData.append('action', 'ember_spice_contact');
 
-            fetch(emberSpiceData.ajax_url, {
+            const ajaxUrl = (typeof emberSpiceData !== 'undefined' && emberSpiceData.ajax_url) ? emberSpiceData.ajax_url : '/wp-admin/admin-ajax.php';
+
+            fetch(ajaxUrl, {
                 method: 'POST',
                 body: formData
             })
@@ -124,6 +151,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         alertBox.className = 'ember-form-alert is-error';
                         alertBox.innerHTML = `<strong>Notice:</strong> ${data.data.message || 'Error sending message.'}`;
                     }
+                    alertBox.style.display = 'block';
                 }
             })
             .catch(err => {
@@ -132,6 +160,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (alertBox) {
                     alertBox.className = 'ember-form-alert is-error';
                     alertBox.innerHTML = '<strong>Connection Error:</strong> Could not submit form.';
+                    alertBox.style.display = 'block';
                 }
             });
         });
@@ -156,4 +185,3 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 });
-

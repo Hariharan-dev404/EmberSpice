@@ -1403,77 +1403,122 @@ section,
 }
 
 /* --------------------------------------------------------------------------
-   14. FORMS & INPUT CONTROLS (RESERVATIONS & CONTACT)
+   /* --------------------------------------------------------------------------
+   14. FORMS & CONTENT WRAPPERS (RESERVATIONS & CONTACT)
    -------------------------------------------------------------------------- */
+.ember-page-content-wrap {
+    width: 100% !important;
+    max-width: var(--container-max) !important;
+    margin: 0 auto !important;
+    padding: 3rem 1.5rem 6rem !important;
+    box-sizing: border-box !important;
+}
+
 .ember-form-card {
-    background-color: var(--warm-white);
-    border: 1px solid var(--border-light);
-    border-radius: var(--radius-lg);
-    padding: 3rem 2.5rem;
-    box-shadow: var(--shadow-card);
-    max-width: 760px;
-    margin: 0 auto;
+    background-color: var(--warm-white) !important;
+    border: 1px solid var(--border-light) !important;
+    border-radius: var(--radius-lg) !important;
+    padding: 3.5rem 3rem !important;
+    box-shadow: var(--shadow-card) !important;
+    max-width: 860px !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+    box-sizing: border-box !important;
+}
+
+.ember-form-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 1.5rem !important;
+    margin-bottom: 2rem !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
 }
 
 .ember-form-group {
-    margin-bottom: 1.5rem;
-    text-align: left;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    margin-bottom: 0 !important;
 }
 
-.ember-form-group label {
-    display: block;
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: var(--forest-green);
-    margin-bottom: 0.5rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+.ember-form-group.full-width {
+    grid-column: span 2 !important;
+}
+
+.ember-label {
+    display: block !important;
+    font-size: 0.85rem !important;
+    font-weight: 600 !important;
+    color: var(--forest-green) !important;
+    margin-bottom: 0.45rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    text-align: left !important;
 }
 
 .ember-input,
 .ember-select,
 .ember-textarea {
-    width: 100%;
-    padding: 0.85rem 1.1rem;
-    font-family: var(--font-body);
-    font-size: 1rem;
-    color: var(--text-primary-light);
-    background-color: var(--warm-cream);
-    border: 1px solid var(--border-light);
-    border-radius: var(--radius-sm);
-    transition: border-color 0.25s ease, box-shadow 0.25s ease;
-    box-sizing: border-box;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: 48px !important;
+    padding: 0.85rem 1.15rem !important;
+    font-family: var(--font-body) !important;
+    font-size: 16px !important;
+    color: var(--text-primary-light) !important;
+    background-color: #FDFCFA !important;
+    border: 1.5px solid var(--border-light) !important;
+    border-radius: 8px !important;
+    transition: all 0.25s ease !important;
+    box-sizing: border-box !important;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.ember-select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='%23243525'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: right 1rem center !important;
+    padding-right: 2.5rem !important;
+}
+
+.ember-textarea {
+    min-height: 110px !important;
+    resize: vertical !important;
 }
 
 .ember-input:focus,
 .ember-select:focus,
 .ember-textarea:focus {
-    outline: none;
-    border-color: var(--terracotta);
-    box-shadow: 0 0 0 3px var(--terracotta-light);
-    background-color: #FFFFFF;
+    outline: none !important;
+    border-color: var(--terracotta) !important;
+    box-shadow: 0 0 0 3px rgba(184, 111, 72, 0.18) !important;
+    background-color: #FFFFFF !important;
+}
+
+/* Contact Cards Grid */
+.elementor-element-1c9e9dbd {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 1.75rem !important;
+    width: 100% !important;
+    max-width: var(--container-max) !important;
+    margin: 0 auto !important;
+    box-sizing: border-box !important;
 }
 
 /* --------------------------------------------------------------------------
-   15. RESPONSIVE BREAKPOINTS (ASTRA ADAPTIVE EXCELLENCE)
+   15. RESPONSIVE BREAKPOINTS (ALL DEVICES)
    -------------------------------------------------------------------------- */
 /* Laptop / Small Desktop (<= 1024px) */
 @media (max-width: 1024px) {
-    h1 { font-size: 3rem; }
-    h2 { font-size: 2.25rem; }
-    
-    .ember-footer-container {
-        grid-template-columns: 1fr 1fr;
-        gap: 2.5rem;
-    }
-    
-    .elementor-element-34c143f2,
-    .elementor-element-4a8053e0,
-    .elementor-element-5458e283,
-    .elementor-element-1684f3ed,
-    .elementor-element-3e7fe74,
-    .elementor-element-7566eaa {
-        gap: 2.5rem !important;
+    h1 { font-size: 2.8rem !important; }
+    h2 { font-size: 2.25rem !important; }
+
+    .elementor-element-6198878,
+    .elementor-element-427555dd,
+    .elementor-element-1c9e9dbd {
+        grid-template-columns: repeat(2, 1fr) !important;
     }
 }
 
@@ -1481,94 +1526,233 @@ section,
 @media (max-width: 960px) {
     /* Navbar Mobile Drawer */
     .ember-mobile-toggle {
-        display: flex;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        gap: 5px !important;
+        width: 44px !important;
+        height: 44px !important;
+        background: transparent !important;
+        border: none !important;
+        cursor: pointer !important;
+        padding: 8px !important;
+        z-index: 100001 !important;
     }
-    
+
+    .ember-mobile-toggle span {
+        display: block !important;
+        width: 24px !important;
+        height: 2px !important;
+        background-color: var(--forest-green) !important;
+        border-radius: 2px !important;
+        transition: all 0.3s ease !important;
+    }
+
+    .ember-mobile-toggle.is-active span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg) !important;
+    }
+    .ember-mobile-toggle.is-active span:nth-child(2) {
+        opacity: 0 !important;
+    }
+    .ember-mobile-toggle.is-active span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg) !important;
+    }
+
+    .ember-nav-cta {
+        display: none !important;
+    }
+
     .ember-nav-links {
         display: none;
         position: absolute;
         top: 76px;
         left: 0;
-        width: 100%;
-        background-color: var(--warm-white);
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 1.5rem 2rem;
-        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
-        border-bottom: 1px solid var(--border-light);
-        gap: 1.25rem;
+        width: 100% !important;
+        background-color: #FFFFFF !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        padding: 1.5rem 2rem 2rem !important;
+        box-shadow: 0 16px 36px rgba(0, 0, 0, 0.14) !important;
+        border-bottom: 2px solid var(--terracotta) !important;
+        gap: 1.25rem !important;
+        box-sizing: border-box !important;
+        z-index: 99999 !important;
     }
-    
+
     .ember-nav-links.is-open {
-        display: flex;
+        display: flex !important;
     }
-    
-    .ember-nav-cta {
-        display: none;
+
+    .ember-nav-links a {
+        font-size: 1.1rem !important;
+        width: 100% !important;
+        padding: 0.5rem 0 !important;
+        border-bottom: 1px solid rgba(120, 133, 104, 0.12) !important;
     }
-    
-    /* 2-Column Splits Collapse to 1-Column */
+
+    /* 2-Column Splits Collapse */
     .elementor-element-34c143f2,
     .elementor-element-4a8053e0,
     .elementor-element-5458e283,
     .elementor-element-1684f3ed,
     .elementor-element-3e7fe74,
     .elementor-element-7566eaa,
-    .elementor-element-6198878,
-    .elementor-element-427555dd {
+    .elementor-element-512823b4,
+    .elementor-element-31d333d7,
+    .elementor-element-1c9e9dbd {
         grid-template-columns: 1fr !important;
-        gap: 2rem !important;
+        gap: 2.5rem !important;
     }
-    
-    /* Dish Grids to 2 Columns */
+
     .elementor-element-23ac47f2,
     .ember-menu-grid,
-    .elementor-element-ff92bf6-a1f6 {
+    .ember-gallery-grid,
+    .ember-blog-grid {
         grid-template-columns: repeat(2, 1fr) !important;
+        gap: 1.5rem !important;
     }
-    
+
     .elementor-element-6fa6aad4 img,
     .elementor-element-63a15db4 img,
     .elementor-element-2fa2f402 img,
     .elementor-element-46ceb09d img,
     .elementor-element-73ce952f img,
-    .elementor-element-45617a91 img {
-        height: 380px !important;
+    .elementor-element-45617a91 img,
+    .elementor-element-6bae2821 img {
+        height: 360px !important;
+    }
+
+    .ember-footer-container {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 2.5rem !important;
     }
 }
 
-/* Mobile Devices (<= 640px) */
-@media (max-width: 640px) {
-    h1 { font-size: 2.35rem; }
-    h2 { font-size: 1.85rem; }
-    
-    section,
-    .elementor-con.e-parent,
-    .elementor-section {
-        padding-top: 3.5rem !important;
-        padding-bottom: 3.5rem !important;
+/* Mobile Devices (<= 768px) */
+@media (max-width: 768px) {
+    .ember-page-content-wrap {
+        padding: 1.5rem 1rem 4rem !important;
+        width: 100% !important;
     }
-    
-    /* Grids to Single Column */
+
+    .ember-form-card {
+        padding: 2.25rem 1.5rem !important;
+        border-radius: 12px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .ember-form-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 1.25rem !important;
+        width: 100% !important;
+    }
+
+    .ember-form-group.full-width {
+        grid-column: span 1 !important;
+    }
+
+    .ember-form-card button[type="submit"] {
+        width: 100% !important;
+        padding: 1rem 1.5rem !important;
+        font-size: 0.95rem !important;
+        white-space: normal !important;
+    }
+
+    .ember-menu-tabs {
+        justify-content: flex-start !important;
+        overflow-x: auto !important;
+        flex-wrap: nowrap !important;
+        padding-bottom: 0.75rem !important;
+        -webkit-overflow-scrolling: touch !important;
+        width: 100% !important;
+        margin-bottom: 2rem !important;
+    }
+
+    .ember-menu-tab-btn {
+        flex-shrink: 0 !important;
+        white-space: nowrap !important;
+        padding: 0.55rem 1.15rem !important;
+        font-size: 0.82rem !important;
+    }
+}
+
+/* Small Screens (<= 640px) */
+@media (max-width: 640px) {
+    h1 { font-size: 2.15rem !important; line-height: 1.22 !important; }
+    h2 { font-size: 1.85rem !important; line-height: 1.25 !important; }
+
     .elementor-element-23ac47f2,
+    .elementor-element-6198878,
+    .elementor-element-427555dd,
+    .elementor-element-1c9e9dbd,
+    .elementor-element-31d333d7,
     .ember-menu-grid,
-    .elementor-element-ff92bf6-a1f6,
+    .ember-gallery-grid,
+    .ember-blog-grid,
     .ember-footer-container {
         grid-template-columns: 1fr !important;
-        gap: 1.75rem !important;
+        gap: 1.5rem !important;
     }
-    
+
     .elementor-element-6fa6aad4 img,
     .elementor-element-63a15db4 img,
     .elementor-element-2fa2f402 img,
     .elementor-element-46ceb09d img,
     .elementor-element-73ce952f img,
-    .elementor-element-45617a91 img {
-        height: 280px !important;
+    .elementor-element-45617a91 img,
+    .elementor-element-6bae2821 img {
+        height: 260px !important;
+        max-height: 260px !important;
     }
-    
+
+    .elementor-element-6d941c03 {
+        flex-direction: column !important;
+        width: 100% !important;
+        gap: 0.85rem !important;
+    }
+
+    .elementor-element-6d941c03 .e-button-base {
+        width: 100% !important;
+        min-height: 48px !important;
+        justify-content: center !important;
+    }
+
+    .ember-footer {
+        padding: 3.5rem 1rem 1.5rem 1rem !important;
+    }
+
     .ember-footer-bottom {
-        flex-direction: column;
-        text-align: center;
+        flex-direction: column !important;
+        text-align: center !important;
+        gap: 0.75rem !important;
+    }
+}
+
+/* Extra Small Screens (<= 480px) */
+@media (max-width: 480px) {
+    .ember-form-card {
+        padding: 1.75rem 1rem !important;
+    }
+
+    .ember-brand-name {
+        font-size: 1.15rem !important;
+        letter-spacing: 1.5px !important;
+    }
+
+    .ember-brand-sub {
+        font-size: 0.55rem !important;
+        letter-spacing: 1.5px !important;
+    }
+
+    .ember-gallery-item {
+        height: 240px !important;
+    }
+
+    .ember-card-img-wrapper,
+    .ember-blog-img-wrap {
+        height: 190px !important;
     }
 }

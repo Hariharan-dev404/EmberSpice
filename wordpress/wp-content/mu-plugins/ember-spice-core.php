@@ -75,13 +75,13 @@ class EmberSpiceCore {
         add_action('elementor/page_templates/canvas/after_content', function() {
             $post_id = get_the_ID();
             if ($post_id == 9 || is_page(9)) {
-                echo '<section style="padding: 2rem 2rem 6rem; max-width: 1280px; margin: 0 auto;">' . do_shortcode('[ember_spice_menu]') . '</section>';
+                echo '<section class="ember-page-content-wrap ember-menu-wrap">' . do_shortcode('[ember_spice_menu]') . '</section>';
             } elseif ($post_id == 10 || is_page(10)) {
-                echo '<section style="padding: 2rem 2rem 6rem; max-width: 1200px; margin: 0 auto;">' . do_shortcode('[ember_spice_reservation_form]') . '</section>';
+                echo '<section class="ember-page-content-wrap ember-reservation-wrap">' . do_shortcode('[ember_spice_reservation_form]') . '</section>';
             } elseif ($post_id == 11 || is_page(11)) {
-                echo '<section style="padding: 2rem 2rem 6rem; max-width: 1280px; margin: 0 auto;">' . do_shortcode('[ember_spice_gallery]') . '</section>';
+                echo '<section class="ember-page-content-wrap ember-gallery-wrap">' . do_shortcode('[ember_spice_gallery]') . '</section>';
             } elseif ($post_id == 13 || is_page(13)) {
-                echo '<section style="padding: 2rem 2rem 6rem; max-width: 1200px; margin: 0 auto;">' . do_shortcode('[ember_spice_contact_form]') . '</section>';
+                echo '<section class="ember-page-content-wrap ember-contact-wrap">' . do_shortcode('[ember_spice_contact_form]') . '</section>';
             }
             echo do_shortcode('[ember_spice_footer]');
         });
@@ -271,17 +271,30 @@ class EmberSpiceCore {
         ?>
         <style id="ember-spice-critical-overrides">
         /* ====================================================================
-           EMBER SPICE — COMPLETE ASTRA-INSPIRED DESIGN SYSTEM & COMPONENT OVERRIDES
+           EMBER SPICE — COMPLETE ASTRA-INSPIRED RESPONSIVE DESIGN SYSTEM
            ==================================================================== */
 
         /* 1. Global Page Background & Clean Base Typography */
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
         html, body {
             background-color: #F6F2E9 !important;
             color: #24261F !important;
             font-family: 'Plus Jakarta Sans', sans-serif !important;
             overflow-x: hidden !important;
+            width: 100% !important;
+            max-width: 100% !important;
             margin: 0 !important;
             padding: 0 !important;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
         }
 
         /* 2. Full-Width Section Containers (No Side Cream Bars) */
@@ -306,7 +319,10 @@ class EmberSpiceCore {
         html body .elementor-element-64872607,
         html body .elementor-element-4df06c2e,
         html body .elementor-element-4f91ffee,
-        html body .elementor-element-2e926034 {
+        html body .elementor-element-2e926034,
+        html body .elementor-element-728607ee,
+        html body .elementor-element-6bae2821,
+        html body .elementor-element-2197d64f {
             width: 100% !important;
             max-width: 100% !important;
             min-width: 100% !important;
@@ -315,7 +331,7 @@ class EmberSpiceCore {
             box-sizing: border-box !important;
         }
 
-        /* Section Backgrounds & Vertical Spacing */
+        /* Section Backgrounds & Spacing */
         html body .elementor-element-1b252868,
         html body .elementor-element-75485836,
         html body .elementor-element-27fc9345,
@@ -333,31 +349,36 @@ class EmberSpiceCore {
 
         html body .elementor-element-7fb873ab,
         html body .elementor-element-12ec63c2,
-        html body .elementor-element-4df06c2e {
+        html body .elementor-element-4df06c2e,
+        html body .elementor-element-728607ee {
             background-color: #F6F2E9 !important;
-            padding-top: 5.5rem !important;
-            padding-bottom: 5.5rem !important;
+            padding-top: 5rem !important;
+            padding-bottom: 5rem !important;
             padding-left: 1.5rem !important;
             padding-right: 1.5rem !important;
         }
 
-        html body .elementor-element-35e3a624 {
+        html body .elementor-element-35e3a624,
+        html body .elementor-element-6bae2821 {
             background-color: #FFFFFF !important;
-            padding-top: 5.5rem !important;
-            padding-bottom: 5.5rem !important;
+            padding-top: 5rem !important;
+            padding-bottom: 5rem !important;
             padding-left: 1.5rem !important;
             padding-right: 1.5rem !important;
         }
 
-        /* 3. Section Headings on Light / Cream Backgrounds */
+        /* 3. Global Section Headings on Light / Cream Backgrounds */
         html body .elementor-element-35e3a624 h2,
         html body .elementor-element-12ec63c2 h2,
         html body .elementor-element-7fb873ab h2,
         html body .elementor-element-4df06c2e h2,
+        html body .elementor-element-728607ee h2,
+        html body .elementor-element-6bae2821 h2,
         html body [data-interaction-id="579bf25b"],
         html body [data-interaction-id="5cb050a5"],
         html body [data-interaction-id="34d946b2"],
-        html body [data-interaction-id="32403487"] {
+        html body [data-interaction-id="32403487"],
+        html body [data-interaction-id="403bda47"] {
             color: #243525 !important;
             -webkit-text-fill-color: #243525 !important;
             font-family: 'Marcellus', Georgia, serif !important;
@@ -374,6 +395,7 @@ class EmberSpiceCore {
         html body .elementor-element-12ec63c2 h4,
         html body .elementor-element-7fb873ab h4,
         html body .elementor-element-4df06c2e h4,
+        html body .elementor-element-728607ee h4,
         html body [data-interaction-id="589f4eaa"],
         html body [data-interaction-id="6d8b1425"],
         html body [data-interaction-id="51e5f1d"],
@@ -419,6 +441,7 @@ class EmberSpiceCore {
             transition: all 0.35s ease !important;
             box-sizing: border-box !important;
             height: 100% !important;
+            width: 100% !important;
         }
 
         /* Headings inside these cards (Always on Top) */
@@ -447,7 +470,11 @@ class EmberSpiceCore {
         html body .elementor-element-36ec187a .e-heading-base,
         html body .elementor-element-4572bed3 .e-heading-base,
         html body .elementor-element-3c8045f1 .e-heading-base,
-        html body .elementor-element-17f3502c .e-heading-base {
+        html body .elementor-element-17f3502c .e-heading-base,
+        html body .elementor-element-58ae0245 .e-heading-base,
+        html body .elementor-element-28d62019 .e-heading-base,
+        html body .elementor-element-33142ffa .e-heading-base,
+        html body .elementor-element-627ec02f .e-heading-base {
             color: #243525 !important;
             -webkit-text-fill-color: #243525 !important;
             font-family: 'Marcellus', Georgia, serif !important;
@@ -488,7 +515,11 @@ class EmberSpiceCore {
         html body .elementor-element-36ec187a .e-paragraph-base,
         html body .elementor-element-4572bed3 .e-paragraph-base,
         html body .elementor-element-3c8045f1 .e-paragraph-base,
-        html body .elementor-element-17f3502c .e-paragraph-base {
+        html body .elementor-element-17f3502c .e-paragraph-base,
+        html body .elementor-element-58ae0245 .e-paragraph-base,
+        html body .elementor-element-28d62019 .e-paragraph-base,
+        html body .elementor-element-33142ffa .e-paragraph-base,
+        html body .elementor-element-627ec02f .e-paragraph-base {
             color: #4A4D42 !important;
             -webkit-text-fill-color: #4A4D42 !important;
             font-family: 'Plus Jakarta Sans', sans-serif !important;
@@ -502,26 +533,10 @@ class EmberSpiceCore {
             display: block !important;
         }
 
-        /* Card Hover */
-        html body .elementor-element-440b8b8e:hover,
-        html body .elementor-element-3e2e8fd2:hover,
-        html body .elementor-element-4e381021:hover,
-        html body .elementor-element-715406bc:hover,
-        html body .elementor-element-188698bc:hover,
-        html body .elementor-element-3ac47c0:hover,
-        html body .elementor-element-2f8fc644:hover,
-        html body .elementor-element-36ec187a:hover,
-        html body .elementor-element-4572bed3:hover,
-        html body .elementor-element-3c8045f1:hover,
-        html body .elementor-element-17f3502c:hover {
-            transform: translateY(-4px) !important;
-            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.1) !important;
-            border-color: #B86F48 !important;
-        }
-
         /* Card Grids Layout */
         html body .elementor-element-6198878,
-        html body .elementor-element-427555dd {
+        html body .elementor-element-427555dd,
+        html body .elementor-element-1c9e9dbd {
             display: grid !important;
             grid-template-columns: repeat(4, 1fr) !important;
             gap: 1.75rem !important;
@@ -552,12 +567,17 @@ class EmberSpiceCore {
         html body .elementor-element-3e7fe74,
         html body .elementor-element-7566eaa,
         html body .elementor-element-7600a2c6-a44b,
-        html body .elementor-element-63d2b48e-d19f {
+        html body .elementor-element-63d2b48e-d19f,
+        html body .ember-page-content-wrap {
             width: 100% !important;
             max-width: 1200px !important;
             margin-left: auto !important;
             margin-right: auto !important;
             box-sizing: border-box !important;
+        }
+
+        .ember-page-content-wrap {
+            padding: 3rem 1.5rem 6rem !important;
         }
 
         /* 6. Two-Column Split Sections (Heritage, Chef, Ambience, Story) */
@@ -575,7 +595,6 @@ class EmberSpiceCore {
             padding-right: 1.5rem !important;
         }
 
-        /* Text Column in Split Sections */
         html body .elementor-element-4a5dc1c5,
         html body .elementor-element-27942172,
         html body .elementor-element-16ef5e00,
@@ -587,20 +606,6 @@ class EmberSpiceCore {
             align-items: flex-start !important;
             text-align: left !important;
             width: 100% !important;
-        }
-
-        html body .elementor-element-4a5dc1c5 .e-heading-base:first-child,
-        html body .elementor-element-27942172 .e-heading-base:first-child,
-        html body .elementor-element-16ef5e00 .e-heading-base:first-child,
-        html body .elementor-element-490626bb .e-heading-base:first-child {
-            color: #B99A65 !important;
-            -webkit-text-fill-color: #B99A65 !important;
-            font-size: 0.85rem !important;
-            font-weight: 700 !important;
-            letter-spacing: 3px !important;
-            text-transform: uppercase !important;
-            margin-bottom: 0.65rem !important;
-            display: inline-block !important;
         }
 
         html body .elementor-element-4a5dc1c5 h2,
@@ -636,7 +641,6 @@ class EmberSpiceCore {
             margin-bottom: 1.15rem !important;
         }
 
-        /* Feature Images in Split Sections */
         html body .elementor-element-6fa6aad4,
         html body .elementor-element-63a15db4,
         html body .elementor-element-2fa2f402,
@@ -666,13 +670,6 @@ class EmberSpiceCore {
             display: block !important;
             margin: 0 !important;
             transition: transform 0.4s ease, box-shadow 0.4s ease !important;
-        }
-
-        html body .elementor-element-6fa6aad4 img:hover,
-        html body .elementor-element-63a15db4 img:hover,
-        html body .elementor-element-2fa2f402 img:hover {
-            transform: translateY(-4px) !important;
-            box-shadow: 0 22px 48px rgba(0, 0, 0, 0.5) !important;
         }
 
         /* 7. Hero Sections Across All Pages */
@@ -710,7 +707,6 @@ class EmberSpiceCore {
             text-shadow: 0 2px 14px rgba(0, 0, 0, 0.8) !important;
         }
 
-        /* Pure White Luminous Hero Description */
         html body .elementor-element-38e8dde3 p,
         html body .elementor-element-ef9390b p,
         html body .elementor-element-3ebb97ea p,
@@ -767,23 +763,10 @@ class EmberSpiceCore {
             box-shadow: 0 4px 16px rgba(184, 111, 72, 0.35) !important;
         }
 
-        html body a[data-interaction-id="4daa71ce"]:hover {
-            background-color: #A05934 !important;
-            border-color: #A05934 !important;
-            transform: translateY(-2px) !important;
-            box-shadow: 0 8px 24px rgba(184, 111, 72, 0.45) !important;
-        }
-
         html body a[data-interaction-id="29b1c06"] {
             background-color: transparent !important;
             color: #FFFFFF !important;
             border: 1.5px solid rgba(255, 255, 255, 0.8) !important;
-        }
-
-        html body a[data-interaction-id="29b1c06"]:hover {
-            background-color: rgba(255, 255, 255, 0.15) !important;
-            border-color: #FFFFFF !important;
-            transform: translateY(-2px) !important;
         }
 
         /* 8. Home Page Dish Cards (3-Column Grid) */
@@ -814,16 +797,6 @@ class EmberSpiceCore {
             transition: all 0.35s ease !important;
         }
 
-        html body .elementor-element-7dc084fb:hover,
-        html body .elementor-element-5e2546a8:hover,
-        html body .elementor-element-59d4bbff:hover,
-        html body .elementor-element-12ede85c:hover,
-        html body .elementor-element-7658a4a0:hover,
-        html body .elementor-element-56120651:hover {
-            transform: translateY(-5px) !important;
-            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.12) !important;
-        }
-
         html body .elementor-element-7dc084fb img,
         html body .elementor-element-5e2546a8 img,
         html body .elementor-element-59d4bbff img,
@@ -835,8 +808,6 @@ class EmberSpiceCore {
             max-height: 220px !important;
             object-fit: cover !important;
             display: block !important;
-            border-top-left-radius: 9px !important;
-            border-top-right-radius: 9px !important;
         }
 
         /* 9. Our Menu Page Components (.ember-card, .ember-menu-tabs, etc.) */
@@ -868,7 +839,6 @@ class EmberSpiceCore {
             color: #FFFFFF !important;
             border-color: #B86F48 !important;
             box-shadow: 0 4px 14px rgba(184, 111, 72, 0.35) !important;
-            transform: translateY(-2px) !important;
         }
 
         .ember-menu-category {
@@ -904,12 +874,6 @@ class EmberSpiceCore {
             transition: all 0.35s ease !important;
         }
 
-        .ember-card:hover {
-            transform: translateY(-5px) !important;
-            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.12) !important;
-            border-color: #B86F48 !important;
-        }
-
         .ember-card-img-wrapper {
             position: relative !important;
             height: 220px !important;
@@ -921,11 +885,6 @@ class EmberSpiceCore {
             height: 100% !important;
             object-fit: cover !important;
             display: block !important;
-            transition: transform 0.5s ease !important;
-        }
-
-        .ember-card:hover .ember-card-img {
-            transform: scale(1.06) !important;
         }
 
         .ember-badge-veg,
@@ -993,7 +952,7 @@ class EmberSpiceCore {
             margin: 0 !important;
         }
 
-        /* 10. Reservations Page Form Card & Inputs */
+        /* 10. Forms (Reservations & Contact) */
         .ember-form-card {
             background-color: #FFFFFF !important;
             border: 1px solid rgba(120, 133, 104, 0.25) !important;
@@ -1001,6 +960,7 @@ class EmberSpiceCore {
             padding: 3.5rem 3rem !important;
             box-shadow: 0 16px 44px rgba(0, 0, 0, 0.08) !important;
             max-width: 860px !important;
+            width: 100% !important;
             margin: 0 auto !important;
             box-sizing: border-box !important;
         }
@@ -1010,6 +970,14 @@ class EmberSpiceCore {
             grid-template-columns: 1fr 1fr !important;
             gap: 1.5rem !important;
             margin-bottom: 2rem !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
+        }
+
+        .ember-form-group {
+            width: 100% !important;
+            box-sizing: border-box !important;
+            margin-bottom: 0 !important;
         }
 
         .ember-form-group.full-width {
@@ -1031,15 +999,31 @@ class EmberSpiceCore {
         .ember-select,
         .ember-textarea {
             width: 100% !important;
+            max-width: 100% !important;
+            min-height: 48px !important;
             padding: 0.85rem 1.15rem !important;
             font-family: 'Plus Jakarta Sans', sans-serif !important;
-            font-size: 0.95rem !important;
+            font-size: 16px !important;
             color: #24261F !important;
             background-color: #FDFCFA !important;
             border: 1.5px solid rgba(120, 133, 104, 0.28) !important;
             border-radius: 8px !important;
             transition: all 0.25s ease !important;
             box-sizing: border-box !important;
+            -webkit-appearance: none;
+            appearance: none;
+        }
+
+        .ember-select {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='%23243525'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E") !important;
+            background-repeat: no-repeat !important;
+            background-position: right 1rem center !important;
+            padding-right: 2.5rem !important;
+        }
+
+        .ember-textarea {
+            min-height: 110px !important;
+            resize: vertical !important;
         }
 
         .ember-input:focus,
@@ -1076,10 +1060,6 @@ class EmberSpiceCore {
             object-fit: cover !important;
             display: block !important;
             transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) !important;
-        }
-
-        .ember-gallery-item:hover img {
-            transform: scale(1.06) !important;
         }
 
         .ember-gallery-overlay {
@@ -1130,12 +1110,6 @@ class EmberSpiceCore {
             transition: all 0.35s ease !important;
         }
 
-        .ember-blog-card:hover {
-            transform: translateY(-5px) !important;
-            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.12) !important;
-            border-color: #B86F48 !important;
-        }
-
         .ember-blog-img-wrap {
             height: 220px !important;
             overflow: hidden !important;
@@ -1147,10 +1121,6 @@ class EmberSpiceCore {
             object-fit: cover !important;
             display: block !important;
             transition: transform 0.5s ease !important;
-        }
-
-        .ember-blog-card:hover .ember-blog-img-wrap img {
-            transform: scale(1.06) !important;
         }
 
         .ember-blog-body {
@@ -1183,11 +1153,6 @@ class EmberSpiceCore {
         .ember-blog-title a {
             color: #243525 !important;
             text-decoration: none !important;
-            transition: color 0.25s ease !important;
-        }
-
-        .ember-blog-title a:hover {
-            color: #B86F48 !important;
         }
 
         .ember-blog-excerpt {
@@ -1210,12 +1175,6 @@ class EmberSpiceCore {
             display: inline-flex !important;
             align-items: center !important;
             gap: 0.4rem !important;
-            transition: gap 0.25s ease !important;
-        }
-
-        .ember-blog-link:hover {
-            color: #A05934 !important;
-            gap: 0.7rem !important;
         }
 
         /* 13. Full-Width Reservation CTA Section */
@@ -1277,7 +1236,9 @@ class EmberSpiceCore {
             display: inline-block !important;
         }
 
-        /* 14. Responsive Breakpoints (Laptop, Tablet, Mobile) */
+        /* 14. COMPREHENSIVE RESPONSIVE BREAKPOINTS */
+
+        /* Laptop / Small Desktop (<= 1024px) */
         @media (max-width: 1024px) {
             html body .elementor-element-38e8dde3 h1,
             html body .elementor-element-ef9390b h1,
@@ -1288,12 +1249,82 @@ class EmberSpiceCore {
                 font-size: 2.8rem !important;
             }
             html body .elementor-element-6198878,
-            html body .elementor-element-427555dd {
+            html body .elementor-element-427555dd,
+            html body .elementor-element-1c9e9dbd {
                 grid-template-columns: repeat(2, 1fr) !important;
             }
         }
 
+        /* Tablet (<= 960px) */
         @media (max-width: 960px) {
+            /* Mobile Navigation Toggle & Drawer */
+            .ember-mobile-toggle {
+                display: flex !important;
+                flex-direction: column !important;
+                justify-content: center !important;
+                align-items: center !important;
+                gap: 5px !important;
+                width: 44px !important;
+                height: 44px !important;
+                background: transparent !important;
+                border: none !important;
+                cursor: pointer !important;
+                padding: 8px !important;
+                z-index: 100001 !important;
+            }
+            
+            .ember-mobile-toggle span {
+                display: block !important;
+                width: 24px !important;
+                height: 2px !important;
+                background-color: #243525 !important;
+                border-radius: 2px !important;
+                transition: all 0.3s ease !important;
+            }
+
+            .ember-mobile-toggle.is-active span:nth-child(1) {
+                transform: translateY(7px) rotate(45deg) !important;
+            }
+            .ember-mobile-toggle.is-active span:nth-child(2) {
+                opacity: 0 !important;
+            }
+            .ember-mobile-toggle.is-active span:nth-child(3) {
+                transform: translateY(-7px) rotate(-45deg) !important;
+            }
+
+            .ember-nav-cta {
+                display: none !important;
+            }
+
+            .ember-nav-links {
+                display: none;
+                position: absolute;
+                top: 76px;
+                left: 0;
+                width: 100% !important;
+                background-color: #FFFFFF !important;
+                flex-direction: column !important;
+                align-items: flex-start !important;
+                padding: 1.5rem 2rem 2rem !important;
+                box-shadow: 0 16px 36px rgba(0, 0, 0, 0.14) !important;
+                border-bottom: 2px solid #B86F48 !important;
+                gap: 1.25rem !important;
+                box-sizing: border-box !important;
+                z-index: 99999 !important;
+            }
+
+            .ember-nav-links.is-open {
+                display: flex !important;
+            }
+
+            .ember-nav-links a {
+                font-size: 1.1rem !important;
+                width: 100% !important;
+                padding: 0.5rem 0 !important;
+                border-bottom: 1px solid rgba(120, 133, 104, 0.12) !important;
+            }
+
+            /* Collapse 2-Column Split Feature Sections */
             html body .elementor-element-34c143f2,
             html body .elementor-element-4a8053e0,
             html body .elementor-element-5458e283,
@@ -1302,10 +1333,11 @@ class EmberSpiceCore {
             html body .elementor-element-7566eaa,
             html body .elementor-element-512823b4,
             html body .elementor-element-31d333d7,
-            .ember-form-grid {
+            html body .elementor-element-1c9e9dbd {
                 grid-template-columns: 1fr !important;
-                gap: 2rem !important;
+                gap: 2.5rem !important;
             }
+
             html body .elementor-element-23ac47f2,
             .ember-menu-grid,
             .ember-gallery-grid,
@@ -1313,16 +1345,76 @@ class EmberSpiceCore {
                 grid-template-columns: repeat(2, 1fr) !important;
                 gap: 1.5rem !important;
             }
+
             html body .elementor-element-6fa6aad4 img,
             html body .elementor-element-63a15db4 img,
             html body .elementor-element-2fa2f402 img,
             html body .elementor-element-46ceb09d img,
             html body .elementor-element-73ce952f img,
-            html body .elementor-element-45617a91 img {
+            html body .elementor-element-45617a91 img,
+            html body .elementor-element-6bae2821 img {
                 height: 360px !important;
+            }
+
+            .ember-footer-container {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 2.5rem !important;
             }
         }
 
+        /* Large & Standard Mobile Devices (<= 768px) */
+        @media (max-width: 768px) {
+            .ember-page-content-wrap {
+                padding: 1.5rem 1rem 4rem !important;
+                width: 100% !important;
+            }
+
+            .ember-form-card {
+                padding: 2.25rem 1.5rem !important;
+                border-radius: 12px !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06) !important;
+            }
+
+            .ember-form-grid {
+                display: flex !important;
+                flex-direction: column !important;
+                gap: 1.25rem !important;
+                width: 100% !important;
+            }
+
+            .ember-form-group.full-width {
+                grid-column: span 1 !important;
+            }
+
+            .ember-form-card button[type="submit"] {
+                width: 100% !important;
+                padding: 1rem 1.5rem !important;
+                font-size: 0.95rem !important;
+                white-space: normal !important;
+            }
+
+            /* Horizontal Scrollable Tabs on Mobile */
+            .ember-menu-tabs {
+                justify-content: flex-start !important;
+                overflow-x: auto !important;
+                flex-wrap: nowrap !important;
+                padding-bottom: 0.75rem !important;
+                -webkit-overflow-scrolling: touch !important;
+                width: 100% !important;
+                margin-bottom: 2rem !important;
+            }
+
+            .ember-menu-tab-btn {
+                flex-shrink: 0 !important;
+                white-space: nowrap !important;
+                padding: 0.55rem 1.15rem !important;
+                font-size: 0.82rem !important;
+            }
+        }
+
+        /* Standard Mobile Devices (<= 640px) */
         @media (max-width: 640px) {
             html body .elementor-element-38e8dde3 h1,
             html body .elementor-element-ef9390b h1,
@@ -1330,30 +1422,152 @@ class EmberSpiceCore {
             html body .elementor-element-64872607 h1,
             html body .elementor-element-4f91ffee h1,
             html body .elementor-element-2e926034 h1 {
-                font-size: 2.2rem !important;
+                font-size: 2.15rem !important;
+                line-height: 1.22 !important;
             }
+
+            html body .elementor-element-38e8dde3 p,
+            html body .elementor-element-ef9390b p,
+            html body .elementor-element-3ebb97ea p,
+            html body .elementor-element-64872607 p,
+            html body .elementor-element-4f91ffee p,
+            html body .elementor-element-2e926034 p,
+            html body .e-55ddd3e7-f380 {
+                font-size: 1.05rem !important;
+                line-height: 1.65 !important;
+                margin-bottom: 1.75rem !important;
+                padding: 0 0.5rem !important;
+            }
+
+            html body .elementor-element-35e3a624 h2,
+            html body .elementor-element-12ec63c2 h2,
+            html body .elementor-element-7fb873ab h2,
+            html body .elementor-element-4df06c2e h2,
+            html body .elementor-element-728607ee h2,
+            html body .elementor-element-6bae2821 h2,
+            html body .elementor-element-490cc535 h2,
+            html body .elementor-element-67a8ecb2 h2,
+            html body .elementor-element-2197d64f h2 {
+                font-size: 1.85rem !important;
+                line-height: 1.25 !important;
+                margin-bottom: 2rem !important;
+            }
+
+            /* Single Column on All Content Grids */
             html body .elementor-element-23ac47f2,
             html body .elementor-element-6198878,
             html body .elementor-element-427555dd,
+            html body .elementor-element-1c9e9dbd,
+            html body .elementor-element-31d333d7,
             .ember-menu-grid,
             .ember-gallery-grid,
-            .ember-blog-grid {
+            .ember-blog-grid,
+            .ember-footer-container {
                 grid-template-columns: 1fr !important;
+                gap: 1.5rem !important;
             }
+
             html body .elementor-element-6fa6aad4 img,
             html body .elementor-element-63a15db4 img,
             html body .elementor-element-2fa2f402 img,
             html body .elementor-element-46ceb09d img,
             html body .elementor-element-73ce952f img,
-            html body .elementor-element-45617a91 img {
+            html body .elementor-element-45617a91 img,
+            html body .elementor-element-6bae2821 img {
                 height: 260px !important;
+                max-height: 260px !important;
             }
+
+            /* Stack Hero Action Buttons Full Width */
             html body .elementor-element-6d941c03 {
                 flex-direction: column !important;
                 width: 100% !important;
+                gap: 0.85rem !important;
             }
-            html body .elementor-element-6d941c03 .e-button-base {
+
+            html body .elementor-element-6d941c03 .e-button-base,
+            html body a[data-interaction-id="4daa71ce"],
+            html body a[data-interaction-id="29b1c06"] {
                 width: 100% !important;
+                min-height: 48px !important;
+                padding: 0.9rem 1.25rem !important;
+                font-size: 0.9rem !important;
+                box-sizing: border-box !important;
+                text-align: center !important;
+                justify-content: center !important;
+            }
+
+            /* Section Padding for Mobile */
+            html body .elementor-element-1b252868,
+            html body .elementor-element-75485836,
+            html body .elementor-element-27fc9345,
+            html body .elementor-element-490626bb,
+            html body .elementor-element-7fb873ab,
+            html body .elementor-element-35e3a624,
+            html body .elementor-element-1d0dfba8,
+            html body .elementor-element-12ec63c2,
+            html body .elementor-element-2539d8d6,
+            html body .elementor-element-4e1a1d4a,
+            html body .elementor-element-4df06c2e,
+            html body .elementor-element-728607ee,
+            html body .elementor-element-6bae2821,
+            html body .elementor-element-490cc535,
+            html body .elementor-element-67a8ecb2,
+            html body .elementor-element-2197d64f {
+                padding-top: 3.5rem !important;
+                padding-bottom: 3.5rem !important;
+                padding-left: 1rem !important;
+                padding-right: 1rem !important;
+            }
+
+            .ember-footer {
+                padding: 3.5rem 1rem 1.5rem 1rem !important;
+            }
+
+            .ember-footer-bottom {
+                flex-direction: column !important;
+                text-align: center !important;
+                gap: 0.75rem !important;
+            }
+        }
+
+        /* Small Phones (<= 480px, iPhone SE, etc.) */
+        @media (max-width: 480px) {
+            .ember-form-card {
+                padding: 1.75rem 1rem !important;
+            }
+
+            .ember-brand-name {
+                font-size: 1.15rem !important;
+                letter-spacing: 1.5px !important;
+            }
+
+            .ember-brand-sub {
+                font-size: 0.55rem !important;
+                letter-spacing: 1.5px !important;
+            }
+
+            .ember-brand-icon {
+                width: 26px !important;
+                height: 26px !important;
+            }
+
+            html body .elementor-element-38e8dde3 h1,
+            html body .elementor-element-ef9390b h1,
+            html body .elementor-element-3ebb97ea h1,
+            html body .elementor-element-64872607 h1,
+            html body .elementor-element-4f91ffee h1,
+            html body .elementor-element-2e926034 h1 {
+                font-size: 1.95rem !important;
+            }
+
+            .ember-gallery-item {
+                height: 240px !important;
+            }
+
+            .ember-card-img-wrapper,
+            .ember-blog-img-wrap {
+                height: 190px !important;
             }
         }
         </style>
@@ -1886,6 +2100,33 @@ class EmberSpiceCore {
                 <div style="color: rgba(255,252,245,0.6);">Authentic Indian Cuisine &#x2022; Natural Farm-to-Table Dining</div>
             </div>
         </footer>
+        <script>
+        (function() {
+            function initMobileNav() {
+                var btn = document.querySelector('.ember-mobile-toggle');
+                var links = document.querySelector('.ember-nav-links');
+                if (btn && links && !btn.dataset.bound) {
+                    btn.dataset.bound = 'true';
+                    btn.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        links.classList.toggle('is-open');
+                        btn.classList.toggle('is-active');
+                    });
+                    document.addEventListener('click', function(e) {
+                        if (!btn.contains(e.target) && !links.contains(e.target)) {
+                            links.classList.remove('is-open');
+                            btn.classList.remove('is-active');
+                        }
+                    });
+                }
+            }
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initMobileNav);
+            } else {
+                initMobileNav();
+            }
+        })();
+        </script>
         <?php
         return ob_get_clean();
     }
