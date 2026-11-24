@@ -4,34 +4,43 @@
 
 document.addEventListener('DOMContentLoaded', function () {
     // 1. Mobile Menu Toggle & Click-Outside Handling
-    const mobileToggle = document.querySelector('.ember-mobile-toggle');
-    const navLinks = document.querySelector('.ember-nav-links');
+    if (typeof window.initEmberMobileNav === 'function') {
+        window.initEmberMobileNav();
+    } else {
+        const mobileToggle = document.querySelector('.ember-mobile-toggle');
+        const navLinks = document.querySelector('.ember-nav-links');
 
-    if (mobileToggle && navLinks) {
-        mobileToggle.addEventListener('click', function (e) {
-            e.stopPropagation();
-            const isOpen = navLinks.classList.toggle('is-open');
-            mobileToggle.classList.toggle('is-active', isOpen);
-            mobileToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-        });
+        if (mobileToggle && navLinks && !mobileToggle.dataset.navBound) {
+            mobileToggle.dataset.navBound = 'true';
+            let lastToggle = 0;
+            const toggleMenu = function (e) {
+                const now = Date.now();
+                if (now - lastToggle < 300) return;
+                lastToggle = now;
+                if (e) e.stopPropagation();
+                const isOpen = navLinks.classList.toggle('is-open');
+                mobileToggle.classList.toggle('is-active', isOpen);
+                mobileToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            };
 
-        // Close drawer on navigation link click
-        navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', function () {
+            const closeMenu = function () {
                 navLinks.classList.remove('is-open');
                 mobileToggle.classList.remove('is-active');
                 mobileToggle.setAttribute('aria-expanded', 'false');
+            };
+
+            mobileToggle.addEventListener('click', toggleMenu);
+
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', closeMenu);
             });
-        });
 
-        // Close drawer on tap outside
-        document.addEventListener('click', function (e) {
-            if (!mobileToggle.contains(e.target) && !navLinks.contains(e.target)) {
-                navLinks.classList.remove('is-open');
-                mobileToggle.classList.remove('is-active');
-                mobileToggle.setAttribute('aria-expanded', 'false');
-            }
-        });
+            document.addEventListener('click', function (e) {
+                if (!mobileToggle.contains(e.target) && !navLinks.contains(e.target)) {
+                    closeMenu();
+                }
+            });
+        }
     }
 
     // 2. Menu Category Tabs Filter
